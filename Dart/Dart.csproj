@@ -103,9 +103,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Fenster\FormStatistik.xaml.cs">
-      <DependentUpon>FormStatistik.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Finish\AverageText.cs" />
     <Compile Include="Finish\FinishWeg.cs" />
     <Compile Include="MatchObjekte\MatchObjekt.cs" />
@@ -125,10 +122,6 @@
     <Compile Include="Match\MatchModel.cs" />
     <Compile Include="SpielerObjekte\Spieler.cs" />
     <Compile Include="Utils\SaveGame.cs" />
-    <Page Include="Fenster\FormStatistik.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="MatchUtils\FormDialogFinish.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
