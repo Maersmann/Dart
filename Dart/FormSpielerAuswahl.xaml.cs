@@ -75,8 +75,8 @@ namespace Dart
             MatchModel matchmodel = new MatchModel(ListSpieler);
             MatchController matchController = new MatchController(matchmodel, match);
 
-            FormMatch formMatch = new FormMatch(matchmodel, matchController);
-            formMatch.Show();
+            //FormMatch formMatch = new FormMatch(matchmodel, matchController);
+            //formMatch.Show();
             this.Close();
 
 

@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -19,7 +18,7 @@ using Dart.Memento;
 namespace Dart.Match
 {
     
-    public partial class FormMatch : Window
+    public partial class FormMatch : Page
     {
         static private String LBLNAME = " ist dran";
         static private String LBLANZAHLSECHZIG = "Anzahl 60 >=: ";
@@ -45,20 +44,21 @@ namespace Dart.Match
         Boolean _BuchstabeEingegeben;
         Boolean _Enter;
 
-        public FormMatch(MatchModel pMatchModel, MatchController pMatchController)
+        //public FormMatch(MatchModel pMatchModel, MatchController pMatchController)
+        public FormMatch()
         {
             InitializeComponent();
-            _MatchController = pMatchController;
-            _MatchModel = pMatchModel;
+           // _MatchController = pMatchController;
+           // _MatchModel = pMatchModel;
             _MatchCareTaker = new MatchCaretaker();
             _Finish = new FinishWeg();
 
-            ShowSpielerDaten();
-            AktualisiereView();
-            _TextBoxFocus = TxtWurfEins;
-            TxtWurfEins.Focus();
-            _BuchstabeEingegeben = false;
-            _Enter = false;
+           // ShowSpielerDaten();
+           // AktualisiereView();
+           // _TextBoxFocus = TxtWurfEins;
+           // TxtWurfEins.Focus();
+           // _BuchstabeEingegeben = false;
+           // _Enter = false;
         }
 
         private void ShowSpielerDaten()
@@ -102,26 +102,14 @@ namespace Dart.Match
             {
                 FormSpielerAuswahl newSpiel = new FormSpielerAuswahl();
                 newSpiel.Show();
-                this.Close();
+                //this.Close();
             }
            
             ShowSpielerDaten();
             AktualisiereView();
         }
 
-        private void BtnShowTastatur_Click(object sender, RoutedEventArgs e)
-        {
-            if (gridTastatur.IsVisible)
-            {
-                gridTastatur.Visibility = System.Windows.Visibility.Hidden;
-                BtnShowTastatur.Content = "Tastatur an";
-            }
-            else
-            {
-                gridTastatur.Visibility = System.Windows.Visibility.Visible;
-                BtnShowTastatur.Content = "Tastatur aus";
-            }
-        }
+
 
         private void AktualisiereView()
         {
@@ -132,8 +120,8 @@ namespace Dart.Match
 
             lblPunktzahl.Foreground = Brushes.Black;
 
-            menuRueckgaengig.IsEnabled = (_MatchCareTaker.canUndo());
-            menuWiederholen.IsEnabled = (_MatchCareTaker.CanRedo());            
+            //menuRueckgaengig.IsEnabled = (_MatchCareTaker.canUndo());
+            //menuWiederholen.IsEnabled = (_MatchCareTaker.CanRedo());            
 
             if (_MatchController.isFinishBereich())
             {
