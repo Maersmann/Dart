@@ -21,48 +21,55 @@ namespace Dart
     public partial class Main : Window
     {
 
-        private FormMatch formMatch;
+        private FormMatch _formMatch;
+        private StartBildschirm _startBildschirm;
 
         public Main()
         {
             InitializeComponent();
+            if (_startBildschirm == null)
+                _startBildschirm = new StartBildschirm();
+
+            Container.NavigationService.Navigate(_startBildschirm);
         }
 
         private void rbMatch_Click(object sender, RoutedEventArgs e)
         {
-            if (formMatch == null)
-            {
-                formMatch = new FormMatch();
-                try
-                {
-                  
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message.ToString());
-                    throw;
-                }
-                
-            }
+            if (_formMatch == null)
+                _formMatch = new FormMatch();
 
-
-            Container.NavigationService.Navigate(formMatch);
+            Container.NavigationService.Navigate(_formMatch);
         }
 
         private void rbMatchUndo_Click(object sender, RoutedEventArgs e)
         {
-
+            _formMatch.doRueckgaengig();
         }
 
         private void rbMatchRedo_Click(object sender, RoutedEventArgs e)
         {
-
+            _formMatch.doWiederholen();
         }
 
         private void rbMatchNewGame_Click(object sender, RoutedEventArgs e)
         {
-            FormSpielerAuswahl formSpielerAuswahl = new FormSpielerAuswahl( formMatch );
+            FormSpielerAuswahl formSpielerAuswahl = new FormSpielerAuswahl( _formMatch );
             formSpielerAuswahl.ShowDialog();
+        }
+
+        private void Container_Navigated(object sender, System.Windows.Navigation.NavigationEventArgs e)
+        {
+            if (e.Content == _formMatch)
+            {
+                ribboncontextMatch.Visibility = Visibility.Visible;
+            }
+            else
+                ribboncontextMatch.Visibility = Visibility.Hidden;
+        }
+
+        private void FormMain_Activated(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -4,7 +4,7 @@
     xmlns:ribbon="clr-namespace:Microsoft.Windows.Controls.Ribbon;assembly=RibbonControlsLibrary"
     Title="Schützenverein Wiemtarschen"
 	x:Name="FormMain"
-	Width="851.618" Height="550.539" WindowStartupLocation="CenterScreen" WindowState="Maximized">
+	Width="851.618" Height="550.539" WindowStartupLocation="CenterScreen" WindowState="Maximized" Activated="FormMain_Activated">
 
     <DockPanel x:Name="LayoutRoot">
 
@@ -26,13 +26,13 @@
             </ribbon:RibbonTab>
             
             <ribbon:Ribbon.ContextualTabGroups >
-                <ribbon:RibbonContextualTabGroup x:Name="ribboncontextMatch" Header="" Visibility="Visible" Background="Red" />
+                <ribbon:RibbonContextualTabGroup x:Name="ribboncontextMatch" Header="" Visibility="Hidden" Background="Red" />
             </ribbon:Ribbon.ContextualTabGroups>
 
 
 
         </ribbon:Ribbon>
-        <Frame x:Name="Container"  DockPanel.Dock="Bottom" NavigationUIVisibility="Hidden"/>
+        <Frame x:Name="Container"  DockPanel.Dock="Bottom" NavigationUIVisibility="Hidden" Navigated="Container_Navigated"/>
 
 
 
