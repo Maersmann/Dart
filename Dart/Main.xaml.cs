@@ -10,7 +10,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using Dart.Match;
+using Dart.Match.Forms;
 using Microsoft.Windows.Controls.Ribbon;
 
 namespace Dart
@@ -47,6 +47,21 @@ namespace Dart
 
 
             Container.NavigationService.Navigate(formMatch);
+        }
+
+        private void rbMatchUndo_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void rbMatchRedo_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void rbMatchNewGame_Click(object sender, RoutedEventArgs e)
+        {
+            FormSpielerAuswahl formSpielerAuswahl = new FormSpielerAuswahl();
         }
     }
 }

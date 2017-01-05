@@ -8,18 +8,29 @@
 
     <DockPanel x:Name="LayoutRoot">
 
-        <ribbon:Ribbon x:Name="Ribbon" DockPanel.Dock="Top" VerticalAlignment="Top">
+        <ribbon:Ribbon x:Name="Ribbon" DockPanel.Dock="Top" VerticalAlignment="Top" >
             <ribbon:RibbonTab Header="Haupt"  >
-                <ribbon:RibbonGroup Header="RibbonGroup" Height="88" Margin="0" VerticalAlignment="Top">
-                    <ribbon:RibbonButton x:Name="rbMatch" Label="Spiel" Height="18" VerticalAlignment="Top" Click="rbMatch_Click" />
+                <ribbon:RibbonGroup Header="Allgemein" Height="88" >
+                    <ribbon:RibbonButton x:Name="rbMatch" Label="Spiel" Click="rbMatch_Click" LargeImageSource="Bilder\Match.png" VerticalAlignment="Center" HorizontalAlignment="Center" Width="66"  />
                 </ribbon:RibbonGroup>
-
             </ribbon:RibbonTab>
 
-            <ribbon:Ribbon.ContextualTabGroups>
-                <ribbon:RibbonContextualTabGroup Header="Ink Tools" Visibility="Visible" Background="Green" />
+            <ribbon:RibbonTab x:Name="ribbonMatch" Header="Match" ContextualTabGroupHeader="" >
+                <ribbon:RibbonGroup Header="Bearbeiten" Height="88" Margin="0" VerticalAlignment="Top">
+                    <ribbon:RibbonButton x:Name="rbMatchUndo" Label="Rückgängig"  LargeImageSource="Bilder\Undo.png" Click="rbMatchUndo_Click"   />
+                    <ribbon:RibbonButton x:Name="rbMatchRedo" Label="Wiederholen"  LargeImageSource="Bilder\Redo.png" Click="rbMatchRedo_Click"   />
+                </ribbon:RibbonGroup>
+                <ribbon:RibbonGroup Header="Allgemein" Height="88" Margin="0" VerticalAlignment="Top">
+                    <ribbon:RibbonButton x:Name="rbMatchNewGame" Label="Neues Spiel" LargeImageSource="Bilder\NewGame.png" Click="rbMatchNewGame_Click" />
+                </ribbon:RibbonGroup>
+            </ribbon:RibbonTab>
+            
+            <ribbon:Ribbon.ContextualTabGroups >
+                <ribbon:RibbonContextualTabGroup x:Name="ribboncontextMatch" Header="" Visibility="Visible" Background="Red" />
             </ribbon:Ribbon.ContextualTabGroups>
-           
+
+
+
         </ribbon:Ribbon>
         <Frame x:Name="Container"  DockPanel.Dock="Bottom" NavigationUIVisibility="Hidden"/>
 

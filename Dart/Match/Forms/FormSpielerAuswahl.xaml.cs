@@ -6,7 +6,7 @@ using Dart.Match;
 using Dart.MatchObjekte;
 
 
-namespace Dart
+namespace Dart.Match.Forms
 {
     /// <summary>
     /// Interaktionslogik für FormSpielerAuswahl.xaml

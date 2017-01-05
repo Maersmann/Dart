@@ -140,7 +140,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Match\FormMatch.xaml">
+    <Page Include="Match\Forms\FormMatch.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -150,17 +150,17 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Match\FormMatch.xaml.cs">
+    <Compile Include="Match\Forms\FormMatch.xaml.cs">
       <DependentUpon>FormMatch.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="FormSpielerAuswahl.xaml">
+    <Page Include="Match\Forms\FormSpielerAuswahl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FormSpielerAuswahl.xaml.cs">
+    <Compile Include="Match\Forms\FormSpielerAuswahl.xaml.cs">
       <DependentUpon>FormSpielerAuswahl.xaml</DependentUpon>
     </Compile>
     <Compile Include="SpielerObjekte\GesamtSpiel.cs" />
@@ -210,6 +210,14 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Bilder\Redo.png" />
+    <Resource Include="Bilder\Undo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Bilder\Match.png" />
+    <Resource Include="Bilder\NewGame.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -15,7 +15,7 @@ using Dart.Utils;
 using Dart.Finish;
 using Dart.Memento;
 
-namespace Dart.Match
+namespace Dart.Match.Forms
 {
     
     public partial class FormMatch : Page
@@ -53,12 +53,35 @@ namespace Dart.Match
             _MatchCareTaker = new MatchCaretaker();
             _Finish = new FinishWeg();
 
+            ClearView();
+
            // ShowSpielerDaten();
            // AktualisiereView();
            // _TextBoxFocus = TxtWurfEins;
            // TxtWurfEins.Focus();
            // _BuchstabeEingegeben = false;
            // _Enter = false;
+        }
+
+
+
+        private void ClearView()
+        {
+            lblAnzahl60.Content = LBLANZAHLSECHZIG ;
+            lblAnzahl100.Content = LBLANZAHLHUNDERT ;
+            lblAnzahl140.Content = LBLANZAHLHUNDERTVIERZIG ;
+            lblAnzahl180.Content = LBLANZAHLHUNDERTACHZIG ;
+            lblSpielerName.Content = "";
+            lblAverageLeg.Content = LBLAVERAGELEG ;
+            lblAverageSet.Content = LBLAVERAGESET ;
+            lblAverageSpiel.Content = LBLAVERAGESPIEL ;
+            lblWuerfe.Content = LBLWUERFE ;
+            lblPunktzahl.Content = ""; ;
+            lblGewonneLeg.Content = LBLGEWONNENLEGS ;
+            lblGewonnenSet.Content = LBLGEWONNENSETS ;
+            lblAnzahl170.Content = LBLANZAHLHUNDERTSIEBZIG ;
+            lblBestLeg.Content = LBLSHORTESTLEG ;
+            lblWorstLeg.Content = LBLLONGESTLEG ;
         }
 
         private void ShowSpielerDaten()

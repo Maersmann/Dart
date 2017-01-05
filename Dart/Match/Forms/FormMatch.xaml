@@ -1,4 +1,4 @@
-﻿<Page x:Class="Dart.Match.FormMatch"
+﻿<Page x:Class="Dart.Match.Forms.FormMatch"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -15,7 +15,7 @@
             <RowDefinition Height="40"/>
         </Grid.RowDefinitions>
         <DockPanel  Grid.Row="2" HorizontalAlignment="Stretch"  LastChildFill="true" Margin="0,0,0,0" VerticalAlignment="Stretch" >
-            <Grid x:Name="gridTastatur" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+            <Grid x:Name="gridTastatur" VerticalAlignment="Stretch" Visibility="Hidden" HorizontalAlignment="Stretch">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="66*"/>
                     <ColumnDefinition Width="66*"/>
@@ -236,7 +236,7 @@
             </Grid>
         </DockPanel>
         <DockPanel HorizontalAlignment="Stretch" LastChildFill="False"  Grid.Row="3" VerticalAlignment="Stretch" Background="White">
-            <Button x:Name="BtnNaechster" Content="Nächster" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="75" DockPanel.Dock="Right" Margin="5,5,5,0" Click="BtnNaechster_Click" TabIndex="4" Height="30" />
+            <Button x:Name="BtnNaechster" Content="Nächster" HorizontalAlignment="Left" IsEnabled="False"  VerticalAlignment="Top" Width="75" DockPanel.Dock="Right" Margin="5,5,5,0" Click="BtnNaechster_Click" TabIndex="4" Height="30" />
         </DockPanel>
         <Grid  HorizontalAlignment="Stretch" Grid.Row="1" VerticalAlignment="Stretch">
             <Grid.ColumnDefinitions>
@@ -338,17 +338,17 @@
                 </Grid.ColumnDefinitions>
                 <Border  HorizontalAlignment="Stretch"  VerticalAlignment="Stretch" Grid.Column="1" Margin="25" >
                     <Viewbox Stretch="Uniform">
-                        <TextBox x:Name="TxtWurfZwei" HorizontalAlignment="Stretch"  TextWrapping="Wrap" VerticalAlignment="Stretch" Margin="10"  MinWidth="20" TextChanged="TxtWurfZwei_TextChanged" MaxLength="2" PreviewKeyDown="TxtWurfZwei_PreviewKeyDown" GotFocus="TxtWurfZwei_GotFocus" TabIndex="2"/>
+                        <TextBox x:Name="TxtWurfZwei" HorizontalAlignment="Stretch" IsEnabled="False"   TextWrapping="Wrap" VerticalAlignment="Stretch" Margin="10"  MinWidth="20" TextChanged="TxtWurfZwei_TextChanged" MaxLength="2" PreviewKeyDown="TxtWurfZwei_PreviewKeyDown" GotFocus="TxtWurfZwei_GotFocus" TabIndex="2"/>
                     </Viewbox>
                 </Border>
                 <Border  HorizontalAlignment="Stretch"  VerticalAlignment="Stretch" Grid.Column="2" Margin="25">
                     <Viewbox Stretch="Uniform">
-                        <TextBox x:Name="TxtWurfDrei" HorizontalAlignment="Stretch"  TextWrapping="Wrap" VerticalAlignment="Stretch" Margin="10"  MinWidth="20" TextChanged="TxtWurfDrei_TextChanged" MaxLength="2" PreviewKeyDown="TxtWurfDrei_PreviewKeyDown" GotFocus="TxtWurfDrei_GotFocus" TabIndex="3"/>
+                        <TextBox x:Name="TxtWurfDrei" HorizontalAlignment="Stretch" IsEnabled="False"  TextWrapping="Wrap" VerticalAlignment="Stretch" Margin="10"  MinWidth="20" TextChanged="TxtWurfDrei_TextChanged" MaxLength="2" PreviewKeyDown="TxtWurfDrei_PreviewKeyDown" GotFocus="TxtWurfDrei_GotFocus" TabIndex="3"/>
                     </Viewbox>
                 </Border>
                 <Border HorizontalAlignment="Stretch"  VerticalAlignment="Stretch" Grid.Column="0" Margin="25">
                     <Viewbox Stretch="Uniform">
-                        <TextBox x:Name="TxtWurfEins" HorizontalAlignment="Stretch"  TextWrapping="Wrap" VerticalAlignment="Stretch" Margin="10"  MinWidth="20" TextChanged="TxtWurfEins_TextChanged" MaxLines="2" MaxLength="2" PreviewKeyDown="TxtWurfEins_PreviewKeyDown" GotFocus="TxtWurfEins_GotFocus" TabIndex="1"/>
+                        <TextBox x:Name="TxtWurfEins" HorizontalAlignment="Stretch" IsEnabled="False"  TextWrapping="Wrap" VerticalAlignment="Stretch" Margin="10"  MinWidth="20" TextChanged="TxtWurfEins_TextChanged" MaxLines="2" MaxLength="2" PreviewKeyDown="TxtWurfEins_PreviewKeyDown" GotFocus="TxtWurfEins_GotFocus" TabIndex="1"/>
                     </Viewbox>
                 </Border>
 
@@ -399,11 +399,6 @@
                 <RowDefinition Height="27"/>
                 <RowDefinition Height="80*"/>
             </Grid.RowDefinitions>
-            <ribbon:Ribbon x:Name="Ribbon2" DockPanel.Dock="Top" VerticalAlignment="Top">
-
-                <ribbon:RibbonContextualTabGroup  x:Name="Ribbontab" Header="Ink Tools" Visibility="Visible" Background="Green" />
-                
-            </ribbon:Ribbon>
             <Menu x:Name="menu" HorizontalAlignment="Stretch"  VerticalAlignment="Stretch" Grid.Row="0" IsMainMenu="True">
                 <MenuItem Header="Bearbeiten" Height="27" >
                     <MenuItem x:Name="menuRueckgaengig" Header="Rückgängig" Height="27" Click="menuRueckgaengig_Click" />
