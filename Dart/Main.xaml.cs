@@ -61,7 +61,8 @@ namespace Dart
 
         private void rbMatchNewGame_Click(object sender, RoutedEventArgs e)
         {
-            FormSpielerAuswahl formSpielerAuswahl = new FormSpielerAuswahl();
+            FormSpielerAuswahl formSpielerAuswahl = new FormSpielerAuswahl( formMatch );
+            formSpielerAuswahl.ShowDialog();
         }
     }
 }

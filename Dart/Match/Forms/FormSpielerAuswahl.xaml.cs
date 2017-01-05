@@ -13,9 +13,13 @@ namespace Dart.Match.Forms
     /// </summary>
     public partial class FormSpielerAuswahl : Window
     {
-        public FormSpielerAuswahl()
+
+        FormMatch _formMatch;
+
+        public FormSpielerAuswahl( FormMatch pFormMatch )
         {
             InitializeComponent();
+            _formMatch = pFormMatch;
         }
 
         private void btnHinzufuegen_Click(object sender, RoutedEventArgs e)
@@ -75,8 +79,7 @@ namespace Dart.Match.Forms
             MatchModel matchmodel = new MatchModel(ListSpieler);
             MatchController matchController = new MatchController(matchmodel, match);
 
-            //FormMatch formMatch = new FormMatch(matchmodel, matchController);
-            //formMatch.Show();
+            _formMatch.NewGame(matchmodel, matchController);
             this.Close();
 
 

@@ -42,27 +42,40 @@ namespace Dart.Match.Forms
         FinishWeg _Finish;
 
         Boolean _BuchstabeEingegeben;
-        Boolean _Enter;
 
-        //public FormMatch(MatchModel pMatchModel, MatchController pMatchController)
+
+
         public FormMatch()
         {
             InitializeComponent();
-           // _MatchController = pMatchController;
-           // _MatchModel = pMatchModel;
-            _MatchCareTaker = new MatchCaretaker();
-            _Finish = new FinishWeg();
+
+
 
             ClearView();
 
-           // ShowSpielerDaten();
-           // AktualisiereView();
-           // _TextBoxFocus = TxtWurfEins;
-           // TxtWurfEins.Focus();
-           // _BuchstabeEingegeben = false;
-           // _Enter = false;
+
         }
 
+        public void NewGame(MatchModel pMatchModel, MatchController pMatchController)
+        {
+            _MatchController = pMatchController;
+             _MatchModel = pMatchModel;
+            _MatchCareTaker = new MatchCaretaker();
+            _Finish = new FinishWeg();
+
+             ShowSpielerDaten();
+             AktualisiereView();
+             _TextBoxFocus = TxtWurfEins;
+             TxtWurfEins.Focus();
+            _BuchstabeEingegeben = false;
+
+            BtnNaechster.IsEnabled = true;
+            TxtWurfDrei.IsEnabled = true;
+            TxtWurfZwei.IsEnabled = true;
+            TxtWurfEins.IsEnabled = true;
+
+
+        }
 
 
         private void ClearView()
@@ -123,7 +136,7 @@ namespace Dart.Match.Forms
             }
             if (_MatchController.SpielBeendet)
             {
-                FormSpielerAuswahl newSpiel = new FormSpielerAuswahl();
+                FormSpielerAuswahl newSpiel = new FormSpielerAuswahl( this );
                 newSpiel.Show();
                 //this.Close();
             }
