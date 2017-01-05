@@ -42,8 +42,6 @@ namespace Dart.Match
         TextBox _TextBoxFocus;
         FinishWeg _Finish;
 
-        Boolean _BuchstabeEingegeben;
-        Boolean _Enter;
 
         public FormMatch(MatchModel pMatchModel, MatchController pMatchController)
         {
@@ -57,8 +55,6 @@ namespace Dart.Match
             AktualisiereView();
             _TextBoxFocus = TxtWurfEins;
             TxtWurfEins.Focus();
-            _BuchstabeEingegeben = false;
-            _Enter = false;
         }
 
         private void ShowSpielerDaten()
@@ -107,20 +103,6 @@ namespace Dart.Match
            
             ShowSpielerDaten();
             AktualisiereView();
-        }
-
-        private void BtnShowTastatur_Click(object sender, RoutedEventArgs e)
-        {
-            if (gridTastatur.IsVisible)
-            {
-                gridTastatur.Visibility = System.Windows.Visibility.Hidden;
-                BtnShowTastatur.Content = "Tastatur an";
-            }
-            else
-            {
-                gridTastatur.Visibility = System.Windows.Visibility.Visible;
-                BtnShowTastatur.Content = "Tastatur aus";
-            }
         }
 
         private void AktualisiereView()
@@ -533,7 +515,6 @@ namespace Dart.Match
             if (!int.TryParse(TxtWurfEins.Text, out Wurf))
             {
                 TxtWurfEins.Clear();
-                _BuchstabeEingegeben = false;
                 MessageBox.Show("Keine Zahl eingegeben");
                 return;
             }
@@ -572,7 +553,6 @@ namespace Dart.Match
             if (!int.TryParse(TxtWurfZwei.Text, out Wurf))
             {
                 TxtWurfZwei.Clear();
-                _BuchstabeEingegeben = false;
                 MessageBox.Show("Keine Zahl eingegeben");
                 return;
             }
@@ -676,7 +656,6 @@ namespace Dart.Match
             if (!int.TryParse(TxtWurfDrei.Text, out Wurf))
             {
                 TxtWurfDrei.Clear();
-                _BuchstabeEingegeben = false;
                 MessageBox.Show("Keine Zahl eingegeben");
                 return;
             }
