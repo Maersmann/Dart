@@ -41,19 +41,11 @@ namespace Dart.Match.Forms
         TextBox _TextBoxFocus;
         FinishWeg _Finish;
 
-        Boolean _BuchstabeEingegeben;
-
-
 
         public FormMatch()
         {
             InitializeComponent();
-
-
-
             ClearView();
-
-
         }
 
         public void NewGame(MatchModel pMatchModel, MatchController pMatchController)
@@ -67,7 +59,6 @@ namespace Dart.Match.Forms
              AktualisiereView();
              _TextBoxFocus = TxtWurfEins;
              TxtWurfEins.Focus();
-            _BuchstabeEingegeben = false;
 
             BtnNaechster.IsEnabled = true;
             TxtWurfDrei.IsEnabled = true;
@@ -95,6 +86,10 @@ namespace Dart.Match.Forms
             lblAnzahl170.Content = LBLANZAHLHUNDERTSIEBZIG ;
             lblBestLeg.Content = LBLSHORTESTLEG ;
             lblWorstLeg.Content = LBLLONGESTLEG ;
+            lblFinishDrei.Content = "";
+            lblFinishEins.Content = "";
+            lblFinishWeg.Content = "";
+            lblFinishZwei.Content = "";
         }
 
         private void ShowSpielerDaten()
@@ -557,7 +552,7 @@ namespace Dart.Match.Forms
             if (!int.TryParse(TxtWurfEins.Text, out Wurf))
             {
                 TxtWurfEins.Clear();
-                _BuchstabeEingegeben = false;
+
                 MessageBox.Show("Keine Zahl eingegeben");
                 return;
             }
@@ -596,7 +591,6 @@ namespace Dart.Match.Forms
             if (!int.TryParse(TxtWurfZwei.Text, out Wurf))
             {
                 TxtWurfZwei.Clear();
-                _BuchstabeEingegeben = false;
                 MessageBox.Show("Keine Zahl eingegeben");
                 return;
             }
@@ -700,7 +694,6 @@ namespace Dart.Match.Forms
             if (!int.TryParse(TxtWurfDrei.Text, out Wurf))
             {
                 TxtWurfDrei.Clear();
-                _BuchstabeEingegeben = false;
                 MessageBox.Show("Keine Zahl eingegeben");
                 return;
             }
@@ -715,36 +708,25 @@ namespace Dart.Match.Forms
         private void TxtWurfEins_PreviewKeyDown(object sender, KeyEventArgs e)
         {
             if (e.Key == Key.Enter)
-            {
-               // _Enter = true;
                 ChangeTxtBoxFocus();
-           }
         }
 
         private void TxtWurfZwei_PreviewKeyDown(object sender, KeyEventArgs e)
         {
             if (e.Key == Key.Enter)
-            {
-                //_Enter = true;
                 ChangeTxtBoxFocus();
-            }
         }
 
         private void TxtWurfDrei_PreviewKeyDown(object sender, KeyEventArgs e)
         {
-            
             if (e.Key == Key.Enter)
-            {
-                //_Enter = true;
-                Naechster();
-           
-            }
+                Naechster();       
         }
 
 
         #endregion
 
-        private void menuRueckgaengig_Click(object sender, RoutedEventArgs e)
+        public void doRueckgaengig()
         {
             if (_MatchCareTaker.canUndo())
             {
@@ -755,7 +737,7 @@ namespace Dart.Match.Forms
             }
         }
 
-        private void menuWiederholen_Click(object sender, RoutedEventArgs e)
+        public void doWiederholen()
         {
             if (_MatchCareTaker.CanRedo())
             {

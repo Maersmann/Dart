@@ -395,17 +395,8 @@
         
       
         <Grid HorizontalAlignment="Stretch"  Grid.Row="0" VerticalAlignment="Stretch" >
-            <Grid.RowDefinitions>
-                <RowDefinition Height="27"/>
-                <RowDefinition Height="80*"/>
-            </Grid.RowDefinitions>
-            <Menu x:Name="menu" HorizontalAlignment="Stretch"  VerticalAlignment="Stretch" Grid.Row="0" IsMainMenu="True">
-                <MenuItem Header="Bearbeiten" Height="27" >
-                    <MenuItem x:Name="menuRueckgaengig" Header="Rückgängig" Height="27" Click="menuRueckgaengig_Click" />
-                    <MenuItem x:Name="menuWiederholen" Header="Wiederherstellen" Height="27" Click="menuWiederholen_Click" />
-                </MenuItem>
-            </Menu>
-            <Border Background="White"  HorizontalAlignment="Stretch"  VerticalAlignment="Stretch" Grid.Row="1">
+
+            <Border Background="White"  HorizontalAlignment="Stretch"  VerticalAlignment="Stretch" >
                 <Viewbox  Stretch="Uniform" >
                     <Label x:Name="lblSpielerName"  Content="Märse ist dran" HorizontalAlignment="Center"  VerticalAlignment="Center"/>
                 </Viewbox>

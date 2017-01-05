@@ -62,7 +62,7 @@
     <SignManifests>false</SignManifests>
   </PropertyGroup>
   <PropertyGroup>
-    <SignAssembly>true</SignAssembly>
+    <SignAssembly>false</SignAssembly>
   </PropertyGroup>
   <PropertyGroup>
     <DelaySign>false</DelaySign>
@@ -127,6 +127,9 @@
     <Compile Include="SpielerObjekte\Speicher.cs" />
     <Compile Include="Memento\MatchMemento.cs" />
     <Compile Include="Memento\MatchCaretaker.cs" />
+    <Compile Include="StartBildschirm.xaml.cs">
+      <DependentUpon>StartBildschirm.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Utils\Kontrolle.cs" />
     <Compile Include="Match\MatchController.cs" />
     <Compile Include="Match\MatchModel.cs" />
@@ -155,6 +158,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Match\Forms\FormSpielerAuswahl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="StartBildschirm.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -218,6 +225,9 @@
   <ItemGroup>
     <Resource Include="Bilder\Match.png" />
     <Resource Include="Bilder\NewGame.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Bilder\Close.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

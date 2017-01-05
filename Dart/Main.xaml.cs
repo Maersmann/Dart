@@ -62,6 +62,7 @@ namespace Dart
             if (e.Content == _formMatch)
             {
                 ribboncontextMatch.Visibility = Visibility.Visible;
+                ribbonMatch.IsSelected = true;
             }
             else
                 ribboncontextMatch.Visibility = Visibility.Hidden;
@@ -70,6 +71,11 @@ namespace Dart
         private void FormMain_Activated(object sender, EventArgs e)
         {
 
+        }
+
+        private void ribbonMenuClose_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
         }
     }
 }
