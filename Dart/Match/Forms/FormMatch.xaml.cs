@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -16,10 +15,10 @@ using Dart.Utils;
 using Dart.Finish;
 using Dart.Memento;
 
-namespace Dart.Match
+namespace Dart.Match.Forms
 {
     
-    public partial class FormMatch : Window
+    public partial class FormMatch : Page
     {
         static private String LBLNAME = " ist dran";
         static private String LBLANZAHLSECHZIG = "Anzahl 60 >=: ";
@@ -42,23 +41,55 @@ namespace Dart.Match
         TextBox _TextBoxFocus;
         FinishWeg _Finish;
 
-        Boolean _BuchstabeEingegeben;
-        Boolean _Enter;
 
-        public FormMatch(MatchModel pMatchModel, MatchController pMatchController)
+        public FormMatch()
         {
             InitializeComponent();
+            ClearView();
+        }
+
+        public void NewGame(MatchModel pMatchModel, MatchController pMatchController)
+        {
             _MatchController = pMatchController;
-            _MatchModel = pMatchModel;
+             _MatchModel = pMatchModel;
             _MatchCareTaker = new MatchCaretaker();
             _Finish = new FinishWeg();
 
-            ShowSpielerDaten();
-            AktualisiereView();
-            _TextBoxFocus = TxtWurfEins;
-            TxtWurfEins.Focus();
-            _BuchstabeEingegeben = false;
-            _Enter = false;
+             ShowSpielerDaten();
+             AktualisiereView();
+             _TextBoxFocus = TxtWurfEins;
+             TxtWurfEins.Focus();
+
+            BtnNaechster.IsEnabled = true;
+            TxtWurfDrei.IsEnabled = true;
+            TxtWurfZwei.IsEnabled = true;
+            TxtWurfEins.IsEnabled = true;
+
+
+        }
+
+
+        private void ClearView()
+        {
+            lblAnzahl60.Content = LBLANZAHLSECHZIG ;
+            lblAnzahl100.Content = LBLANZAHLHUNDERT ;
+            lblAnzahl140.Content = LBLANZAHLHUNDERTVIERZIG ;
+            lblAnzahl180.Content = LBLANZAHLHUNDERTACHZIG ;
+            lblSpielerName.Content = "";
+            lblAverageLeg.Content = LBLAVERAGELEG ;
+            lblAverageSet.Content = LBLAVERAGESET ;
+            lblAverageSpiel.Content = LBLAVERAGESPIEL ;
+            lblWuerfe.Content = LBLWUERFE ;
+            lblPunktzahl.Content = ""; ;
+            lblGewonneLeg.Content = LBLGEWONNENLEGS ;
+            lblGewonnenSet.Content = LBLGEWONNENSETS ;
+            lblAnzahl170.Content = LBLANZAHLHUNDERTSIEBZIG ;
+            lblBestLeg.Content = LBLSHORTESTLEG ;
+            lblWorstLeg.Content = LBLLONGESTLEG ;
+            lblFinishDrei.Content = "";
+            lblFinishEins.Content = "";
+            lblFinishWeg.Content = "";
+            lblFinishZwei.Content = "";
         }
 
         private void ShowSpielerDaten()
@@ -100,28 +131,15 @@ namespace Dart.Match
             }
             if (_MatchController.SpielBeendet)
             {
-                FormSpielerAuswahl newSpiel = new FormSpielerAuswahl();
+                FormSpielerAuswahl newSpiel = new FormSpielerAuswahl( this );
                 newSpiel.Show();
-                this.Close();
+                //this.Close();
             }
            
             ShowSpielerDaten();
             AktualisiereView();
         }
 
-        private void BtnShowTastatur_Click(object sender, RoutedEventArgs e)
-        {
-            if (gridTastatur.IsVisible)
-            {
-                gridTastatur.Visibility = System.Windows.Visibility.Hidden;
-                BtnShowTastatur.Content = "Tastatur an";
-            }
-            else
-            {
-                gridTastatur.Visibility = System.Windows.Visibility.Visible;
-                BtnShowTastatur.Content = "Tastatur aus";
-            }
-        }
 
         private void AktualisiereView()
         {
@@ -132,8 +150,8 @@ namespace Dart.Match
 
             lblPunktzahl.Foreground = Brushes.Black;
 
-            menuRueckgaengig.IsEnabled = (_MatchCareTaker.canUndo());
-            menuWiederholen.IsEnabled = (_MatchCareTaker.CanRedo());            
+            //menuRueckgaengig.IsEnabled = (_MatchCareTaker.canUndo());
+            //menuWiederholen.IsEnabled = (_MatchCareTaker.CanRedo());            
 
             if (_MatchController.isFinishBereich())
             {
@@ -533,7 +551,7 @@ namespace Dart.Match
             if (!int.TryParse(TxtWurfEins.Text, out Wurf))
             {
                 TxtWurfEins.Clear();
-                _BuchstabeEingegeben = false;
+
                 MessageBox.Show("Keine Zahl eingegeben");
                 return;
             }
@@ -572,7 +590,6 @@ namespace Dart.Match
             if (!int.TryParse(TxtWurfZwei.Text, out Wurf))
             {
                 TxtWurfZwei.Clear();
-                _BuchstabeEingegeben = false;
                 MessageBox.Show("Keine Zahl eingegeben");
                 return;
             }
@@ -676,7 +693,6 @@ namespace Dart.Match
             if (!int.TryParse(TxtWurfDrei.Text, out Wurf))
             {
                 TxtWurfDrei.Clear();
-                _BuchstabeEingegeben = false;
                 MessageBox.Show("Keine Zahl eingegeben");
                 return;
             }
@@ -691,37 +707,28 @@ namespace Dart.Match
         private void TxtWurfEins_PreviewKeyDown(object sender, KeyEventArgs e)
         {
             if (e.Key == Key.Enter)
-            {
-               // _Enter = true;
                 ChangeTxtBoxFocus();
-           }
         }
 
         private void TxtWurfZwei_PreviewKeyDown(object sender, KeyEventArgs e)
         {
             if (e.Key == Key.Enter)
-            {
-                //_Enter = true;
                 ChangeTxtBoxFocus();
-            }
         }
 
         private void TxtWurfDrei_PreviewKeyDown(object sender, KeyEventArgs e)
         {
-            
             if (e.Key == Key.Enter)
-            {
-                //_Enter = true;
-                Naechster();
-           
-            }
+                Naechster();       
         }
 
 
         #endregion
 
-        private void menuRueckgaengig_Click(object sender, RoutedEventArgs e)
+        public void doRueckgaengig()
         {
+            if (_MatchCareTaker == null) return; 
+
             if (_MatchCareTaker.canUndo())
             {
                 _MatchModel = _MatchCareTaker.Undo(_MatchModel.getMemento()).getMatchModel();
@@ -731,8 +738,11 @@ namespace Dart.Match
             }
         }
 
-        private void menuWiederholen_Click(object sender, RoutedEventArgs e)
+        public void doWiederholen()
         {
+            if (_MatchCareTaker == null) return;
+
+
             if (_MatchCareTaker.CanRedo())
             {
                 _MatchModel = _MatchCareTaker.Redo(_MatchModel.getMemento()).getMatchModel();

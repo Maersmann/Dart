@@ -15,8 +15,10 @@
     <WarningLevel>4</WarningLevel>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <IsWebBootstrapper>false</IsWebBootstrapper>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
     <PublishUrl>C:\Users\Rene\Dropbox\Veröffentlichung\</PublishUrl>
-    <Install>true</Install>
+    <Install>false</Install>
     <InstallFrom>Disk</InstallFrom>
     <UpdateEnabled>false</UpdateEnabled>
     <UpdateMode>Foreground</UpdateMode>
@@ -41,6 +43,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -50,6 +53,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup>
     <ApplicationIcon>1364007503_67060.ico</ApplicationIcon>
@@ -58,13 +62,14 @@
     <SignManifests>false</SignManifests>
   </PropertyGroup>
   <PropertyGroup>
-    <SignAssembly>true</SignAssembly>
+    <SignAssembly>false</SignAssembly>
   </PropertyGroup>
   <PropertyGroup>
     <DelaySign>false</DelaySign>
   </PropertyGroup>
   <PropertyGroup>
-    <AssemblyOriginatorKeyFile>keypair.snk</AssemblyOriginatorKeyFile>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <PropertyGroup>
     <ManifestCertificateThumbprint>2F92653BD59625E8DC3C770678BC3D559540AC56</ManifestCertificateThumbprint>
@@ -83,6 +88,8 @@
     <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.Windows.Shell, Version=3.5.41019.1, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="RibbonControlsLibrary, Version=4.0.0.11019, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
@@ -105,6 +112,9 @@
     </ApplicationDefinition>
     <Compile Include="Finish\AverageText.cs" />
     <Compile Include="Finish\FinishWeg.cs" />
+    <Compile Include="Main.xaml.cs">
+      <DependentUpon>Main.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MatchObjekte\MatchObjekt.cs" />
     <Compile Include="MatchUtils\AnzahlScoreCheck.cs" />
     <Compile Include="MatchUtils\AverageBerechnen.cs" />
@@ -117,16 +127,23 @@
     <Compile Include="SpielerObjekte\Speicher.cs" />
     <Compile Include="Memento\MatchMemento.cs" />
     <Compile Include="Memento\MatchCaretaker.cs" />
+    <Compile Include="StartBildschirm.xaml.cs">
+      <DependentUpon>StartBildschirm.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Utils\Kontrolle.cs" />
     <Compile Include="Match\MatchController.cs" />
     <Compile Include="Match\MatchModel.cs" />
     <Compile Include="SpielerObjekte\Spieler.cs" />
     <Compile Include="Utils\SaveGame.cs" />
+    <Page Include="Main.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MatchUtils\FormDialogFinish.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Match\FormMatch.xaml">
+    <Page Include="Match\Forms\FormMatch.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -136,17 +153,21 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Match\FormMatch.xaml.cs">
+    <Compile Include="Match\Forms\FormMatch.xaml.cs">
       <DependentUpon>FormMatch.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="FormSpielerAuswahl.xaml">
+    <Page Include="Match\Forms\FormSpielerAuswahl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="StartBildschirm.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FormSpielerAuswahl.xaml.cs">
+    <Compile Include="Match\Forms\FormSpielerAuswahl.xaml.cs">
       <DependentUpon>FormSpielerAuswahl.xaml</DependentUpon>
     </Compile>
     <Compile Include="SpielerObjekte\GesamtSpiel.cs" />
@@ -171,7 +192,7 @@
     </EmbeddedResource>
     <None Include="Dart.pfx" />
     <None Include="Dart_TemporaryKey.pfx" />
-    <None Include="keypair.snk" />
+    <None Include="packages.config" />
     <None Include="Properties\app.manifest" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -196,6 +217,17 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Bilder\Redo.png" />
+    <Resource Include="Bilder\Undo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Bilder\Match.png" />
+    <Resource Include="Bilder\NewGame.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Bilder\Close.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
