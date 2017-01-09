@@ -90,6 +90,14 @@ namespace Dart.Match.Forms
             lblFinishEins.Content = "";
             lblFinishWeg.Content = "";
             lblFinishZwei.Content = "";
+            BtnNaechster.IsEnabled = false;
+            TxtWurfDrei.IsEnabled = false;
+            TxtWurfZwei.IsEnabled = false;
+            TxtWurfEins.IsEnabled = false;
+
+            TxtWurfDrei.Text = "";
+            TxtWurfZwei.Text = "";
+            TxtWurfEins.Text = "";
         }
 
         private void ShowSpielerDaten()
@@ -131,13 +139,18 @@ namespace Dart.Match.Forms
             }
             if (_MatchController.SpielBeendet)
             {
-                FormSpielerAuswahl newSpiel = new FormSpielerAuswahl( this );
-                newSpiel.Show();
-                //this.Close();
+                ClearView();
+                _MatchModel = null;
+                _MatchController = null;
+                _MatchCareTaker = null;
+                _Finish = null;
             }
-           
-            ShowSpielerDaten();
-            AktualisiereView();
+            else
+            { 
+                ShowSpielerDaten();
+                AktualisiereView();
+            }
+
         }
 
 
