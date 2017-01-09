@@ -1,11 +1,10 @@
-﻿<Window x:Class="Dart.FormSpielerAuswahl"
+﻿<Window x:Class="Dart.Match.Forms.FormSpielerAuswahl"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Dart"
-        mc:Ignorable="d"
-        Title="Spieler Auswahl" Height="600.678" Width="510.636" ResizeMode="NoResize" Icon="1364007503_67060.ico" WindowStartupLocation="CenterScreen">
+
+        Title="Spieler Auswahl" Height="600.678" Width="510.636" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
 
     <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
         <Grid.RowDefinitions>
