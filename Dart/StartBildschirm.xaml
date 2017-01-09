@@ -10,10 +10,10 @@
       Title="StartBildschirm">
 
     <Grid>
-        <Viewbox  Stretch="Uniform">
+        <Viewbox  Stretch="Uniform" Visibility="Hidden">
             <Label x:Name="label" Content="Herzlich Willkommen " HorizontalAlignment="Center"  VerticalAlignment="Top" />
         </Viewbox>
-        <Viewbox  Stretch="Uniform">
+        <Viewbox  Stretch="Uniform" Visibility="Hidden">
             <Label x:Name="label1" Content="Dart - Game On!"  HorizontalAlignment="Center"  VerticalAlignment="Top" Margin="0,111,0,0"/>
         </Viewbox>
 

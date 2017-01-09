@@ -728,6 +728,8 @@ namespace Dart.Match.Forms
 
         public void doRueckgaengig()
         {
+            if (_MatchCareTaker == null) return; 
+
             if (_MatchCareTaker.canUndo())
             {
                 _MatchModel = _MatchCareTaker.Undo(_MatchModel.getMemento()).getMatchModel();
@@ -739,6 +741,9 @@ namespace Dart.Match.Forms
 
         public void doWiederholen()
         {
+            if (_MatchCareTaker == null) return;
+
+
             if (_MatchCareTaker.CanRedo())
             {
                 _MatchModel = _MatchCareTaker.Redo(_MatchModel.getMemento()).getMatchModel();
