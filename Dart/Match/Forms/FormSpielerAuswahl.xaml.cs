@@ -45,9 +45,8 @@ namespace Dart.Match.Forms
 
         private void BtnStart_Click(object sender, RoutedEventArgs e)
         {
-            int result;
-            List<Spieler> ListSpieler = new List<Spieler>();
 
+            int result;
             if (lstBoxSpieler.Items.Count == 0)
             {
                 MessageBox.Show("Keine Spieler vorhanden!");
@@ -67,12 +66,16 @@ namespace Dart.Match.Forms
                 MessageBox.Show("Die Sets fehlen!");
                 return;
             }
-   
+
+            DialogResult = true;
+
+            List<Spieler> ListSpieler = new List<Spieler>();
 
             foreach (String Name in lstBoxSpieler.Items)
             {
                 ListSpieler.Add(new Spieler(Name));
             }
+
 
             MatchObjekt match = new MatchObjekt(Convert.ToInt32(TxtAnzahlSet.Text), Convert.ToInt32(txtAnzahlLeg.Text), 501);
 
