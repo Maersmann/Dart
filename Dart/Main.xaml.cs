@@ -11,6 +11,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Dart.Match.Forms;
+using Dart.Statistiken.Match.Forms;
 using Microsoft.Windows.Controls.Ribbon;
 
 namespace Dart
@@ -23,6 +24,7 @@ namespace Dart
 
         private FormMatch _formMatch;
         private StartBildschirm _startBildschirm;
+        
 
         public Main()
         {
@@ -36,25 +38,37 @@ namespace Dart
         private void rbMatch_Click(object sender, RoutedEventArgs e)
         {
             if (_formMatch == null)
+            {
                 _formMatch = new FormMatch();
+                rbMatchRedo.IsEnabled = false;
+                rbMatchUndo.IsEnabled = false;
+                rbStatistikMatchAverage.IsEnabled = false;
+            }
 
             Container.NavigationService.Navigate(_formMatch);
         }
 
-        private void rbMatchUndo_Click(object sender, RoutedEventArgs e)
-        {
-            _formMatch.doRueckgaengig();
-        }
-
-        private void rbMatchRedo_Click(object sender, RoutedEventArgs e)
-        {
-            _formMatch.doWiederholen();
-        }
 
         private void rbMatchNewGame_Click(object sender, RoutedEventArgs e)
         {
+            rbMatchRedo.IsEnabled = false;
+            rbMatchUndo.IsEnabled = false;
+            rbStatistikMatchAverage.IsEnabled = false;
+                
+
             FormSpielerAuswahl formSpielerAuswahl = new FormSpielerAuswahl( _formMatch );
-            formSpielerAuswahl.ShowDialog();
+            bool?  DialogResult   =  formSpielerAuswahl.ShowDialog();
+
+            if (DialogResult == true)
+            {
+                rbMatchRedo.IsEnabled = true;
+                rbMatchUndo.IsEnabled = true;
+                rbStatistikMatchAverage.IsEnabled = true;
+
+                rbStatistikMatchAverage.Click += _formMatch.rbStatistikMatchAverage_Click;
+                rbMatchUndo.Click += _formMatch.rbMatchUndo_Click;
+                rbMatchRedo.Click += _formMatch.rbMatchRedo_Click;
+            }
         }
 
         private void Container_Navigated(object sender, System.Windows.Navigation.NavigationEventArgs e)
@@ -68,14 +82,11 @@ namespace Dart
                 ribboncontextMatch.Visibility = Visibility.Hidden;
         }
 
-        private void FormMain_Activated(object sender, EventArgs e)
-        {
-
-        }
 
         private void ribbonMenuClose_Click(object sender, RoutedEventArgs e)
         {
             Close();
         }
+
     }
 }

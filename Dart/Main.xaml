@@ -4,7 +4,7 @@
     xmlns:ribbon="clr-namespace:Microsoft.Windows.Controls.Ribbon;assembly=RibbonControlsLibrary"
     Title="Schützenverein Wiemtarschen"
 	x:Name="FormMain"
-	Width="851.618" Height="550.539" WindowStartupLocation="CenterScreen" WindowState="Maximized" Activated="FormMain_Activated">
+	Width="851.618" Height="550.539" WindowStartupLocation="CenterScreen" WindowState="Maximized" >
 
     <DockPanel x:Name="LayoutRoot">
 
@@ -18,11 +18,6 @@
             </ribbon:Ribbon.ApplicationMenu>
 
 
-
-
-
-
-
             <ribbon:RibbonTab Header="Haupt"  >
                 <ribbon:RibbonGroup Header="Allgemein" Height="88" >
                     <ribbon:RibbonButton x:Name="rbMatch" Label="Spiel" Click="rbMatch_Click" LargeImageSource="Bilder\Match.png" VerticalAlignment="Center" HorizontalAlignment="Center" Width="66"  />
@@ -34,8 +29,11 @@
                     <ribbon:RibbonButton x:Name="rbMatchNewGame" Label="Neues Spiel" LargeImageSource="Bilder\NewGame.png" Click="rbMatchNewGame_Click" />
                 </ribbon:RibbonGroup>
                 <ribbon:RibbonGroup Header="Bearbeiten" Height="88" Margin="0" VerticalAlignment="Top">
-                    <ribbon:RibbonButton x:Name="rbMatchUndo" Label="Rückgängig"  LargeImageSource="Bilder\Undo.png" Click="rbMatchUndo_Click"   />
-                    <ribbon:RibbonButton x:Name="rbMatchRedo" Label="Wiederholen"  LargeImageSource="Bilder\Redo.png" Click="rbMatchRedo_Click"   />
+                    <ribbon:RibbonButton x:Name="rbMatchUndo" Label="Rückgängig"  LargeImageSource="Bilder\Undo.png"    />
+                    <ribbon:RibbonButton x:Name="rbMatchRedo" Label="Wiederholen"  LargeImageSource="Bilder\Redo.png"  />
+                </ribbon:RibbonGroup>
+                <ribbon:RibbonGroup Header="Statistik" Height="88" >
+                    <ribbon:RibbonButton x:Name="rbStatistikMatchAverage" Label="Average"  LargeImageSource="Bilder\statistic.png"   />
                 </ribbon:RibbonGroup>
 
             </ribbon:RibbonTab>
