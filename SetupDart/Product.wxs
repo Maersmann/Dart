@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi"><?define Dart_TargetDir=$(var.Dart.TargetDir)?>
+	<Product Id="1c577818-b053-4b60-983e-607f723178b5" Name="Dart" Language="1033" Version="1.2" Manufacturer="Maersmann" UpgradeCode="e751f544-49f9-4991-a17e-649b3be4a853">
+		<Package InstallerVersion="200" Compressed="yes" InstallScope="perMachine" />
+
+    <Icon Id="icon.ico" SourceFile="$(var.ProjectDir)icon.ico" />
+    <Property Id="ARPPRODUCTICON" Value="icon.ico" />
+    
+    <WixVariable Id="WixUIBannerBmp" Value="Image\installer_top-banner.bmp" />
+    <WixVariable Id="WixUIDialogBmp" Value="Image\installer_background.bmp" />
+    <WixVariable Id="WixUILicenseRtf" Value="$(var.ProjectDir)\license.rtf" />
+
+    <Property Id="WIXUI_INSTALLDIR" Value="INSTALLFOLDER"/>
+    <UIRef Id="WixUI_InstallDir" />
+
+    <MajorUpgrade DowngradeErrorMessage="A newer version of [ProductName] is already installed." />
+		<MediaTemplate EmbedCab="yes" />
+
+		<Feature Id="ProductFeature" Title="Dart" Level="1">
+			<ComponentGroupRef Id="ProductComponents" />
+      <ComponentRef Id="ApplicationShortcut" />
+      <ComponentRef Id="ApplicationShortcutDesktop" />
+		</Feature>
+	</Product>
+
+	<Fragment>
+		<Directory Id="TARGETDIR" Name="SourceDir">
+			<Directory Id="ProgramFilesFolder">
+         <Directory Id="INSTALLFOLDER" Name="Dart" />
+			</Directory>
+      <Directory Id="ProgramMenuFolder">
+        <Directory Id="ApplicationProgramsFolder" Name="Dart"/>
+      </Directory>
+      <Directory Id="DesktopFolder" Name="Desktop"/>
+		</Directory>
+	</Fragment>
+
+  <Fragment>
+    <DirectoryRef Id="ApplicationProgramsFolder">
+      <Component Id="ApplicationShortcut" Guid="9bd13330-6540-406f-a3a8-d7f7c69ae7f9">
+        <Shortcut Id="ApplicationStartMenuShortcut" Name="Dart" Description="Dart" Target="[INSTALLFOLDER]Dart.exe" WorkingDirectory="INSTALLFOLDER" />
+        <RemoveFolder Id="RemoveApplicationProgramsFolder" Directory="ApplicationProgramsFolder" On="uninstall" />
+        <RegistryValue Root="HKCU" Key="Software\Dart" Name="installed" Type="integer" Value="1" KeyPath="yes" />
+      </Component>
+    </DirectoryRef>
+    <DirectoryRef Id="DesktopFolder">
+      <Component Id="ApplicationShortcutDesktop" Guid="cde1e030-eb64-49a5-b7b8-400b379c2d1a">
+        <Shortcut Id="ApplicationDesktopShortcut" Name="Dart" Description="Dart" Target="[INSTALLFOLDER]Dart.exe" WorkingDirectory="INSTALLFOLDER" />
+        <RemoveFolder Id="RemoveDesktopFolder" Directory="DesktopFolder" On="uninstall" />
+        <RegistryValue Root="HKCU" Key="Software\Dart" Name="installed" Type="integer" Value="1" KeyPath="yes" />
+      </Component>
+    </DirectoryRef>
+  </Fragment>
+
+	<Fragment>
+		<ComponentGroup Id="ProductComponents" Directory="INSTALLFOLDER">
+			<!-- TODO: Remove the comments around this Component element and the ComponentRef below in order to add resources to this installer. -->
+			<!-- <Component Id="ProductComponent"> -->
+				<!-- TODO: Insert files, registry keys, and other resources here. -->
+			<!-- </Component> -->
+			<Component Id="Microsoft.Windows.Shell.dll" Guid="baeebd9b-e0c0-44d0-8537-c99f865adbd0">
+			  <File Id="Microsoft.Windows.Shell.dll" Name="Microsoft.Windows.Shell.dll" Source="$(var.Dart_TargetDir)Microsoft.Windows.Shell.dll" />
+			</Component>
+			<Component Id="RibbonControlsLibrary.dll" Guid="a5ad82ff-238c-4b2d-9ef5-ecdc1d5cdee1">
+			  <File Id="RibbonControlsLibrary.dll" Name="RibbonControlsLibrary.dll" Source="$(var.Dart_TargetDir)RibbonControlsLibrary.dll" />
+			</Component>
+			<Component Id="Dart.exe" Guid="0e147c3a-1f93-4e7f-8ed8-4ba7e172fbd8">
+			  <File Id="Dart.exe" Name="Dart.exe" Source="$(var.Dart_TargetDir)Dart.exe" />
+			</Component>
+			<Component Id="Dart.exe.config" Guid="248c2c85-ec96-4e09-a8de-52b6cde6bc69">
+			  <File Id="Dart.exe.config" Name="Dart.exe.config" Source="$(var.Dart_TargetDir)Dart.exe.config" />
+			</Component>
+		</ComponentGroup>
+	</Fragment>
+</Wix>
