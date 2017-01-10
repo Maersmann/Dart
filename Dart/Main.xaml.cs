@@ -11,7 +11,6 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Dart.Match.Forms;
-using Dart.Statistiken.Match.Forms;
 using Microsoft.Windows.Controls.Ribbon;
 
 namespace Dart
@@ -39,7 +38,7 @@ namespace Dart
         {
             if (_formMatch == null)
             {
-                _formMatch = new FormMatch();
+                _formMatch = new FormMatch( this );
                 rbMatchRedo.IsEnabled = false;
                 rbMatchUndo.IsEnabled = false;
                 rbStatistikMatchAverage.IsEnabled = false;
@@ -61,8 +60,6 @@ namespace Dart
 
             if (DialogResult == true)
             {
-                rbMatchRedo.IsEnabled = true;
-                rbMatchUndo.IsEnabled = true;
                 rbStatistikMatchAverage.IsEnabled = true;
 
                 rbStatistikMatchAverage.Click += _formMatch.rbStatistikMatchAverage_Click;

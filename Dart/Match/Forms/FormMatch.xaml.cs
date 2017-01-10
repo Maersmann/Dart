@@ -14,7 +14,7 @@ using System.Windows.Shapes;
 using Dart.Utils;
 using Dart.Finish;
 using Dart.Memento;
-using Dart.Statistiken.Match.Forms;
+//using Dart.Statistiken.Match.Forms;
 
 namespace Dart.Match.Forms
 {
@@ -41,12 +41,14 @@ namespace Dart.Match.Forms
         MatchCaretaker _MatchCareTaker;
         TextBox _TextBoxFocus;
         FinishWeg _Finish;
+        Main _Main;
 
 
-        public FormMatch()
+        public FormMatch(Main pMain)
         {
             InitializeComponent();
             ClearView();
+            _Main = pMain;
         }
 
         public void NewGame(MatchModel pMatchModel, MatchController pMatchController)
@@ -164,8 +166,8 @@ namespace Dart.Match.Forms
 
             lblPunktzahl.Foreground = Brushes.Black;
 
-            //menuRueckgaengig.IsEnabled = (_MatchCareTaker.canUndo());
-            //menuWiederholen.IsEnabled = (_MatchCareTaker.CanRedo());            
+            _Main.rbMatchUndo.IsEnabled = (_MatchCareTaker.canUndo());
+            _Main.rbMatchRedo.IsEnabled = (_MatchCareTaker.CanRedo());            
 
             if (_MatchController.isFinishBereich())
             {
