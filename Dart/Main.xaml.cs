@@ -22,8 +22,7 @@ namespace Dart
     {
 
         private FormMatch _formMatch;
-        private StartBildschirm _startBildschirm;
-        
+        private StartBildschirm _startBildschirm; 
 
         public Main()
         {
@@ -50,10 +49,6 @@ namespace Dart
 
         private void rbMatchNewGame_Click(object sender, RoutedEventArgs e)
         {
-            rbMatchRedo.IsEnabled = false;
-            rbMatchUndo.IsEnabled = false;
-            rbStatistikMatchAverage.IsEnabled = false;
-                
 
             FormSpielerAuswahl formSpielerAuswahl = new FormSpielerAuswahl( _formMatch );
             bool?  DialogResult   =  formSpielerAuswahl.ShowDialog();
@@ -66,6 +61,7 @@ namespace Dart
                 rbMatchUndo.Click += _formMatch.rbMatchUndo_Click;
                 rbMatchRedo.Click += _formMatch.rbMatchRedo_Click;
             }
+                
         }
 
         private void Container_Navigated(object sender, System.Windows.Navigation.NavigationEventArgs e)

@@ -296,6 +296,11 @@ namespace Dart.Match
             return _AktuellenSpieler.Speicher;
         }
 
+        public List<Spieler> getSpielerList()
+        {
+            return _SpielerListe;
+        }
+
         public void setGewonnenLegs(int pLeg)
         {
             _AktuellenSpieler.Gewonnen.Leg = pLeg;

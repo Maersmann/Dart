@@ -14,7 +14,7 @@ using System.Windows.Shapes;
 using Dart.Utils;
 using Dart.Finish;
 using Dart.Memento;
-//using Dart.Statistiken.Match.Forms;
+using Dart.Statistiken.Match.Forms;
 
 namespace Dart.Match.Forms
 {
@@ -422,14 +422,12 @@ namespace Dart.Match.Forms
 
         public void rbStatistikMatchAverage_Click(object sender, RoutedEventArgs e)
         {
-            //FormStatistikMatchAverage formStatistik = new FormStatistikMatchAverage(_MatchModel);
-            //formStatistik.ShowDialog();
+            FormStatistikMatchAverage formStatistik = new FormStatistikMatchAverage(_MatchModel);
+            formStatistik.ShowDialog();
         }
 
         public void rbMatchUndo_Click(object sender, RoutedEventArgs e)
         {
-            if (_MatchCareTaker == null) return;
-
             if (_MatchCareTaker.canUndo())
             {
                 _MatchModel = _MatchCareTaker.Undo(_MatchModel.getMemento()).getMatchModel();
@@ -441,9 +439,6 @@ namespace Dart.Match.Forms
 
         public void rbMatchRedo_Click(object sender, RoutedEventArgs e)
         {
-            if (_MatchCareTaker == null) return;
-
-
             if (_MatchCareTaker.CanRedo())
             {
                 _MatchModel = _MatchCareTaker.Redo(_MatchModel.getMemento()).getMatchModel();

@@ -130,6 +130,9 @@
     <Compile Include="StartBildschirm.xaml.cs">
       <DependentUpon>StartBildschirm.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Statistiken\Match\Forms\FormStatistikMatchAverage.xaml.cs">
+      <DependentUpon>FormStatistikMatchAverage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Utils\Kontrolle.cs" />
     <Compile Include="Match\MatchController.cs" />
     <Compile Include="Match\MatchModel.cs" />
@@ -162,6 +165,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="StartBildschirm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Statistiken\Match\Forms\FormStatistikMatchAverage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -228,6 +235,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Bilder\Close.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Bilder\statistic.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
