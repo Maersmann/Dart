@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Dart.Match;
 using Dart.SpielerObjekte;
+using Dart.Match.Matchobjekte;
 
 namespace Dart.Statistiken.Match.Forms
 {
@@ -35,42 +36,32 @@ namespace Dart.Statistiken.Match.Forms
 
 
 
-            foreach (Spieler spieler in _matchmodel.getSpielerList()) 
+            foreach (MatchSpieler spieler in _matchmodel.getSpielerList()) 
             {
-                listBoxSpielerList.Items.Add( spieler.GetName() );
+                listBoxSpielerList.Items.Add( spieler.Spieler.GetName() );
                 ChangeAnsicht(spieler);
             }
 
         }
 
-        public void ChangeAnsicht(Spieler pSpieler)
+        public void ChangeAnsicht(MatchSpieler pSpieler)
         {
             listSpieler.Clear();
 
-            int AktuellesSet = 1;
-            foreach (List<AktuellesLeg> LegAverage in pSpieler.Speicher.ListLegAverage)
+
+            foreach (Set Set in pSpieler.Sets)
             {
-               // TextInhalt += "\r\n---------- Set " + AktuellesSet + " -----------\r\n\r\n";
+                SpielerDataAver SpielerData = new SpielerDataAver();
+                SpielerData.Set = Set.Nummer;
 
-
-
-                //TextInhalt += "------Average Set:" + spieler.Speicher.ListSetAverage[AktuellesSet - 1].Average + " ------\r\n\r\n";
-                int AktuellesLeg = 1;
-                foreach (AktuellesLeg Average in LegAverage)
+                foreach (Leg Average in Set.Legs)
                 {
-                    SpielerDataAver SpielerData = new SpielerDataAver();
-                    SpielerData.Set = AktuellesSet;
-                    SpielerData.Leg = AktuellesLeg.ToString();
+                    SpielerData.Leg = Average.Nummer.ToString();
                     SpielerData.Average = Average.Average;
-               
-                   // TextInhalt += "Leg: " + Convert.ToString(AktuellesLeg) + "| Average: " + Convert.ToString(Average.Average) + "     \t Würfe: " + Convert.ToString(Average.Wuerfe) + "  Rest: " + Convert.ToString(501 - Average.Punktzahl) + "\r\n";
-                    AktuellesLeg++;
-
                     listSpieler.Add(SpielerData);
                 }
-                AktuellesSet++;
-
             }
+
 
             dataGrid.ItemsSource = listSpieler;
 

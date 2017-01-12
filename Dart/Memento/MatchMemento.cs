@@ -1,4 +1,5 @@
 ﻿using Dart.Match;
+using Dart.Match.Matchobjekte;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,20 +10,18 @@ namespace Dart.Memento
 {
     public class MatchMemento
     {
-        private List<Spieler> _SpielerListe;
-        private Spieler _AktuellenSpieler;
+        private MatchObjekt _Match;
         private int _AnzahlSpieler;
         private int _AktuellerSpielerPos;
 
         private int _SpielerLegBegonnen;
         private int _SpielerSetBegonnen;
 
-        public MatchMemento(List<Spieler> pSpielerListe, Spieler pAktuellenSpieler, int pAnzahlSpieler, int pAktuellerSpielerPos, int pSpielerLegBegonnen, int pSpielerSetBegonnen)
+        public MatchMemento(MatchObjekt pMatch, int pAnzahlSpieler, int pAktuellerSpielerPos, int pSpielerLegBegonnen, int pSpielerSetBegonnen)
         {
-            _SpielerListe = pSpielerListe;
+            _Match = pMatch;
             _AnzahlSpieler = pAnzahlSpieler;
 
-            _AktuellenSpieler = pAktuellenSpieler;
             _AktuellerSpielerPos = pAktuellerSpielerPos;
             _SpielerLegBegonnen = pSpielerLegBegonnen;
             _SpielerSetBegonnen = pSpielerSetBegonnen;
@@ -31,7 +30,7 @@ namespace Dart.Memento
 
         public MatchModel getMatchModel()
         {
-            return new MatchModel(_SpielerListe, _AktuellenSpieler , _AnzahlSpieler, _AktuellerSpielerPos , _SpielerLegBegonnen, _SpielerSetBegonnen);
+            return new MatchModel(_Match , _AnzahlSpieler, _AktuellerSpielerPos , _SpielerLegBegonnen, _SpielerSetBegonnen);
         }
     }
 }

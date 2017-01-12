@@ -1,5 +1,4 @@
-﻿using Dart.MatchObjekte;
-using Dart.MatchUtils;
+﻿using Dart.MatchUtils;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,13 +11,11 @@ namespace Dart.Match
     public class MatchController
     {
         public MatchModel _Matchmodel { private get; set; }
-        MatchObjekt _Match;
         public Boolean SpielBeendet { get; set; }
 
-        public MatchController(MatchModel pMatchModel, MatchObjekt pMatch )
+        public MatchController(MatchModel pMatchModel )
         {
             _Matchmodel = pMatchModel;
-            _Match = pMatch;
             SpielBeendet = false;
         }
 
@@ -159,21 +156,19 @@ namespace Dart.Match
 
             CheckLegLength();
 
-            _Matchmodel.LegSpeichern();
-            _Matchmodel.LegZurueckSetzen();
+            _Matchmodel.LegBeendet();
             _Matchmodel.PunktzahlZurueckSetzen();
 
-            if (_Matchmodel.getGewonnenLegs()  == _Match.LegZumSet)
+            if (_Matchmodel.getGewonnenLegs()  == _Matchmodel.getLegZumSet())
             {
                 _Matchmodel.setGewonnenSet(_Matchmodel.getGewonnenSet() + 1);
 
-                _Matchmodel.SetSpeichern();
-                _Matchmodel.SetZurueckSetzen();
+                _Matchmodel.SetBeendet();
                 
-                if (_Matchmodel.getGewonnenSet() == _Match.SetZumSieg)
+                if (_Matchmodel.getGewonnenSet() == _Matchmodel.getSetZumSieg())
                 {
                     MessageBox.Show(_Matchmodel.getName() + " hat das Spiel gewonnen");
-                    _Matchmodel.SpeichereSpiel(_Match);
+                    _Matchmodel.SpeichereSpiel();
                     SpielBeendet = true;
                     
                 }

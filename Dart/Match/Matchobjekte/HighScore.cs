@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Dart.SpielerObjekte
+namespace Dart.Match.Matchobjekte
 {
     public class HighScore
     {

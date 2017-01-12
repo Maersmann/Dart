@@ -41,28 +41,18 @@ namespace Dart
                 rbMatchRedo.IsEnabled = false;
                 rbMatchUndo.IsEnabled = false;
                 rbStatistikMatchAverage.IsEnabled = false;
-            }
-
-            Container.NavigationService.Navigate(_formMatch);
-        }
-
-
-        private void rbMatchNewGame_Click(object sender, RoutedEventArgs e)
-        {
-
-            FormSpielerAuswahl formSpielerAuswahl = new FormSpielerAuswahl( _formMatch );
-            bool?  DialogResult   =  formSpielerAuswahl.ShowDialog();
-
-            if (DialogResult == true)
-            {
-                rbStatistikMatchAverage.IsEnabled = true;
-
+                rbMatchNewGame.Click += _formMatch.rbMatchNewGame_Click;
                 rbStatistikMatchAverage.Click += _formMatch.rbStatistikMatchAverage_Click;
                 rbMatchUndo.Click += _formMatch.rbMatchUndo_Click;
                 rbMatchRedo.Click += _formMatch.rbMatchRedo_Click;
             }
-                
+
+            
+            Container.NavigationService.Navigate(_formMatch);
         }
+
+
+
 
         private void Container_Navigated(object sender, System.Windows.Navigation.NavigationEventArgs e)
         {

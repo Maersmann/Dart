@@ -1,18 +1,18 @@
-﻿using Dart.MatchObjekte;
-using Dart.Memento;
-using Dart.SpielerObjekte;
+﻿using Dart.Memento;
 using Dart.Utils;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Dart.Match.Matchobjekte;
 
 namespace Dart.Match
 {
     public class MatchModel
     {
-        private List<Spieler> _SpielerListe;
-        private Spieler _AktuellenSpieler;
+        MatchObjekt _Match;
+
+        private MatchSpieler _AktuellenSpieler;
         private int _AnzahlSpieler;
         private int _AktuellerSpielerPos;
 
@@ -20,23 +20,24 @@ namespace Dart.Match
         private int _SpielerSetBegonnen;
 
 
-        public MatchModel(List<Spieler> pSpielerListe)
+        public MatchModel( MatchObjekt pMatch )
         {
-            _SpielerListe = pSpielerListe;
-            _AnzahlSpieler = _SpielerListe.Count;
+            _Match = pMatch;
 
-            _AktuellenSpieler = pSpielerListe.First();
+            _AnzahlSpieler = _Match.SpielerList.Count;
+
+            _AktuellenSpieler = _Match.SpielerList[0];
             _AktuellerSpielerPos = 0;
             _SpielerLegBegonnen = _AktuellerSpielerPos;
             _SpielerSetBegonnen = _AktuellerSpielerPos;
         }
 
-        public MatchModel(List<Spieler> pSpielerListe, Spieler pAktuellenSpieler, int pAnzahlSpieler, int pAktuellerSpielerPos, int pSpielerLegBegonnen, int pSpielerSetBegonnen)
+        public MatchModel( MatchObjekt pMatch , int pAnzahlSpieler, int pAktuellerSpielerPos, int pSpielerLegBegonnen, int pSpielerSetBegonnen)
         {
-            _SpielerListe = pSpielerListe;
+            _Match = pMatch;
             _AnzahlSpieler = pAnzahlSpieler;
 
-            _AktuellenSpieler = pAktuellenSpieler;
+            _AktuellenSpieler = _Match.SpielerList[pAktuellerSpielerPos];
             _AktuellerSpielerPos = pAktuellerSpielerPos;
             _SpielerLegBegonnen = pSpielerLegBegonnen;
             _SpielerSetBegonnen = pSpielerSetBegonnen;
@@ -45,7 +46,7 @@ namespace Dart.Match
 
         public void NaechsterSpieler()
         {
-            _SpielerListe[_AktuellerSpielerPos] = _AktuellenSpieler;
+            _Match.SpielerList[_AktuellerSpielerPos] = _AktuellenSpieler;
             if (_AktuellerSpielerPos < _AnzahlSpieler-1)
             {    
                 _AktuellerSpielerPos++; 
@@ -54,64 +55,48 @@ namespace Dart.Match
             {
                 _AktuellerSpielerPos = 0;
             }
-            _AktuellenSpieler = _SpielerListe[_AktuellerSpielerPos];
+            _AktuellenSpieler = _Match.SpielerList[_AktuellerSpielerPos];
         }
 
         public MatchMemento getMemento()
         {
-            // return new MatchMemento(_SpielerListe,_AktuellenSpieler,3,1,5,8);
-
-            List<Spieler> temp = new List<Spieler>();
-
-            foreach (Spieler spieler in _SpielerListe)
-            {
-                temp.Add(spieler.getSpielerMemento());
-            }
-            Spieler SpielerMemento = temp[_AktuellerSpielerPos];
-
-            return new MatchMemento( temp, SpielerMemento, _AnzahlSpieler, _AktuellerSpielerPos ,_SpielerLegBegonnen ,_SpielerSetBegonnen );
+            MatchObjekt matchMemento = _Match.getMatchMemento();
+          
+            return new MatchMemento(matchMemento, _AnzahlSpieler, _AktuellerSpielerPos ,_SpielerLegBegonnen ,_SpielerSetBegonnen );
         }
 
-        public void LegZurueckSetzen()
-        {
-            foreach (Spieler spieler in _SpielerListe)
-            {
-                spieler.AktuellesLeg = new AktuellesLeg();
-            }
-        }
-
-        public void SetZurueckSetzen()
-        {
-            foreach (Spieler spieler in _SpielerListe)
-            {
-                spieler.Gewonnen.Leg = 0;
-                spieler.AktuellesSet = new AktuellesSet();
-            }
-        }
 
         public void PunktzahlZurueckSetzen()
         {
-            foreach (Spieler spieler in _SpielerListe)
+            foreach (MatchSpieler spieler in _Match.SpielerList)
             {
-                spieler.AktuellePunktZahl = 501;
+                spieler.AktuellePunktZahl = _Match.PunktZahlzumLeg;
             }
         }
 
-        public void LegSpeichern()
+        public void LegBeendet()
         {
-            foreach (Spieler spieler in _SpielerListe)
+            foreach (MatchSpieler spieler in _Match.SpielerList)
             {
-                spieler.Speicher.ListLegAktuell.Add(spieler.AktuellesLeg);
+
+                int LetzteLegNummer = spieler.AktuellesLeg.Nummer;
+                spieler.AktuellesSet.Legs.Add(spieler.AktuellesLeg);
+                spieler.AktuellesLeg = new Leg();
+                spieler.AktuellesLeg.Nummer = (LetzteLegNummer+1);
             }
         }
 
-        public void SetSpeichern()
+        public void SetBeendet()
         {
-            foreach (Spieler spieler in _SpielerListe)
-            {   
-                spieler.Speicher.ListLegAverage.Add(spieler.Speicher.ListLegAktuell);
-                spieler.Speicher.ListSetAverage.Add(spieler.AktuellesSet);
-                spieler.Speicher.ListLegAktuell = new List<AktuellesLeg>();
+            foreach (MatchSpieler spieler in _Match.SpielerList)
+            {
+                int LetzteSetNummer = spieler.AktuellesSet.Nummer;
+                spieler.Sets.Add(spieler.AktuellesSet);
+                spieler.AktuellesSet = new Set();
+                spieler.AktuellesLeg.Nummer = 1;
+                spieler.AktuellesSet.Nummer = (LetzteSetNummer+1);
+
+                spieler.AnzahlLegGewonnen = 0;
             }
         }
 
@@ -126,7 +111,7 @@ namespace Dart.Match
                 _SpielerLegBegonnen = 0;
             }
             _AktuellerSpielerPos = _SpielerLegBegonnen;
-            _AktuellenSpieler = _SpielerListe[_AktuellerSpielerPos];
+            _AktuellenSpieler = _Match.SpielerList[_AktuellerSpielerPos];
         }
 
         public void SetSpielerNachSet()
@@ -141,13 +126,13 @@ namespace Dart.Match
             }  
             _SpielerLegBegonnen = _SpielerSetBegonnen;
             _AktuellerSpielerPos = _SpielerSetBegonnen;
-            _AktuellenSpieler = _SpielerListe[_AktuellerSpielerPos];
+            _AktuellenSpieler = _Match.SpielerList[_AktuellerSpielerPos];
         }
 
-        public void SpeichereSpiel(MatchObjekt pMatch)
+        public void SpeichereSpiel()
         {
-            SaveGame save = new SaveGame(pMatch);
-            foreach (Spieler spieler in _SpielerListe)
+            SaveGame save = new SaveGame(_Match);
+            foreach (MatchSpieler spieler in _Match.SpielerList)
             {
                 save.NeuerSpieler(spieler);
             }
@@ -158,42 +143,42 @@ namespace Dart.Match
         #region Getter/Setter
         public String getName()
         {
-            return _AktuellenSpieler.GetName();
+            return _AktuellenSpieler.Spieler.GetName();
         }
 
         public int getGewonnenLegs()
         {
-            return _AktuellenSpieler.Gewonnen.Leg;
+            return _AktuellenSpieler.AnzahlLegGewonnen;
         }   
 
         public int getGewonnenSet()
         {
-            return _AktuellenSpieler.Gewonnen.Set;
+            return _AktuellenSpieler.AnzahlSetGewonnen;
         }
 
         public int getAnzahlSechzig()
         {
-            return _AktuellenSpieler.Anzahl.Sechzig;
+            return _AktuellenSpieler.Statistiken.Sechzig;
         }
 
         public int getAnzahlHundert()
         {
-            return _AktuellenSpieler.Anzahl.Hundert;
+            return _AktuellenSpieler.Statistiken.Hundert;
         }
 
         public int getAnzahlHundertVierzig()
         {
-            return _AktuellenSpieler.Anzahl.HundertVierzig;
+            return _AktuellenSpieler.Statistiken.HundertVierzig;
         }
 
         public int getAnzahlHundertAchzig()
         {
-            return _AktuellenSpieler.Anzahl.HundertAchzig;
+            return _AktuellenSpieler.Statistiken.HundertAchzig;
         }
 
         public Double getAverageSpiel()
         {
-            return _AktuellenSpieler.GesamtSpiel.Average;
+            return _AktuellenSpieler.AverageMatch;
         }
 
         public Double getAverageLeg()
@@ -228,12 +213,12 @@ namespace Dart.Match
 
         public Double getGeamtWuerfe()
         {
-            return _AktuellenSpieler.GesamtSpiel.Wuerfe;
+            return _AktuellenSpieler.WuerfeMatch;
         }
 
         public Double getGesamtPunktzahl()
         {
-            return _AktuellenSpieler.GesamtSpiel.PunktZahl;
+            return _AktuellenSpieler.PunktzahlMatch;
         }
 
         public int getPunktestand()
@@ -263,77 +248,83 @@ namespace Dart.Match
 
         public int getAnzahlHundertSiebzig()
         {
-            return _AktuellenSpieler.Anzahl.HundertSiebzig;
+            return _AktuellenSpieler.Statistiken.HundertSiebzig;
         }
 
         public void setAnzahlHundertSiebzig(int pHundertSiebzig)
         {
-            _AktuellenSpieler.Anzahl.HundertSiebzig = pHundertSiebzig;
+            _AktuellenSpieler.Statistiken.HundertSiebzig = pHundertSiebzig;
         }
 
         public void setShortestLeg(double pShortestLeg)
         {
-            _AktuellenSpieler.Gewonnen.ShortesLeg = pShortestLeg;
+            _AktuellenSpieler.Statistiken.ShortesLeg = pShortestLeg;
         }
 
         public void setLongestLeg(double pLongestLeg)
         {
-            _AktuellenSpieler.Gewonnen.LongestLeg = pLongestLeg;
+            _AktuellenSpieler.Statistiken.LongestLeg = pLongestLeg;
         }
 
         public double getShortestLeg()
         {
-            return _AktuellenSpieler.Gewonnen.ShortesLeg;
+            return _AktuellenSpieler.Statistiken.ShortesLeg;
         }
 
         public double getLongestLeg()
         {
-            return _AktuellenSpieler.Gewonnen.LongestLeg;
+            return _AktuellenSpieler.Statistiken.LongestLeg;
         }
 
-        public Speicher getSpeicher()
+
+        public List<MatchSpieler> getSpielerList()
         {
-            return _AktuellenSpieler.Speicher;
+            return _Match.SpielerList;
         }
 
-        public List<Spieler> getSpielerList()
+        public int getLegZumSet()
         {
-            return _SpielerListe;
+            return _Match.LegZumSet;
+        }
+
+        public int getSetZumSieg()
+        {
+            return _Match.SetZumSieg;
         }
 
         public void setGewonnenLegs(int pLeg)
         {
-            _AktuellenSpieler.Gewonnen.Leg = pLeg;
+            _AktuellenSpieler.AnzahlLegGewonnen = pLeg;
         }
 
         public void setGewonnenSet(int pSet)
         {
-            _AktuellenSpieler.Gewonnen.Set = pSet;
+            _AktuellenSpieler.AnzahlSetGewonnen = pSet;
         }
 
         public void setAnzahlSechzig(int pAnzahlSechzig)
         {
-            _AktuellenSpieler.Anzahl.Sechzig = pAnzahlSechzig;
+            _AktuellenSpieler.Statistiken.Sechzig = pAnzahlSechzig;
         }
 
         public void setAnzahlHundert(int pAnzahlHundert)
         {
-            _AktuellenSpieler.Anzahl.Hundert = pAnzahlHundert;
+            _AktuellenSpieler.Statistiken.Hundert = pAnzahlHundert;
         }
 
         public void setAnzahlHundertVierzig(int pAnzahlHundertVierzig)
         {
-            _AktuellenSpieler.Anzahl.HundertVierzig = pAnzahlHundertVierzig;
+            _AktuellenSpieler.Statistiken.HundertVierzig = pAnzahlHundertVierzig;
         }
 
         public void setAnzahlHundertAchzig(int pAnzahlHundertAchzig)
         {
-            _AktuellenSpieler.Anzahl.HundertAchzig = pAnzahlHundertAchzig;
+            _AktuellenSpieler.Statistiken.HundertAchzig = pAnzahlHundertAchzig;
         }
 
         public void setAverageSpiel(Double pAverageSpiel)
         {
-            _AktuellenSpieler.GesamtSpiel.Average = pAverageSpiel;
+            _AktuellenSpieler.AverageMatch = pAverageSpiel;
         }
 
         public void setAverageLeg(Double pAverageLeg)
@@ -368,12 +359,12 @@ namespace Dart.Match
 
         public void setGesamtWuerfe(Double pWuerfe)
         {
-            _AktuellenSpieler.GesamtSpiel.Wuerfe = pWuerfe;
+            _AktuellenSpieler.WuerfeMatch = pWuerfe;
         }
 
         public void setGesamtPunktzahl(Double pPunktzahl)
         {
-            _AktuellenSpieler.GesamtSpiel.PunktZahl = pPunktzahl;
+            _AktuellenSpieler.PunktzahlMatch = pPunktzahl;
         }
 
         public void setPunkteStand(int punktestand)

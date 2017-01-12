@@ -8,7 +8,7 @@
 
     <DockPanel x:Name="LayoutRoot">
 
-        <ribbon:Ribbon x:Name="Ribbon" DockPanel.Dock="Top" VerticalAlignment="Top" >
+        <ribbon:Ribbon x:Name="Ribbon" DockPanel.Dock="Top" VerticalAlignment="Top"  >
 
             <ribbon:Ribbon.ApplicationMenu>
                 <ribbon:RibbonApplicationMenu >
@@ -26,7 +26,7 @@
 
             <ribbon:RibbonTab x:Name="ribbonMatch" Header="Match" ContextualTabGroupHeader="" >
                 <ribbon:RibbonGroup Header="Allgemein" Height="88" Margin="0" VerticalAlignment="Top">
-                    <ribbon:RibbonButton x:Name="rbMatchNewGame" Label="Neues Spiel" LargeImageSource="Bilder\NewGame.png" Click="rbMatchNewGame_Click" />
+                    <ribbon:RibbonButton x:Name="rbMatchNewGame" Label="Neues Spiel" LargeImageSource="Bilder\NewGame.png" />
                 </ribbon:RibbonGroup>
                 <ribbon:RibbonGroup Header="Bearbeiten" Height="88" Margin="0" VerticalAlignment="Top">
                     <ribbon:RibbonButton x:Name="rbMatchUndo" Label="Rückgängig"  LargeImageSource="Bilder\Undo.png"    />
@@ -45,7 +45,7 @@
 
 
         </ribbon:Ribbon>
-        <Frame x:Name="Container"  DockPanel.Dock="Bottom" NavigationUIVisibility="Hidden" Navigated="Container_Navigated"/>
+        <Frame x:Name="Container"  DockPanel.Dock="Bottom" NavigationUIVisibility="Hidden" Navigated="Container_Navigated" IsTabStop="True"/>
 
 
 

@@ -129,10 +129,9 @@ namespace Dart.Match.Forms
 
         private void Naechster()
         {
-            _MatchCareTaker.AddMemento(_MatchModel.getMemento());
-
             if (new Kontrolle().Check(TxtWurfEins.Text, TxtWurfZwei.Text, TxtWurfDrei.Text))
             {
+                _MatchCareTaker.AddMemento(_MatchModel.getMemento());
                 _MatchController.WurfBerechnen(Convert.ToInt32(TxtWurfEins.Text), Convert.ToInt32(TxtWurfZwei.Text), Convert.ToInt32(TxtWurfDrei.Text));
             }
             else
@@ -143,6 +142,12 @@ namespace Dart.Match.Forms
             if (_MatchController.SpielBeendet)
             {
                 ClearView();
+
+                _Main.rbMatchRedo.IsEnabled = false;
+                _Main.rbMatchUndo.IsEnabled = false;
+                _Main.rbStatistikMatchAverage.IsEnabled = false;
+                 
+
                 _MatchModel = null;
                 _MatchController = null;
                 _MatchCareTaker = null;
@@ -442,10 +447,24 @@ namespace Dart.Match.Forms
             if (_MatchCareTaker.CanRedo())
             {
                 _MatchModel = _MatchCareTaker.Redo(_MatchModel.getMemento()).getMatchModel();
-                _MatchController._Matchmodel = _MatchModel;
+                _MatchController = new MatchController(_MatchModel);
                 ShowSpielerDaten();
                 AktualisiereView();
             }
+        }
+
+        public void rbMatchNewGame_Click(object sender, RoutedEventArgs e)
+        {
+
+            FormSpielerAuswahl formSpielerAuswahl = new FormSpielerAuswahl( this );
+            bool? DialogResult = formSpielerAuswahl.ShowDialog();
+
+            if (DialogResult == true)
+            {
+                _Main.rbStatistikMatchAverage.IsEnabled = true;
+
+            }
+
         }
     }
 }
