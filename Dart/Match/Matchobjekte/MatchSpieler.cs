@@ -64,6 +64,9 @@ namespace Dart.Match.Matchobjekte
             memento.HighScore.AnzahlScore = this.HighScore.AnzahlScore;
             memento.HighScore.FinishScore = this.HighScore.FinishScore;
             memento.HighScore.Scores = this.HighScore.Scores;
+            memento.PunktzahlMatch = this.PunktzahlMatch;
+            memento.WuerfeMatch = this.WuerfeMatch;
+            memento.AverageMatch = this.AverageMatch;
 
             foreach ( Set set in Sets )
             {
