@@ -26,9 +26,16 @@ namespace Dart.Statistiken.Match.Forms
         private MatchModel _matchmodel;
         List<SpielerDataAver> listSpieler;
 
+        public class SpielerDataAver
+        {
+            public int Set { get; set; }
+            public String Leg { get; set; }
+            public Double Average { get; set; }
+        }
+
         public FormStatistikMatchAverage(MatchModel pMatchmodel)
         {
-            listSpieler = new List<SpielerDataAver>();
+           
             
 
             InitializeComponent();
@@ -38,40 +45,70 @@ namespace Dart.Statistiken.Match.Forms
 
             foreach (MatchSpieler spieler in _matchmodel.getSpielerList()) 
             {
-                listBoxSpielerList.Items.Add( spieler.Spieler.GetName() );
-                ChangeAnsicht(spieler);
+                listBoxSpielerList.Items.Add( spieler.Spieler.GetName() );  
             }
+
+            listBoxSpielerList.SelectedIndex = 0;
 
         }
 
         public void ChangeAnsicht(MatchSpieler pSpieler)
         {
-            listSpieler.Clear();
 
+            listSpieler = new List<SpielerDataAver>();
+            listSpieler.Clear();
+            SpielerDataAver SpielerData;
 
             foreach (Set Set in pSpieler.Sets)
             {
-                SpielerDataAver SpielerData = new SpielerDataAver();
-                SpielerData.Set = Set.Nummer;
 
-                foreach (Leg Average in Set.Legs)
+
+                foreach (Leg Leg in Set.Legs)
                 {
-                    SpielerData.Leg = Average.Nummer.ToString();
-                    SpielerData.Average = Average.Average;
+                    SpielerData = new SpielerDataAver();
+                    SpielerData.Set = Set.Nummer;
+                    SpielerData.Leg = Leg.Nummer.ToString();
+                    SpielerData.Average = Leg.Average;
                     listSpieler.Add(SpielerData);
                 }
             }
 
+            Set AktSet = pSpieler.AktuellesSet;
+            foreach (Leg AktLeg in AktSet.Legs)
+            {
+                SpielerData = new SpielerDataAver();
+                SpielerData.Set = AktSet.Nummer;
+                SpielerData.Leg = AktLeg.Nummer.ToString();
+                SpielerData.Average = AktLeg.Average;
+                listSpieler.Add(SpielerData);
+            }
+
+            SpielerData = new SpielerDataAver();
+            SpielerData.Set = AktSet.Nummer;
+            SpielerData.Leg = pSpieler.AktuellesLeg.Nummer.ToString();
+            SpielerData.Average = pSpieler.AktuellesLeg.Average;
+            listSpieler.Add(SpielerData);
 
             dataGrid.ItemsSource = listSpieler;
 
         }
 
-        public class SpielerDataAver
+
+
+
+        private void listBoxSpielerList_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            public String Leg { get; set; }
-            public int Set { get; set; }
-            public Double Average { get; set; }
+            string SpielerName = listBoxSpielerList.SelectedItem.ToString();
+            foreach (MatchSpieler spieler in _matchmodel.getSpielerList())
+            {
+                if (spieler.Spieler.GetName() == SpielerName)
+                    ChangeAnsicht(spieler);
+            }
+        }
+
+        private void BtnOk_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
         }
     }
 }

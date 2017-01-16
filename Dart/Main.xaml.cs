@@ -41,8 +41,10 @@ namespace Dart
                 rbMatchRedo.IsEnabled = false;
                 rbMatchUndo.IsEnabled = false;
                 rbStatistikMatchAverage.IsEnabled = false;
+                rbStatistikMatchBestWerte.IsEnabled = false;
                 rbMatchNewGame.Click += _formMatch.rbMatchNewGame_Click;
                 rbStatistikMatchAverage.Click += _formMatch.rbStatistikMatchAverage_Click;
+                rbStatistikMatchBestWerte.Click += _formMatch.rbStatistikMatchBestWerte_Click;
                 rbMatchUndo.Click += _formMatch.rbMatchUndo_Click;
                 rbMatchRedo.Click += _formMatch.rbMatchRedo_Click;
             }

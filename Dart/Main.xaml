@@ -20,20 +20,21 @@
 
             <ribbon:RibbonTab Header="Haupt"  >
                 <ribbon:RibbonGroup Header="Allgemein" Height="88" >
-                    <ribbon:RibbonButton x:Name="rbMatch" Label="Spiel" Click="rbMatch_Click" LargeImageSource="Bilder\Match.png" VerticalAlignment="Center" HorizontalAlignment="Center" Width="66"  />
+                    <ribbon:RibbonButton x:Name="rbMatch" Label="Spiel" Click="rbMatch_Click" LargeImageSource="Bilder\Match.png" VerticalAlignment="Center" HorizontalAlignment="Center" Width="75"  />
                 </ribbon:RibbonGroup>
             </ribbon:RibbonTab>
 
             <ribbon:RibbonTab x:Name="ribbonMatch" Header="Match" ContextualTabGroupHeader="" >
-                <ribbon:RibbonGroup Header="Allgemein" Height="88" Margin="0" VerticalAlignment="Top">
-                    <ribbon:RibbonButton x:Name="rbMatchNewGame" Label="Neues Spiel" LargeImageSource="Bilder\NewGame.png" />
+                <ribbon:RibbonGroup Header="Allgemein" Height="88" Margin="0"  VerticalAlignment="Center" HorizontalAlignment="Center" >
+                    <ribbon:RibbonButton x:Name="rbMatchNewGame" Label="Neues Spiel" LargeImageSource="Bilder\NewGame.png" VerticalAlignment="Center" HorizontalAlignment="Center" Width="75" />
                 </ribbon:RibbonGroup>
                 <ribbon:RibbonGroup Header="Bearbeiten" Height="88" Margin="0" VerticalAlignment="Top">
-                    <ribbon:RibbonButton x:Name="rbMatchUndo" Label="Rückgängig"  LargeImageSource="Bilder\Undo.png"    />
-                    <ribbon:RibbonButton x:Name="rbMatchRedo" Label="Wiederholen"  LargeImageSource="Bilder\Redo.png"  />
+                    <ribbon:RibbonButton x:Name="rbMatchUndo" Label="Rückgängig"  LargeImageSource="Bilder\Undo.png"  VerticalAlignment="Center" HorizontalAlignment="Center" Width="75"   />
+                    <ribbon:RibbonButton x:Name="rbMatchRedo" Label="Wiederholen"  LargeImageSource="Bilder\Redo.png"  VerticalAlignment="Center" HorizontalAlignment="Center" Width="75" />
                 </ribbon:RibbonGroup>
                 <ribbon:RibbonGroup Header="Statistik" Height="88" >
-                    <ribbon:RibbonButton x:Name="rbStatistikMatchAverage" Label="Average"  LargeImageSource="Bilder\statistic.png"   />
+                    <ribbon:RibbonButton x:Name="rbStatistikMatchAverage" Label="Average"  LargeImageSource="Bilder\statistic.png"  VerticalAlignment="Center" HorizontalAlignment="Center" Width="75" />
+                    <ribbon:RibbonButton x:Name="rbStatistikMatchBestWerte" Label="Best Werte"  LargeImageSource="Bilder\statistic.png" VerticalAlignment="Center" HorizontalAlignment="Center" Width="75" />
                 </ribbon:RibbonGroup>
 
             </ribbon:RibbonTab>

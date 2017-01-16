@@ -146,7 +146,8 @@ namespace Dart.Match.Forms
                 _Main.rbMatchRedo.IsEnabled = false;
                 _Main.rbMatchUndo.IsEnabled = false;
                 _Main.rbStatistikMatchAverage.IsEnabled = false;
-                 
+                _Main.rbStatistikMatchBestWerte.IsEnabled = false;
+
 
                 _MatchModel = null;
                 _MatchController = null;
@@ -427,8 +428,14 @@ namespace Dart.Match.Forms
 
         public void rbStatistikMatchAverage_Click(object sender, RoutedEventArgs e)
         {
-            FormStatistikMatchAverage formStatistik = new FormStatistikMatchAverage(_MatchModel);
-            formStatistik.ShowDialog();
+            FormStatistikMatchAverage formAverage = new FormStatistikMatchAverage(_MatchModel);
+            formAverage.ShowDialog();
+        }
+
+        public void rbStatistikMatchBestWerte_Click(object sender, RoutedEventArgs e)
+        {
+            FormStatistikMatchBestWerte formBestWerte = new FormStatistikMatchBestWerte(_MatchModel);
+            formBestWerte.ShowDialog();
         }
 
         public void rbMatchUndo_Click(object sender, RoutedEventArgs e)
@@ -462,7 +469,7 @@ namespace Dart.Match.Forms
             if (DialogResult == true)
             {
                 _Main.rbStatistikMatchAverage.IsEnabled = true;
-
+                _Main.rbStatistikMatchBestWerte.IsEnabled = true;
             }
 
         }

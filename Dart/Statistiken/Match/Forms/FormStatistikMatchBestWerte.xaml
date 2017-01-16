@@ -1,0 +1,86 @@
+﻿<Window x:Class="Dart.Statistiken.Match.Forms.FormStatistikMatchBestWerte"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Dart.Statistiken.Match.Forms"
+      mc:Ignorable="d" 
+      Background="White"
+      Title="Best-Werte Match" Height="363.437" Width="586.234" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Icon="/Dart;component/1364007503_67060.ico">
+
+    <Grid>
+        <Grid.RowDefinitions>
+
+            <RowDefinition Height="150*"/>
+            <RowDefinition Height="17*"/>
+
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0" >
+            <Grid.ColumnDefinitions >
+                <ColumnDefinition Width="51*"/>
+                <ColumnDefinition Width="151*"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid Grid.Column="0" Background="BlanchedAlmond">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="35*"/>
+                    <RowDefinition Height="132*"/>
+                </Grid.RowDefinitions>
+                <ListBox x:Name="listBoxSpielerList"   Grid.Row="1" Margin="5,5,5,5" SelectionChanged="listBoxSpielerList_SelectionChanged" />
+                <Label x:Name="label" Content="Spieler Liste" HorizontalAlignment="Center" Grid.Row="0"  VerticalAlignment="Center" FontSize="18"/>
+
+            </Grid>
+
+            <Grid Grid.Column="1" >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="33*"/>
+                    <ColumnDefinition Width="33*"/>
+                    <ColumnDefinition Width="33*"/>
+                </Grid.ColumnDefinitions>
+                <Label x:Name="LblAnzahl60" Content="Anzahl 60 >=:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+                <Label x:Name="LblAnzahl100" Content="Anzahl 100 >=:" HorizontalAlignment="Left" Margin="10,36,0,0" VerticalAlignment="Top"/>
+                <Label x:Name="LblAnzahl140" Content="Anzahl 140 >=:" HorizontalAlignment="Left" Margin="10,62,0,0" VerticalAlignment="Top"/>
+                <Label x:Name="LblAnzahl170" Content="Anzahl 170 >=:" HorizontalAlignment="Left" Margin="10,88,0,0" VerticalAlignment="Top"/>
+                <Label x:Name="LblAnzahl180" Content="Anzahl 180:" HorizontalAlignment="Left" Margin="10,114,0,0" VerticalAlignment="Top"/>
+                <Label x:Name="LblShortestLeg" Content="Shortest Leg:" HorizontalAlignment="Left" Margin="10,140,0,0" VerticalAlignment="Top"/>
+                <Label x:Name="LblLongestLeg" Content="Longest Leg:" HorizontalAlignment="Left" Margin="10,166,0,0" VerticalAlignment="Top"/>
+                <Label x:Name="LblAnzahl60Text" Content="888" HorizontalAlignment="Left" Margin="94,10,0,0" VerticalAlignment="Top" Width="36"/>
+                <Label x:Name="LblAnzahl100Text" Content="888" HorizontalAlignment="Left" Margin="100,36,0,0" VerticalAlignment="Top" Width="36"/>
+                <Label x:Name="LblAnzahl140Text" Content="888" HorizontalAlignment="Left" Margin="100,62,0,0" VerticalAlignment="Top" Width="36"/>
+                <Label x:Name="LblAnzahl170Text" Content="888" HorizontalAlignment="Left" Margin="100,90,0,0" VerticalAlignment="Top" Width="36"/>
+                <Label x:Name="LblAnzahl180Text" Content="888" HorizontalAlignment="Left" Margin="81,114,0,0" VerticalAlignment="Top" Width="36"/>
+                <Label x:Name="LblShortestLegText" Content="888" HorizontalAlignment="Left" Margin="89,140,0,0" VerticalAlignment="Top" Width="36"/>
+                <Label x:Name="LblLongestLegText" Content="888" HorizontalAlignment="Left" Margin="87,166,0,0" VerticalAlignment="Top" Width="36"/>
+
+
+                <Grid Grid.Column="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="35*"/>
+                        <RowDefinition Height="132*"/>
+                    </Grid.RowDefinitions>
+                    <Label x:Name="LblWurf" Content="Beste würfe" HorizontalAlignment="Center" Grid.Row="0"  VerticalAlignment="Center" FontSize="16"/>
+
+                    <DataGrid x:Name="dgHighWurf"  Grid.Row="1" ColumnWidth="58" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" IsReadOnly="True" Height="216" Width="124"/>
+
+                </Grid>
+                <Grid Grid.Column="2">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="35*"/>
+                        <RowDefinition Height="132*"/>
+                    </Grid.RowDefinitions>
+                    <Label x:Name="LblFinish" Content="Beste Finish" HorizontalAlignment="Center" Grid.Row="0"  VerticalAlignment="Center"  FontSize="16"/>
+
+                    <DataGrid x:Name="dgFinish"  Grid.Row="1"  HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" ColumnWidth="58" IsReadOnly="True" Height="216" Width="124"/>
+
+                </Grid>
+
+
+            </Grid>
+        </Grid>
+        <Grid Grid.Row="1" Background="BlanchedAlmond">
+            <Button x:Name="BtnOk" Content="OK"  Margin="0,10,0,2" VerticalAlignment="Center" HorizontalAlignment="Right" Width="75" Click="BtnOk_Click" Height="22"/>
+        </Grid>
+
+
+    </Grid>
+</Window>
