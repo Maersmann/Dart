@@ -71,7 +71,7 @@ namespace Dart.Match.Forms
             MatchObjekt match = new MatchObjekt();
             match.LegZumSet = Convert.ToInt32(txtAnzahlLeg.Text);
             match.SetZumSieg = Convert.ToInt32(TxtAnzahlSet.Text);
-            match.PunktZahlzumLeg = 150;
+            match.PunktZahlzumLeg = 501;
 
             foreach (String Name in lstBoxSpieler.Items)
             {
