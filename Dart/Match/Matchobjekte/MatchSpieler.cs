@@ -12,7 +12,7 @@ namespace Dart.Match.Matchobjekte
         public Spieler Spieler { get;  }
         public List<Set> Sets { get; set; }
         public int AktuellePunktZahl { get; set; }
-        public HighScore HighScore { get; }
+        public HighScore HighScore { get; set; }
         public Statistiken Statistiken;
         public int AnzahlLegGewonnen { set; get; }
         public int AnzahlSetGewonnen { set; get; }
@@ -60,10 +60,7 @@ namespace Dart.Match.Matchobjekte
             memento.Statistiken.Sechzig = this.Statistiken.Sechzig;
             memento.Statistiken.LongestLeg = this.Statistiken.LongestLeg;
             memento.Statistiken.ShortesLeg = this.Statistiken.ShortesLeg;
-            memento.HighScore.AnzahlFinish = this.HighScore.AnzahlFinish;
-            memento.HighScore.AnzahlScore = this.HighScore.AnzahlScore;
-            memento.HighScore.FinishScore = this.HighScore.FinishScore;
-            memento.HighScore.Scores = this.HighScore.Scores;
+            memento.HighScore = this.HighScore.getMemento();
             memento.PunktzahlMatch = this.PunktzahlMatch;
             memento.WuerfeMatch = this.WuerfeMatch;
             memento.AverageMatch = this.AverageMatch;

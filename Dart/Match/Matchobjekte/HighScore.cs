@@ -19,5 +19,19 @@ namespace Dart.Match.Matchobjekte
             AnzahlFinish = new int[10] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
             AnzahlScore = new int[10] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
         }
+
+        public HighScore getMemento()
+        {
+            HighScore memento = new HighScore();
+            for (int mementoLaeufer = 0; mementoLaeufer < 10; mementoLaeufer++)
+            {
+                memento.FinishScore[mementoLaeufer] = this.FinishScore[mementoLaeufer];
+                memento.Scores[mementoLaeufer] = this.Scores[mementoLaeufer];
+                memento.AnzahlFinish[mementoLaeufer] = this.AnzahlFinish[mementoLaeufer];
+                memento.AnzahlScore[mementoLaeufer] = this.AnzahlScore[mementoLaeufer];
+            }
+
+            return memento;
+        }
     }
 }
