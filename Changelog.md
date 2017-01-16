@@ -1,3 +1,20 @@
+## Version 1.3
+Released 16.01.2017
+
+ - `new` Statistik Anzeige für Beste Werte
+ - `new` Statistik Anzeige für Average
+ 
+ - `Fixed` Highscore Anzahl verkehrt ausgegeben
+ - `Fixed` Gesamt Average bei Undo/Redo
+ - `Fixed` Highscore bei Undo/Redo
+ - `Fixed` Falscher Titel
+ - `Fixed` Falsche Startpunktzahl
+ - `Fixed` Spiel Starten ohne Eingabe Name/Leg/set
+ - `Fixed` Enable Status Button Bearbeiten im Match
+ - `Fixed` Programmabsturz wenn Spiel beendet
+ 
+ - `Improved` Aufruf der Buttons in der Ribbonbar  
+ 
 ## Version 1.2
 Released 09.01.2017
 
