@@ -36,16 +36,16 @@ namespace Dart.Memento
 
         public MatchMemento Undo(MatchMemento pMemento)
         {
-            MatchMemento returnMemento = _UndoStack.Pop().getMatchModel().getMemento();
+            MatchMemento returnMemento = _UndoStack.Pop();
             _RedoStack.Push(pMemento);
             return returnMemento;   
         }
 
         public  MatchMemento Redo(MatchMemento pMemento)
         {
-           
 
-            MatchMemento returnMemento = _RedoStack.Pop().getMatchModel().getMemento();
+
+            MatchMemento returnMemento = _RedoStack.Pop();
             _UndoStack.Push(pMemento);
 
             return returnMemento;

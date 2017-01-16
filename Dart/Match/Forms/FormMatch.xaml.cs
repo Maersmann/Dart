@@ -14,6 +14,7 @@ using System.Windows.Shapes;
 using Dart.Utils;
 using Dart.Finish;
 using Dart.Memento;
+using Dart.Statistiken.Match.Forms;
 
 namespace Dart.Match.Forms
 {
@@ -40,12 +41,14 @@ namespace Dart.Match.Forms
         MatchCaretaker _MatchCareTaker;
         TextBox _TextBoxFocus;
         FinishWeg _Finish;
+        Main _Main;
 
 
-        public FormMatch()
+        public FormMatch(Main pMain)
         {
             InitializeComponent();
             ClearView();
+            _Main = pMain;
         }
 
         public void NewGame(MatchModel pMatchModel, MatchController pMatchController)
@@ -126,10 +129,9 @@ namespace Dart.Match.Forms
 
         private void Naechster()
         {
-            _MatchCareTaker.AddMemento(_MatchModel.getMemento());
-
             if (new Kontrolle().Check(TxtWurfEins.Text, TxtWurfZwei.Text, TxtWurfDrei.Text))
             {
+                _MatchCareTaker.AddMemento(_MatchModel.getMemento());
                 _MatchController.WurfBerechnen(Convert.ToInt32(TxtWurfEins.Text), Convert.ToInt32(TxtWurfZwei.Text), Convert.ToInt32(TxtWurfDrei.Text));
             }
             else
@@ -140,6 +142,13 @@ namespace Dart.Match.Forms
             if (_MatchController.SpielBeendet)
             {
                 ClearView();
+
+                _Main.rbMatchRedo.IsEnabled = false;
+                _Main.rbMatchUndo.IsEnabled = false;
+                _Main.rbStatistikMatchAverage.IsEnabled = false;
+                _Main.rbStatistikMatchBestWerte.IsEnabled = false;
+
+
                 _MatchModel = null;
                 _MatchController = null;
                 _MatchCareTaker = null;
@@ -149,6 +158,7 @@ namespace Dart.Match.Forms
             { 
                 ShowSpielerDaten();
                 AktualisiereView();
+          
             }
 
         }
@@ -163,8 +173,8 @@ namespace Dart.Match.Forms
 
             lblPunktzahl.Foreground = Brushes.Black;
 
-            //menuRueckgaengig.IsEnabled = (_MatchCareTaker.canUndo());
-            //menuWiederholen.IsEnabled = (_MatchCareTaker.CanRedo());            
+            _Main.rbMatchUndo.IsEnabled = (_MatchCareTaker.canUndo());
+            _Main.rbMatchRedo.IsEnabled = (_MatchCareTaker.CanRedo());            
 
             if (_MatchController.isFinishBereich())
             {
@@ -192,335 +202,7 @@ namespace Dart.Match.Forms
             }
             _TextBoxFocus.Focus();  
         }
-
-        private void NeuePunktzahl(int pPunktzahl)
-        {
-            if (!_TextBoxFocus.IsFocused)
-            {
-                _TextBoxFocus.Focus();
-            }
-                 
-            _TextBoxFocus.Text = Convert.ToString(pPunktzahl);
-            ChangeTxtBoxFocus();
-        }
-
-        #region ButtonClicks
-
-        private void btn0_Click(object sender, RoutedEventArgs e)
-        {
-            NeuePunktzahl(0);
-        }
-
-        private void btn1_Click(object sender, RoutedEventArgs e)
-        {
-            NeuePunktzahl(1);
-        }
-
-        private void btn2_Click(object sender, RoutedEventArgs e)
-        {
-            NeuePunktzahl(2);
-        }
-
-        private void btn3_Click(object sender, RoutedEventArgs e)
-        {
-            NeuePunktzahl(3);
-        }
-
-        private void btn4_Click(object sender, RoutedEventArgs e)
-        {
-            NeuePunktzahl(4);
-        }
-
-        private void btn5_Click(object sender, RoutedEventArgs e)
-        {
-            NeuePunktzahl(5);
-        }
-
-        private void btn6_Click(object sender, RoutedEventArgs e)
-        {
-            NeuePunktzahl(6);
-        }
-
-        private void btn8_Click(object sender, RoutedEventArgs e)
-        {
-            NeuePunktzahl(8);
-        }
-
-        private void btn7_Click(object sender, RoutedEventArgs e)
-        {
-            NeuePunktzahl(7);
-        }
-
-        private void btn9_Click(object sender, RoutedEventArgs e)
-        {
-            NeuePunktzahl(9);
-        }
-
-        private void btn10_Click(object sender, RoutedEventArgs e)
-        {
-            NeuePunktzahl(10);
-        }
-
-        private void btn11_Click(object sender, RoutedEventArgs e)
-        {
-            NeuePunktzahl(11);
-        }
-
-        private void btn12_Click(object sender, RoutedEventArgs e)
-        {
-            NeuePunktzahl(12);
-        }
-
-        private void btn13_Click(object sender, RoutedEventArgs e)
-        {
-            NeuePunktzahl(13);
-        }
-
-        private void btn14_Click(object sender, RoutedEventArgs e)
-        {
-            NeuePunktzahl(14);
-        }
-
-        private void btn15_Click(object sender, RoutedEventArgs e)
-        {
-            NeuePunktzahl(15);
-        }
-
-        private void btn16_Click(object sender, RoutedEventArgs e)
-        {
-            NeuePunktzahl(16);
-        }
-
-        private void btn17_Click(object sender, RoutedEventArgs e)
-        {
-            NeuePunktzahl(17);
-        }
-
-        private void btn18_Click(object sender, RoutedEventArgs e)
-        {
-            NeuePunktzahl(18);
-        }
-
-        private void btn20_Click(object sender, RoutedEventArgs e)
-        {
-            NeuePunktzahl(20);
-        }
-
-        private void btnD20_Click(object sender, RoutedEventArgs e)
-        {
-            NeuePunktzahl(40);
-        }
-
-        private void btnT20_Click(object sender, RoutedEventArgs e)
-        {
-            NeuePunktzahl(60);
-        }
-
-        private void btnD18_Click(object sender, RoutedEventArgs e)
-        {
-            NeuePunktzahl(36);
-        }
-
-        private void btnT18_Click(object sender, RoutedEventArgs e)
-        {
-            NeuePunktzahl(54);
-        }
-
-        private void btnD17_Click(object sender, RoutedEventArgs e)
-        {
-            NeuePunktzahl(34);
-        }
-
-        private void btnT17_Click(object sender, RoutedEventArgs e)
-        {
-            NeuePunktzahl(51);
-        }
-
-        private void btnD16_Click(object sender, RoutedEventArgs e)
-        {
-            NeuePunktzahl(32);
-        }
-
-        private void btnT16_Click(object sender, RoutedEventArgs e)
-        {
-            NeuePunktzahl(48);
-        }
-
-        private void btnD15_Click(object sender, RoutedEventArgs e)
-        {
-            NeuePunktzahl(30);
-        }
-
-        private void btnT15_Click(object sender, RoutedEventArgs e)
-        {
-            NeuePunktzahl(45);
-        }
-
-        private void btnD14_Click(object sender, RoutedEventArgs e)
-        {
-            NeuePunktzahl(28);
-        }
-
-        private void btnT14_Click(object sender, RoutedEventArgs e)
-        {
-            NeuePunktzahl(42);
-        }
-
-        private void btnD13_Click(object sender, RoutedEventArgs e)
-        {
-            NeuePunktzahl(26);
-        }
-
-        private void btnT13_Click(object sender, RoutedEventArgs e)
-        {
-            NeuePunktzahl(39);
-        }
-
-        private void btnD12_Click(object sender, RoutedEventArgs e)
-        {
-            NeuePunktzahl(24);
-        }
-
-        private void btnT12_Click(object sender, RoutedEventArgs e)
-        {
-            NeuePunktzahl(36);
-        }
-
-        private void btnT11_Click(object sender, RoutedEventArgs e)
-        {
-            NeuePunktzahl(33);
-        }
-
-        private void btnD11_Click(object sender, RoutedEventArgs e)
-        {
-            NeuePunktzahl(22);
-        }
-
-        private void btnD10_Click(object sender, RoutedEventArgs e)
-        {
-            NeuePunktzahl(20);
-        }
-
-        private void btnT10_Click(object sender, RoutedEventArgs e)
-        {
-            NeuePunktzahl(30);
-        }
-
-        private void btnD9_Click(object sender, RoutedEventArgs e)
-        {
-            NeuePunktzahl(18);
-        }
-
-        private void btnT9_Click(object sender, RoutedEventArgs e)
-        {
-            NeuePunktzahl(27);
-        }
-
-        private void btnT8_Click(object sender, RoutedEventArgs e)
-        {
-            NeuePunktzahl(24);
-        }
-
-        private void btnD8_Click(object sender, RoutedEventArgs e)
-        {
-            NeuePunktzahl(16);
-        }
-
-        private void btnD7_Click(object sender, RoutedEventArgs e)
-        {
-            NeuePunktzahl(14);
-        }
-
-        private void btnD6_Click(object sender, RoutedEventArgs e)
-        {
-            NeuePunktzahl(12);
-        }
-
-        private void btnT7_Click(object sender, RoutedEventArgs e)
-        {
-            NeuePunktzahl(21);
-        }
-
-        private void btnT6_Click(object sender, RoutedEventArgs e)
-        {
-            NeuePunktzahl(18);
-        }
-
-        private void btnT5_Click(object sender, RoutedEventArgs e)
-        {
-            NeuePunktzahl(15);
-        }
-
-        private void btnD5_Click(object sender, RoutedEventArgs e)
-        {
-            NeuePunktzahl(10);
-        }
-
-        private void btnD4_Click(object sender, RoutedEventArgs e)
-        {
-            NeuePunktzahl(8);
-        }
-
-        private void btnT4_Click(object sender, RoutedEventArgs e)
-        {
-            NeuePunktzahl(12);
-        }
-
-        private void btnT3_Click(object sender, RoutedEventArgs e)
-        {
-            NeuePunktzahl(9);
-        }
-
-        private void btnD3_Click(object sender, RoutedEventArgs e)
-        {
-            NeuePunktzahl(6);
-        }
-
-        private void btnD2_Click(object sender, RoutedEventArgs e)
-        {
-            NeuePunktzahl(4);
-        }
-
-        private void btnD1_Click(object sender, RoutedEventArgs e)
-        {
-            NeuePunktzahl(2);
-        }
-
-        private void btnT2_Click(object sender, RoutedEventArgs e)
-        {
-            NeuePunktzahl(6);
-        }
-
-        private void btnT1_Click(object sender, RoutedEventArgs e)
-        {
-            NeuePunktzahl(3);
-        }
-
-        private void btnDBull_Click(object sender, RoutedEventArgs e)
-        {
-            NeuePunktzahl(50);
-        }
-
-        private void btnBull_Click(object sender, RoutedEventArgs e)
-        {
-            NeuePunktzahl(25);
-        }
-
-        private void btn19_Click(object sender, RoutedEventArgs e)
-        {
-            NeuePunktzahl(19);
-        }
-
-        private void btnD19_Click(object sender, RoutedEventArgs e)
-        {
-            NeuePunktzahl(38);
-        }
-
-        private void btnT19_Click(object sender, RoutedEventArgs e)
-        {
-            NeuePunktzahl(57);
-        }
-        #endregion
+          
 
         #region EingabeKontrolle
 
@@ -738,10 +420,27 @@ namespace Dart.Match.Forms
 
         #endregion
 
-        public void doRueckgaengig()
-        {
-            if (_MatchCareTaker == null) return; 
 
+
+        public MatchModel getMatchModel()
+        { 
+            return _MatchModel;
+        }
+
+        public void rbStatistikMatchAverage_Click(object sender, RoutedEventArgs e)
+        {
+            FormStatistikMatchAverage formAverage = new FormStatistikMatchAverage(_MatchModel);
+            formAverage.ShowDialog();
+        }
+
+        public void rbStatistikMatchBestWerte_Click(object sender, RoutedEventArgs e)
+        {
+            FormStatistikMatchBestWerte formBestWerte = new FormStatistikMatchBestWerte(_MatchModel);
+            formBestWerte.ShowDialog();
+        }
+
+        public void rbMatchUndo_Click(object sender, RoutedEventArgs e)
+        {
             if (_MatchCareTaker.canUndo())
             {
                 _MatchModel = _MatchCareTaker.Undo(_MatchModel.getMemento()).getMatchModel();
@@ -751,18 +450,29 @@ namespace Dart.Match.Forms
             }
         }
 
-        public void doWiederholen()
+        public void rbMatchRedo_Click(object sender, RoutedEventArgs e)
         {
-            if (_MatchCareTaker == null) return;
-
-
             if (_MatchCareTaker.CanRedo())
             {
                 _MatchModel = _MatchCareTaker.Redo(_MatchModel.getMemento()).getMatchModel();
-                _MatchController._Matchmodel = _MatchModel;
+                _MatchController = new MatchController(_MatchModel);
                 ShowSpielerDaten();
                 AktualisiereView();
             }
+        }
+
+        public void rbMatchNewGame_Click(object sender, RoutedEventArgs e)
+        {
+
+            FormSpielerAuswahl formSpielerAuswahl = new FormSpielerAuswahl( this );
+            bool? DialogResult = formSpielerAuswahl.ShowDialog();
+
+            if (DialogResult == true)
+            {
+                _Main.rbStatistikMatchAverage.IsEnabled = true;
+                _Main.rbStatistikMatchBestWerte.IsEnabled = true;
+            }
+
         }
     }
 }

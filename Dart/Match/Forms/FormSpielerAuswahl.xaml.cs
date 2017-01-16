@@ -2,8 +2,7 @@
 using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Input;
-using Dart.Match;
-using Dart.MatchObjekte;
+using Dart.Match.Matchobjekte;
 
 
 namespace Dart.Match.Forms
@@ -45,9 +44,8 @@ namespace Dart.Match.Forms
 
         private void BtnStart_Click(object sender, RoutedEventArgs e)
         {
-            int result;
-            List<Spieler> ListSpieler = new List<Spieler>();
 
+            int result;
             if (lstBoxSpieler.Items.Count == 0)
             {
                 MessageBox.Show("Keine Spieler vorhanden!");
@@ -67,17 +65,28 @@ namespace Dart.Match.Forms
                 MessageBox.Show("Die Sets fehlen!");
                 return;
             }
-   
+
+            DialogResult = true;
+
+            MatchObjekt match = new MatchObjekt();
+            match.LegZumSet = Convert.ToInt32(txtAnzahlLeg.Text);
+            match.SetZumSieg = Convert.ToInt32(TxtAnzahlSet.Text);
+            match.PunktZahlzumLeg = 501;
 
             foreach (String Name in lstBoxSpieler.Items)
             {
-                ListSpieler.Add(new Spieler(Name));
+                MatchSpieler matchspieler = new MatchSpieler(Name);
+                matchspieler.AktuellesSet.Nummer = 1;
+                matchspieler.AktuellesLeg.Nummer = 1;
+                matchspieler.AktuellePunktZahl = match.PunktZahlzumLeg;
+                match.SpielerList.Add (matchspieler);
             }
 
-            MatchObjekt match = new MatchObjekt(Convert.ToInt32(TxtAnzahlSet.Text), Convert.ToInt32(txtAnzahlLeg.Text), 501);
 
-            MatchModel matchmodel = new MatchModel(ListSpieler);
-            MatchController matchController = new MatchController(matchmodel, match);
+
+
+            MatchModel matchmodel = new MatchModel(match);
+            MatchController matchController = new MatchController( matchmodel );
 
             _formMatch.NewGame(matchmodel, matchController);
             this.Close();

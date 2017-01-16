@@ -2,20 +2,22 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 
-namespace Dart.SpielerObjekte
+namespace Dart.Match.Matchobjekte
 {
-    public class AktuellesSet
+    public class Leg
     {
-        public Double Punktzahl { get; set; }
+        public int Nummer { get; set; }
         public Double Wuerfe { get; set; }
+        public Double Punktzahl { get; set; }
         public Double Average { get; set; }
 
-
-        public AktuellesSet()
+        public Leg()
         {
-            Punktzahl = 0;
+            Nummer = 0;
             Wuerfe = 0;
+            Punktzahl = 0;
             Average = 0;
         }
     }

@@ -1,4 +1,4 @@
-﻿using Dart.MatchObjekte;
+﻿using Dart.Match.Matchobjekte;
 using Dart.SpielerObjekte;
 using System;
 using System.Collections.Generic;
@@ -37,26 +37,21 @@ namespace Dart.Utils
 
         }
 
-        public void NeuerSpieler(Spieler pSpieler)
+        public void NeuerSpieler(MatchSpieler pSpieler)
         {
-            TextInhalt += "\r\n \r\n Name des Spielers: " + pSpieler.GetName() + "\r\n";
+            TextInhalt += "\r\n \r\n Name des Spielers: " + pSpieler.Spieler.GetName() + "\r\n";
             TextInhalt += "_________________________________\r\n";
-            TextInhalt += "Gewonnene Sets: " + pSpieler.Gewonnen.Set + "\r\n\r\n";
+            TextInhalt += "Gewonnene Sets: " + pSpieler.AnzahlSetGewonnen + "\r\n\r\n";
 
-            int AktuellesSet = 1;
-            foreach (List<AktuellesLeg> LegAverage in pSpieler.Speicher.ListLegAverage)
+            foreach (Set Set in pSpieler.Sets)
             {
-                TextInhalt += "\r\n---------- Set " + AktuellesSet + " -----------\r\n\r\n";
+                TextInhalt += "\r\n---------- Set " + Set.Nummer + " -----------\r\n\r\n";
 
-                TextInhalt += "------Average Set:" + pSpieler.Speicher.ListSetAverage[AktuellesSet-1].Average + " ------\r\n\r\n";
-                int AktuellesLeg = 1;
-                foreach (AktuellesLeg Average in LegAverage)
+                TextInhalt += "------Average Set:" + Set.Average + " ------\r\n\r\n";
+                foreach (Leg Average in Set.Legs)
                 {
-                    TextInhalt += "Leg: " + Convert.ToString(AktuellesLeg) + "| Average: " + Convert.ToString(Average.Average) + "     \t Würfe: " + Convert.ToString(Average.Wuerfe) + "  Rest: " + Convert.ToString(501- Average.Punktzahl) + "\r\n";
-                    AktuellesLeg++;
-                }
-                AktuellesSet++;
-                
+                    TextInhalt += "Leg: " + Average.Nummer + "| Average: " + Average.Average + "     \t Würfe: " + Average.Wuerfe + "  Rest: " + Convert.ToString(501- Average.Punktzahl) + "\r\n";
+                }     
             }
 
             TextInhalt += "\r\n Bestwerte des Games!\r\n";
@@ -66,7 +61,7 @@ namespace Dart.Utils
             {
                 if (pSpieler.HighScore.Scores[ScoreDurchlauf] > 0)
                 {
-                    if (pSpieler.HighScore.Scores[ScoreDurchlauf] > 0)
+                    if (pSpieler.HighScore.AnzahlScore[ScoreDurchlauf] > 0)
                     {
                         TextInhalt += "\t" + pSpieler.HighScore.Scores[ScoreDurchlauf] + "\t" + pSpieler.HighScore.AnzahlScore[ScoreDurchlauf] + "x\r\n";
                     }
@@ -77,7 +72,7 @@ namespace Dart.Utils
 
             for (int FinishDurchlauf = 9; FinishDurchlauf >= 0; FinishDurchlauf--)
             {
-                if (pSpieler.HighScore.Scores[FinishDurchlauf] > 0)
+                if (pSpieler.HighScore.AnzahlFinish[FinishDurchlauf] > 0)
                 {
                     if (pSpieler.HighScore.FinishScore[FinishDurchlauf] > 0)
                     {
@@ -87,12 +82,15 @@ namespace Dart.Utils
 
             }
 
-            TextInhalt += "\r\n60>: " + pSpieler.Anzahl.Sechzig;
-            TextInhalt += "\r\n100>: " + pSpieler.Anzahl.Hundert;
-            TextInhalt += "\r\n140>: " + pSpieler.Anzahl.HundertVierzig;
-            TextInhalt += "\r\n180: " + pSpieler.Anzahl.HundertAchzig;
+            TextInhalt += "\r\n60>: " + pSpieler.Statistiken.Sechzig;
+            TextInhalt += "\r\n100>: " + pSpieler.Statistiken.Hundert;
+            TextInhalt += "\r\n140>: " + pSpieler.Statistiken.HundertVierzig;
+            TextInhalt += "\r\n170: " + pSpieler.Statistiken.HundertSiebzig;
+            TextInhalt += "\r\n180: " + pSpieler.Statistiken.HundertAchzig;
+            TextInhalt += "\r\nShortest Leg: " + pSpieler.Statistiken.ShortesLeg;
+            TextInhalt += "\r\nLongest Leg: " + pSpieler.Statistiken.LongestLeg;
 
-            TextInhalt += "\r\nEndAverage lautet: " + pSpieler.GesamtSpiel.Average + "\r\n";
+            TextInhalt += "\r\n\r\nEndAverage lautet: " + pSpieler.AverageMatch + "\r\n";
             TextInhalt += "\r\n################################################\r\n\r\n\r\n";
           
         }

@@ -22,7 +22,7 @@ namespace Dart
     {
 
         private FormMatch _formMatch;
-        private StartBildschirm _startBildschirm;
+        private StartBildschirm _startBildschirm; 
 
         public Main()
         {
@@ -36,26 +36,25 @@ namespace Dart
         private void rbMatch_Click(object sender, RoutedEventArgs e)
         {
             if (_formMatch == null)
-                _formMatch = new FormMatch();
+            {
+                _formMatch = new FormMatch( this );
+                rbMatchRedo.IsEnabled = false;
+                rbMatchUndo.IsEnabled = false;
+                rbStatistikMatchAverage.IsEnabled = false;
+                rbStatistikMatchBestWerte.IsEnabled = false;
+                rbMatchNewGame.Click += _formMatch.rbMatchNewGame_Click;
+                rbStatistikMatchAverage.Click += _formMatch.rbStatistikMatchAverage_Click;
+                rbStatistikMatchBestWerte.Click += _formMatch.rbStatistikMatchBestWerte_Click;
+                rbMatchUndo.Click += _formMatch.rbMatchUndo_Click;
+                rbMatchRedo.Click += _formMatch.rbMatchRedo_Click;
+            }
 
+            
             Container.NavigationService.Navigate(_formMatch);
         }
 
-        private void rbMatchUndo_Click(object sender, RoutedEventArgs e)
-        {
-            _formMatch.doRueckgaengig();
-        }
 
-        private void rbMatchRedo_Click(object sender, RoutedEventArgs e)
-        {
-            _formMatch.doWiederholen();
-        }
 
-        private void rbMatchNewGame_Click(object sender, RoutedEventArgs e)
-        {
-            FormSpielerAuswahl formSpielerAuswahl = new FormSpielerAuswahl( _formMatch );
-            formSpielerAuswahl.ShowDialog();
-        }
 
         private void Container_Navigated(object sender, System.Windows.Navigation.NavigationEventArgs e)
         {
@@ -68,14 +67,11 @@ namespace Dart
                 ribboncontextMatch.Visibility = Visibility.Hidden;
         }
 
-        private void FormMain_Activated(object sender, EventArgs e)
-        {
-
-        }
 
         private void ribbonMenuClose_Click(object sender, RoutedEventArgs e)
         {
             Close();
         }
+
     }
 }
