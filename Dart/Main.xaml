@@ -34,7 +34,7 @@
                 </ribbon:RibbonGroup>
                 <ribbon:RibbonGroup Header="Statistik" Height="88" >
                     <ribbon:RibbonButton x:Name="rbStatistikMatchAverage" Label="Average"  LargeImageSource="Bilder\statistic.png"  VerticalAlignment="Center" HorizontalAlignment="Center" Width="75" />
-                    <ribbon:RibbonButton x:Name="rbStatistikMatchBestWerte" Label="Best Werte"  LargeImageSource="Bilder\statistic.png" VerticalAlignment="Center" HorizontalAlignment="Center" Width="75" />
+                    <ribbon:RibbonButton x:Name="rbStatistikMatchBestWerte" Label="Beste Werte"  LargeImageSource="Bilder\statistic.png" VerticalAlignment="Center" HorizontalAlignment="Center" Width="75" />
                 </ribbon:RibbonGroup>
 
             </ribbon:RibbonTab>
