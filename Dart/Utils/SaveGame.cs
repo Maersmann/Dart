@@ -61,7 +61,7 @@ namespace Dart.Utils
             {
                 if (pSpieler.HighScore.Scores[ScoreDurchlauf] > 0)
                 {
-                    if (pSpieler.HighScore.Scores[ScoreDurchlauf] > 0)
+                    if (pSpieler.HighScore.AnzahlScore[ScoreDurchlauf] > 0)
                     {
                         TextInhalt += "\t" + pSpieler.HighScore.Scores[ScoreDurchlauf] + "\t" + pSpieler.HighScore.AnzahlScore[ScoreDurchlauf] + "x\r\n";
                     }
@@ -72,7 +72,7 @@ namespace Dart.Utils
 
             for (int FinishDurchlauf = 9; FinishDurchlauf >= 0; FinishDurchlauf--)
             {
-                if (pSpieler.HighScore.Scores[FinishDurchlauf] > 0)
+                if (pSpieler.HighScore.AnzahlFinish[FinishDurchlauf] > 0)
                 {
                     if (pSpieler.HighScore.FinishScore[FinishDurchlauf] > 0)
                     {
