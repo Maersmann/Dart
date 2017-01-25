@@ -251,6 +251,11 @@ namespace Dart.Match
             return _AktuellenSpieler.Statistiken.HundertSiebzig;
         }
 
+        public int getAnzahlSpieler()
+        {
+            return _AnzahlSpieler;
+        }
+
         public void setAnzahlHundertSiebzig(int pHundertSiebzig)
         {
             _AktuellenSpieler.Statistiken.HundertSiebzig = pHundertSiebzig;

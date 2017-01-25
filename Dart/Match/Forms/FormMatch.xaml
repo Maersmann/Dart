@@ -6,14 +6,13 @@
           xmlns:ribbon="clr-namespace:Microsoft.Windows.Controls.Ribbon;assembly=RibbonControlsLibrary"
         xmlns:local="clr-namespace:Dart.Match"
         Background="DarkRed"
-        Title="Dart-Game On!"  >
+        Title="Dart-Game On!" >
     <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch" >
         <Grid.RowDefinitions>
             <RowDefinition Height="15*"/>
             <RowDefinition Height="85*"/>
             <RowDefinition Height="40"/>
         </Grid.RowDefinitions>
-        <DockPanel  Grid.Row="2" HorizontalAlignment="Stretch"  LastChildFill="true" Margin="0,0,0,0" VerticalAlignment="Stretch" />
         <DockPanel HorizontalAlignment="Stretch" LastChildFill="False"  Grid.Row="3" VerticalAlignment="Stretch" Background="White">
             <Button x:Name="BtnNaechster" Content="Nächster" HorizontalAlignment="Left" IsEnabled="False"  VerticalAlignment="Top" Width="75" DockPanel.Dock="Right" Margin="5,5,5,0" Click="BtnNaechster_Click" TabIndex="4" Height="30" />
         </DockPanel>
@@ -110,28 +109,227 @@
                 <Border Background="#F5A9A9"  HorizontalAlignment="Stretch"  VerticalAlignment="Stretch" Grid.Column="0" Grid.Row="4"/>
             </Grid>
             <Grid HorizontalAlignment="Stretch" Grid.Row="1" Grid.Column="0" VerticalAlignment="Stretch">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="33*"/>
-                    <ColumnDefinition Width="33*"/>
-                    <ColumnDefinition Width="33*"/>
-                </Grid.ColumnDefinitions>
-                <Border  HorizontalAlignment="Stretch"  VerticalAlignment="Stretch" Grid.Column="1" Margin="25" >
-                    <Viewbox Stretch="Uniform">
-                        <TextBox x:Name="TxtWurfZwei" HorizontalAlignment="Stretch" IsEnabled="False"   TextWrapping="Wrap" VerticalAlignment="Stretch" Margin="10"  MinWidth="20" TextChanged="TxtWurfZwei_TextChanged" MaxLength="2" PreviewKeyDown="TxtWurfZwei_PreviewKeyDown" GotFocus="TxtWurfZwei_GotFocus" TabIndex="2"/>
-                    </Viewbox>
-                </Border>
-                <Border  HorizontalAlignment="Stretch"  VerticalAlignment="Stretch" Grid.Column="2" Margin="25">
-                    <Viewbox Stretch="Uniform">
-                        <TextBox x:Name="TxtWurfDrei" HorizontalAlignment="Stretch" IsEnabled="False"  TextWrapping="Wrap" VerticalAlignment="Stretch" Margin="10"  MinWidth="20" TextChanged="TxtWurfDrei_TextChanged" MaxLength="2" PreviewKeyDown="TxtWurfDrei_PreviewKeyDown" GotFocus="TxtWurfDrei_GotFocus" TabIndex="3"/>
-                    </Viewbox>
-                </Border>
-                <Border HorizontalAlignment="Stretch"  VerticalAlignment="Stretch" Grid.Column="0" Margin="25">
-                    <Viewbox Stretch="Uniform">
-                        <TextBox x:Name="TxtWurfEins" HorizontalAlignment="Stretch" IsEnabled="False"  TextWrapping="Wrap" VerticalAlignment="Stretch" Margin="10"  MinWidth="20" TextChanged="TxtWurfEins_TextChanged" MaxLines="2" MaxLength="2" PreviewKeyDown="TxtWurfEins_PreviewKeyDown" GotFocus="TxtWurfEins_GotFocus" TabIndex="1"/>
-                    </Viewbox>
-                </Border>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="55*"/>
+                    <RowDefinition Height="45*"/>
+                </Grid.RowDefinitions>
 
-            </Grid>
+                <Grid HorizontalAlignment="Stretch" Grid.Row="0"  VerticalAlignment="Stretch">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="33*"/>
+                        <ColumnDefinition Width="33*"/>
+                        <ColumnDefinition Width="33*"/>
+                    </Grid.ColumnDefinitions>
+                    <Border  HorizontalAlignment="Stretch"  VerticalAlignment="Stretch" Grid.Column="1" Margin="20" >
+                        <Viewbox Stretch="Uniform">
+                            <TextBox x:Name="TxtWurfZwei" HorizontalAlignment="Stretch" IsEnabled="False"   TextWrapping="Wrap" VerticalAlignment="Stretch" Margin="10"  MinWidth="20" TextChanged="TxtWurfZwei_TextChanged" MaxLength="2" PreviewKeyDown="TxtWurfZwei_PreviewKeyDown" GotFocus="TxtWurfZwei_GotFocus" TabIndex="2"/>
+                        </Viewbox>
+                    </Border>
+                    <Border  HorizontalAlignment="Stretch"  VerticalAlignment="Stretch" Grid.Column="2" Margin="20">
+                        <Viewbox Stretch="Uniform">
+                            <TextBox x:Name="TxtWurfDrei" HorizontalAlignment="Stretch" IsEnabled="False"  TextWrapping="Wrap" VerticalAlignment="Stretch" Margin="10"  MinWidth="20" TextChanged="TxtWurfDrei_TextChanged" MaxLength="2" PreviewKeyDown="TxtWurfDrei_PreviewKeyDown" GotFocus="TxtWurfDrei_GotFocus" TabIndex="3"/>
+                        </Viewbox>
+                    </Border>
+                    <Border HorizontalAlignment="Stretch"  VerticalAlignment="Stretch" Grid.Column="0" Margin="20">
+                        <Viewbox Stretch="Uniform">
+                            <TextBox x:Name="TxtWurfEins" HorizontalAlignment="Stretch" IsEnabled="False"  TextWrapping="Wrap" VerticalAlignment="Stretch" Margin="10"  MinWidth="20" TextChanged="TxtWurfEins_TextChanged" MaxLines="2" MaxLength="2" PreviewKeyDown="TxtWurfEins_PreviewKeyDown" GotFocus="TxtWurfEins_GotFocus" TabIndex="1"/>
+                        </Viewbox>
+                    </Border>
+                </Grid>
+
+                <DockPanel x:Name="DockPnlSpieler" Grid.Row="1" LastChildFill="False" >
+                    <Grid DockPanel.Dock="Left" >
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="25*"/>
+                            <RowDefinition Height="25*"/>
+                            <RowDefinition Height="25*"/>
+                            <RowDefinition Height="25*"/>
+                        </Grid.RowDefinitions>
+                        <Viewbox  Stretch="Uniform" Grid.Row="0">
+                            <Label x:Name="lblFinishWeg41"  Grid.Row="0" Content="Name" HorizontalAlignment="Center"  VerticalAlignment="Center"/>
+                        </Viewbox>
+                        <Viewbox  Stretch="Uniform" Grid.Row="1">
+                            <Label x:Name="lblFinishEins41" Content="Punktzahl" HorizontalAlignment="Center"  VerticalAlignment="Center"/>
+                        </Viewbox>
+                        <Viewbox  Stretch="Uniform" Grid.Row="2">
+                            <Label x:Name="lblFinishZwei14" Content="Sets" HorizontalAlignment="Center"  VerticalAlignment="Center"/>
+                        </Viewbox>
+                        <Viewbox  Stretch="Uniform" Grid.Row="3">
+                            <Label x:Name="lblFinishDrei14"  Content="Legs" HorizontalAlignment="Center"  VerticalAlignment="Center"/>
+                        </Viewbox>
+                    </Grid>
+                    <Grid DockPanel.Dock="Left" x:Name="GrpSpieler1" >
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="25*"/>
+                                <RowDefinition Height="25*"/>
+                                <RowDefinition Height="25*"/>
+                                <RowDefinition Height="25*"/>
+                            </Grid.RowDefinitions>
+                        <Viewbox  Stretch="Uniform" Grid.Row="0">
+                            <Label x:Name="lblSpieler1Name"  Grid.Row="0" Content="Spieler 1" HorizontalAlignment="Center"  VerticalAlignment="Center"/>
+                        </Viewbox>
+                        <Viewbox  Stretch="Uniform" Grid.Row="1">
+                            <Label x:Name="lblSpieler1Punktzahl" Content="501" HorizontalAlignment="Center"  VerticalAlignment="Center"/>
+                        </Viewbox>
+                        <Viewbox  Stretch="Uniform" Grid.Row="2">
+                            <Label x:Name="lblSpieler1Sets" Content="5" HorizontalAlignment="Center"  VerticalAlignment="Center"/>
+                        </Viewbox>
+                        <Viewbox  Stretch="Uniform" Grid.Row="3">
+                            <Label x:Name="lblSpieler1Legs"  Content="2" HorizontalAlignment="Center"  VerticalAlignment="Center"/>
+                        </Viewbox>
+                    </Grid>
+                    <Grid  DockPanel.Dock="Left" x:Name="GrpSpieler2" >
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="25*"/>
+                            <RowDefinition Height="25*"/>
+                            <RowDefinition Height="25*"/>
+                            <RowDefinition Height="25*"/>
+                        </Grid.RowDefinitions>
+                        <Viewbox  Stretch="Uniform" Grid.Row="0">
+                            <Label x:Name="lblSpieler2Name"  Grid.Row="0" Content="Spieler 2" HorizontalAlignment="Center"  VerticalAlignment="Center"/>
+                        </Viewbox>
+                        <Viewbox  Stretch="Uniform" Grid.Row="1">
+                            <Label x:Name="lblSpieler2Punktzahl" Content="501" HorizontalAlignment="Center"  VerticalAlignment="Center"/>
+                        </Viewbox>
+                        <Viewbox  Stretch="Uniform" Grid.Row="2">
+                            <Label x:Name="lblSpieler2Sets" Content="5" HorizontalAlignment="Center"  VerticalAlignment="Center"/>
+                        </Viewbox>
+                        <Viewbox  Stretch="Uniform" Grid.Row="3">
+                            <Label x:Name="lblSpieler2Legs"  Content="2" HorizontalAlignment="Center"  VerticalAlignment="Center"/>
+                        </Viewbox>
+                    </Grid>
+                    <Grid  DockPanel.Dock="Left" x:Name="GrpSpieler3">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="25*"/>
+                            <RowDefinition Height="25*"/>
+                            <RowDefinition Height="25*"/>
+                            <RowDefinition Height="25*"/>
+                        </Grid.RowDefinitions>
+                        <Viewbox  Stretch="Uniform" Grid.Row="0">
+                            <Label x:Name="lblSpieler3Name"  Grid.Row="0" Content="Spieler 3" HorizontalAlignment="Center"  VerticalAlignment="Center"/>
+                        </Viewbox>
+                        <Viewbox  Stretch="Uniform" Grid.Row="1">
+                            <Label x:Name="lblSpieler3Punktzahl" Content="501" HorizontalAlignment="Center"  VerticalAlignment="Center"/>
+                        </Viewbox>
+                        <Viewbox  Stretch="Uniform" Grid.Row="2">
+                            <Label x:Name="lblSpieler3Sets" Content="5" HorizontalAlignment="Center"  VerticalAlignment="Center"/>
+                        </Viewbox>
+                        <Viewbox  Stretch="Uniform" Grid.Row="3">
+                            <Label x:Name="lblSpieler3Legs"  Content="2" HorizontalAlignment="Center"  VerticalAlignment="Center"/>
+                        </Viewbox>
+                    </Grid>
+                    <Grid  DockPanel.Dock="Left" x:Name="GrpSpieler4" >
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="25*"/>
+                            <RowDefinition Height="25*"/>
+                            <RowDefinition Height="25*"/>
+                            <RowDefinition Height="25*"/>
+                        </Grid.RowDefinitions >
+                        <Viewbox  Stretch="Uniform" Grid.Row="0">
+                            <Label x:Name="lblSpieler4Name"  Grid.Row="0" Content="Spieler 4" HorizontalAlignment="Center"  VerticalAlignment="Center"/>
+                        </Viewbox>
+                        <Viewbox  Stretch="Uniform" Grid.Row="1">
+                            <Label x:Name="lblSpieler4Punktzahl" Content="501" HorizontalAlignment="Center"  VerticalAlignment="Center"/>
+                        </Viewbox>
+                        <Viewbox  Stretch="Uniform" Grid.Row="2">
+                            <Label x:Name="lblSpieler4Sets" Content="5" HorizontalAlignment="Center"  VerticalAlignment="Center"/>
+                        </Viewbox>
+                        <Viewbox  Stretch="Uniform" Grid.Row="3">
+                            <Label x:Name="lblSpieler4Legs"  Content="2" HorizontalAlignment="Center"  VerticalAlignment="Center"/>
+                        </Viewbox>
+                    </Grid>
+
+                    <Grid  DockPanel.Dock="Left" x:Name="GrpSpieler5">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="25*"/>
+                            <RowDefinition Height="25*"/>
+                            <RowDefinition Height="25*"/>
+                            <RowDefinition Height="25*"/>
+                        </Grid.RowDefinitions>
+                        <Viewbox  Stretch="Uniform" Grid.Row="0">
+                            <Label x:Name="lblSpieler5Name"  Grid.Row="0" Content="Spieler 5" HorizontalAlignment="Center"  VerticalAlignment="Center"/>
+                        </Viewbox>
+                        <Viewbox  Stretch="Uniform" Grid.Row="1">
+                            <Label x:Name="lblSpieler5Punktzahl" Content="501" HorizontalAlignment="Center"  VerticalAlignment="Center"/>
+                        </Viewbox>
+                        <Viewbox  Stretch="Uniform" Grid.Row="2">
+                            <Label x:Name="lblSpieler5Sets" Content="5" HorizontalAlignment="Center"  VerticalAlignment="Center"/>
+                        </Viewbox>
+                        <Viewbox  Stretch="Uniform" Grid.Row="3">
+                            <Label x:Name="lblSpieler5Legs"  Content="2" HorizontalAlignment="Center"  VerticalAlignment="Center"/>
+                        </Viewbox>
+                    </Grid>
+
+                    <Grid  DockPanel.Dock="Left" x:Name="GrpSpieler6">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="25*"/>
+                            <RowDefinition Height="25*"/>
+                            <RowDefinition Height="25*"/>
+                            <RowDefinition Height="25*"/>
+                        </Grid.RowDefinitions>
+                        <Viewbox  Stretch="Uniform" Grid.Row="0">
+                            <Label x:Name="lblSpieler6Name"  Grid.Row="0" Content="Spieler 6" HorizontalAlignment="Center"  VerticalAlignment="Center"/>
+                        </Viewbox>
+                        <Viewbox  Stretch="Uniform" Grid.Row="1">
+                            <Label x:Name="lblSpieler6Punktzahl" Content="501" HorizontalAlignment="Center"  VerticalAlignment="Center"/>
+                        </Viewbox>
+                        <Viewbox  Stretch="Uniform" Grid.Row="2">
+                            <Label x:Name="lblSpieler6Sets" Content="5" HorizontalAlignment="Center"  VerticalAlignment="Center"/>
+                        </Viewbox>
+                        <Viewbox  Stretch="Uniform" Grid.Row="3">
+                            <Label x:Name="lblSpieler6Legs"  Content="2" HorizontalAlignment="Center"  VerticalAlignment="Center"/>
+                        </Viewbox>
+                    </Grid>
+
+
+                    <Grid  DockPanel.Dock="Left" x:Name="GrpSpieler7" >
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="25*"/>
+                            <RowDefinition Height="25*"/>
+                            <RowDefinition Height="25*"/>
+                            <RowDefinition Height="25*"/>
+                        </Grid.RowDefinitions>
+                        <Viewbox  Stretch="Uniform" Grid.Row="0">
+                            <Label x:Name="lblSpieler7Name"  Grid.Row="0" Content="Spieler 7" HorizontalAlignment="Center"  VerticalAlignment="Center"/>
+                        </Viewbox>
+                        <Viewbox  Stretch="Uniform" Grid.Row="1">
+                            <Label x:Name="lblSpieler7Punktzahl" Content="501" HorizontalAlignment="Center"  VerticalAlignment="Center"/>
+                        </Viewbox>
+                        <Viewbox  Stretch="Uniform" Grid.Row="2">
+                            <Label x:Name="lblSpieler7Sets" Content="5" HorizontalAlignment="Center"  VerticalAlignment="Center"/>
+                        </Viewbox>
+                        <Viewbox  Stretch="Uniform" Grid.Row="3">
+                            <Label x:Name="lblSpieler7Legs"  Content="2" HorizontalAlignment="Center"  VerticalAlignment="Center"/>
+                        </Viewbox>
+                    </Grid>
+
+
+                    <Grid  DockPanel.Dock="Left" x:Name="GrpSpieler8">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="25*"/>
+                            <RowDefinition Height="25*"/>
+                            <RowDefinition Height="25*"/>
+                            <RowDefinition Height="25*"/>
+                        </Grid.RowDefinitions>
+                        <Viewbox  Stretch="Uniform" Grid.Row="0">
+                            <Label x:Name="lblSpieler8Name"  Grid.Row="0" Content="Spieler 8" HorizontalAlignment="Center"  VerticalAlignment="Center"/>
+                        </Viewbox>
+                        <Viewbox  Stretch="Uniform" Grid.Row="1">
+                            <Label x:Name="lblSpieler8Punktzahl" Content="501" HorizontalAlignment="Center"  VerticalAlignment="Center"/>
+                        </Viewbox>
+                        <Viewbox  Stretch="Uniform" Grid.Row="2">
+                            <Label x:Name="lblSpieler8Sets" Content="5" HorizontalAlignment="Center"  VerticalAlignment="Center"/>
+                        </Viewbox>
+                        <Viewbox  Stretch="Uniform" Grid.Row="3">
+                            <Label x:Name="lblSpieler8Legs"  Content="2" HorizontalAlignment="Center"  VerticalAlignment="Center"/>
+                        </Viewbox>
+                    </Grid>
+
+
+                </DockPanel>
+                </Grid>
+
+            
             <Grid Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="0" VerticalAlignment="Stretch" >
                 <Grid.RowDefinitions>
                     <RowDefinition Height="30*"/>
