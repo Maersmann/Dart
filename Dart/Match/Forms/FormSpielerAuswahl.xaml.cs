@@ -23,7 +23,12 @@ namespace Dart.Match.Forms
 
         private void btnHinzufuegen_Click(object sender, RoutedEventArgs e)
         {
-             
+            if(lstBoxSpieler.Items.Count >= 8)
+            {
+                MessageBox.Show("Es sind nur 8 Spieler maximal möglich");
+                return;
+            }
+
             if (txtNeuerSpieler.Text.Equals(""))
             {
                 MessageBox.Show("Kein Name vorhanden!");
