@@ -78,7 +78,7 @@ namespace Dart
         private void ribbonMenuOptionen_Click(object sender, RoutedEventArgs e)
         {
             FormOptionen option = new FormOptionen();
-            option.Show();
+            option.ShowDialog();
         }
     }
 }

@@ -10,15 +10,21 @@
 
         <ribbon:Ribbon x:Name="Ribbon" DockPanel.Dock="Top" VerticalAlignment="Top"  >
 
-            <ribbon:Ribbon.ApplicationMenu>
-                <ribbon:RibbonApplicationMenu >
+            <ribbon:Ribbon.ApplicationMenu >
+                <ribbon:RibbonApplicationMenu SmallImageSource="Bilder/menu.png"  >
+                    <ribbon:RibbonApplicationMenu.AuxiliaryPaneContent >
+                        <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
+                            <Label Content="Dart - Game On!"></Label>
+                        </Grid>
+                    </ribbon:RibbonApplicationMenu.AuxiliaryPaneContent>
+
+
                     <ribbon:RibbonApplicationMenuItem Header="Optionen" x:Name="ribbonMenuOptionen"
                                             ImageSource="Bilder\Options.png" Click="ribbonMenuOptionen_Click" />
                     <ribbon:RibbonApplicationMenuItem Header="Schliessen" x:Name="ribbonMenuClose"
                                             ImageSource="Bilder\Close.png" Click="ribbonMenuClose_Click"/>
                 </ribbon:RibbonApplicationMenu>
             </ribbon:Ribbon.ApplicationMenu>
-
 
             <ribbon:RibbonTab Header="Haupt"  >
                 <ribbon:RibbonGroup Header="Allgemein" Height="88" >

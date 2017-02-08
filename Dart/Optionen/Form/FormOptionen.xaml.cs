@@ -21,14 +21,34 @@ namespace Dart.Optionen.Form
     public partial class FormOptionen : Window
     {
 
-        OptionenMatch _OptionenMatch;
+        FrameOptionenMatch _OptionenMatch;
 
         public FormOptionen()
         {
             InitializeComponent();
 
-            _OptionenMatch = new OptionenMatch();
+            _OptionenMatch = new FrameOptionenMatch();
             frameOptionen.Navigate(_OptionenMatch);
+        }
+
+        private void BtnOk_Click(object sender, RoutedEventArgs e)
+        {
+            //Save
+            Close();
+        }
+
+        private void listBoxOptionen_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            string FrameOptionen = listBoxOptionen.SelectedItem.ToString();
+
+            if (FrameOptionen == lstBoxItemGame.Content.ToString())
+            {
+                if (_OptionenMatch == null)
+                    _OptionenMatch = new FrameOptionenMatch();
+                frameOptionen.Navigate(_OptionenMatch);
+            }
+
+            
         }
     }
 }

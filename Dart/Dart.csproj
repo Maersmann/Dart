@@ -132,8 +132,8 @@
     <Compile Include="Optionen\Form\FormOptionen.xaml.cs">
       <DependentUpon>FormOptionen.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Optionen\Frame\OptionenMatch.xaml.cs">
-      <DependentUpon>OptionenMatch.xaml</DependentUpon>
+    <Compile Include="Optionen\Frame\FrameOptionenMatch.xaml.cs">
+      <DependentUpon>FrameOptionenMatch.xaml</DependentUpon>
     </Compile>
     <Compile Include="StartBildschirm.xaml.cs">
       <DependentUpon>StartBildschirm.xaml</DependentUpon>
@@ -177,7 +177,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Optionen\Frame\OptionenMatch.xaml">
+    <Page Include="Optionen\Frame\FrameOptionenMatch.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -258,6 +258,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Bilder\Options.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Bilder\menu.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

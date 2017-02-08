@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Dart.Optionen.Form"
         mc:Ignorable="d"
-        Title="Optionen" Height="547.649" Width="626.801">
+        Title="Optionen" Height="547.649" Width="626.801" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" Icon="/Dart;component/1364007503_67060.ico">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="471*"/>
@@ -22,21 +22,18 @@
                     <RowDefinition Height="35*"/>
                     <RowDefinition Height="132*"/>
                 </Grid.RowDefinitions>
-                <ListBox x:Name="listBoxOptionen" Grid.Row="1" Margin="5,5,5,5"  >
-                    <ListBoxItem Content="Game"/>
+                <ListBox x:Name="listBoxOptionen" Grid.Row="1" Margin="5,5,5,5" SelectionChanged="listBoxOptionen_SelectionChanged"  >
+                    <ListBoxItem Content="Game" x:Name="lstBoxItemGame"/>
                 </ListBox>
                 <Label x:Name="label" Content="Optionen Liste" HorizontalAlignment="Center" Grid.Row="0"  VerticalAlignment="Center" FontSize="18"/>
 
             </Grid>
 
-
-            <Frame x:Name="frameOptionen"  Grid.Column="1" RenderTransformOrigin="0.5,0.5">
-
-            </Frame>
+            <Frame x:Name="frameOptionen"  Grid.Column="1" />
 
         </Grid>
         <Grid Background="BlanchedAlmond"  Grid.Row="1">
-            <Button x:Name="BtnOk" Content="OK"  Margin="0,0,10,0" VerticalAlignment="Center" HorizontalAlignment="Right" Width="75"  Height="22"/>
+            <Button x:Name="BtnOk" Content="OK"  Margin="0,0,10,0" VerticalAlignment="Center" HorizontalAlignment="Right" Width="75"  Height="22" Click="BtnOk_Click"/>
         </Grid>
 
     </Grid>
