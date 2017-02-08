@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
 
-        Title="Spieler Auswahl" Height="600.678" Width="510.636" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+        Title="Spieler Auswahl" Height="600.678" Width="510.636" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Icon="/Dart;component/1364007503_67060.ico">
 
     <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
         <Grid.RowDefinitions>
@@ -34,20 +34,33 @@
         <Button x:Name="btnHinzufuegen" Content="Hinzufügen" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Width="202" Margin="25,56,25,10" Height="48" Click="btnHinzufuegen_Click"/>
         <Grid Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="1" VerticalAlignment="Stretch" >
             <Grid.RowDefinitions>
-                <RowDefinition Height="25*"/>
-                <RowDefinition Height="25*"/>
-                <RowDefinition Height="25*"/>
-                <RowDefinition Height="25*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="2*"/>
             </Grid.RowDefinitions>
             <Viewbox  Stretch="Uniform" Grid.Row="0" >
+                <Label  Content="Punktzahl" HorizontalAlignment="Center"  VerticalAlignment="Center"/>
+            </Viewbox>
+            <ComboBox x:Name="cBoxPunktzahl" Grid.Row="1" HorizontalAlignment="Center"  VerticalAlignment="Center" Width="120">
+                <ComboBoxItem Content="301" HorizontalAlignment="Left" Width="118"/>
+                <ComboBoxItem Content="501" HorizontalAlignment="Left" Width="118"/>
+                <ComboBoxItem Content="701" HorizontalAlignment="Left" Width="118"/>
+                <ComboBoxItem Content="901" HorizontalAlignment="Left" Width="118"/>
+                <ComboBoxItem Content="1001" HorizontalAlignment="Left" Width="118"/>
+            </ComboBox>
+
+            <Viewbox  Stretch="Uniform" Grid.Row="2" >
                 <Label  Content="Legs zum Set" HorizontalAlignment="Center"  VerticalAlignment="Center"/>
             </Viewbox>
-            <TextBox x:Name="txtAnzahlLeg" HorizontalAlignment="Center" Height="24" Grid.Row="1" TextWrapping="Wrap" Text="3" VerticalAlignment="Center" Width="202" Margin="10,18"/>
-            <Viewbox  Stretch="Uniform" Grid.Row="2" >
+            <TextBox x:Name="txtAnzahlLeg" HorizontalAlignment="Center" Height="24" Grid.Row="3" TextWrapping="Wrap" Text="3" VerticalAlignment="Center" Width="202" Margin="10,18"/>
+            <Viewbox  Stretch="Uniform" Grid.Row="4" >
                 <Label  Content="Sets zum Sieg" HorizontalAlignment="Center"  VerticalAlignment="Center"/>
             </Viewbox>
-            <TextBox x:Name="TxtAnzahlSet" HorizontalAlignment="Center" Height="24" Grid.Row="3" TextWrapping="Wrap" Text="5" VerticalAlignment="Center" Width="202" Margin="10,18"/>
-        </Grid>
+            <TextBox x:Name="TxtAnzahlSet" HorizontalAlignment="Center" Height="24" Grid.Row="5" TextWrapping="Wrap" Text="5" VerticalAlignment="Center" Width="202" Margin="10,18"/>
+              </Grid>
         <Button x:Name="BtnStart" Content="Spiel Starten" Grid.Row="2"  HorizontalAlignment="Center" VerticalAlignment="Center" Width="423" Margin="10,34,11,10" Height="48" Grid.ColumnSpan="2" Click="BtnStart_Click"/>
     </Grid>
 

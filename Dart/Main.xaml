@@ -46,7 +46,7 @@
                 </ribbon:RibbonGroup>
 
             </ribbon:RibbonTab>
-            
+
             <ribbon:Ribbon.ContextualTabGroups >
                 <ribbon:RibbonContextualTabGroup x:Name="ribboncontextMatch" Header="" Visibility="Hidden" Background="Red" />
             </ribbon:Ribbon.ContextualTabGroups>
@@ -54,7 +54,7 @@
 
 
         </ribbon:Ribbon>
-        <Frame x:Name="Container"  DockPanel.Dock="Bottom" NavigationUIVisibility="Hidden" Navigated="Container_Navigated" IsTabStop="True"/>
+        <Frame x:Name="Container"  DockPanel.Dock="Bottom" NavigationUIVisibility="Hidden" Navigated="Container_Navigated" />
 
     </DockPanel>
 </Window>

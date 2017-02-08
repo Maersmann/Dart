@@ -34,7 +34,7 @@ namespace Dart.Utils
             TextInhalt += "Ergebnis der Spiels\r\n";
             TextInhalt += "_________________________\r\n\r\n";
             TextInhalt += "Spielvariante : First to " + Convert.ToString(pMatch.SetZumSieg) + "\r\n";
-
+            TextInhalt += "Punkzahl: " + Convert.ToString(pMatch.PunktZahlzumLeg) + "\r\n";
         }
 
         public void NeuerSpieler(MatchSpieler pSpieler)

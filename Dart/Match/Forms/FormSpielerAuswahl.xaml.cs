@@ -19,6 +19,7 @@ namespace Dart.Match.Forms
         {
             InitializeComponent();
             _formMatch = pFormMatch;
+            cBoxPunktzahl.SelectedIndex = 0;
         }
 
         private void btnHinzufuegen_Click(object sender, RoutedEventArgs e)
@@ -76,7 +77,7 @@ namespace Dart.Match.Forms
             MatchObjekt match = new MatchObjekt();
             match.LegZumSet = Convert.ToInt32(txtAnzahlLeg.Text);
             match.SetZumSieg = Convert.ToInt32(TxtAnzahlSet.Text);
-            match.PunktZahlzumLeg = 501;
+            match.PunktZahlzumLeg = Int32.Parse( cBoxPunktzahl.Text );
 
             foreach (String Name in lstBoxSpieler.Items)
             {
