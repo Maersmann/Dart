@@ -215,6 +215,7 @@ namespace Dart.Match.Forms
                 ShowSpielerDaten();
                 AktualisiereGridSpieler();
                 AktualisiereView();
+          
             }
 
         }
