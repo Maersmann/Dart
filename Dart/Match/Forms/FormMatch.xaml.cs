@@ -201,14 +201,7 @@ namespace Dart.Match.Forms
 
                 _Main.rbMatchRedo.IsEnabled = false;
                 _Main.rbMatchUndo.IsEnabled = false;
-                _Main.rbStatistikMatchAverage.IsEnabled = false;
-                _Main.rbStatistikMatchBestWerte.IsEnabled = false;
 
-
-                _MatchModel = null;
-                _MatchController = null;
-                _MatchCareTaker = null;
-                _Finish = null;
             }
             else
             { 
