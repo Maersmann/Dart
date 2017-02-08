@@ -12,6 +12,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Dart.Match.Forms;
 using Microsoft.Windows.Controls.Ribbon;
+using Dart.Optionen.Form;
 
 namespace Dart
 {
@@ -73,5 +74,11 @@ namespace Dart
             Close();
         }
 
+
+        private void ribbonMenuOptionen_Click(object sender, RoutedEventArgs e)
+        {
+            FormOptionen option = new FormOptionen();
+            option.Show();
+        }
     }
 }

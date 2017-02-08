@@ -129,6 +129,12 @@
     <Compile Include="Match\Matchobjekte\Match.cs" />
     <Compile Include="Memento\MatchMemento.cs" />
     <Compile Include="Memento\MatchCaretaker.cs" />
+    <Compile Include="Optionen\Form\FormOptionen.xaml.cs">
+      <DependentUpon>FormOptionen.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Optionen\Frame\OptionenMatch.xaml.cs">
+      <DependentUpon>OptionenMatch.xaml</DependentUpon>
+    </Compile>
     <Compile Include="StartBildschirm.xaml.cs">
       <DependentUpon>StartBildschirm.xaml</DependentUpon>
     </Compile>
@@ -164,6 +170,14 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Match\Forms\FormSpielerAuswahl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Optionen\Form\FormOptionen.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Optionen\Frame\OptionenMatch.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -241,6 +255,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Bilder\statistic.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Bilder\Options.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

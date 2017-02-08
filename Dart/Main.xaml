@@ -12,6 +12,8 @@
 
             <ribbon:Ribbon.ApplicationMenu>
                 <ribbon:RibbonApplicationMenu >
+                    <ribbon:RibbonApplicationMenuItem Header="Optionen" x:Name="ribbonMenuOptionen"
+                                            ImageSource="Bilder\Options.png" Click="ribbonMenuOptionen_Click" />
                     <ribbon:RibbonApplicationMenuItem Header="Schliessen" x:Name="ribbonMenuClose"
                                             ImageSource="Bilder\Close.png" Click="ribbonMenuClose_Click"/>
                 </ribbon:RibbonApplicationMenu>
@@ -47,9 +49,6 @@
 
         </ribbon:Ribbon>
         <Frame x:Name="Container"  DockPanel.Dock="Bottom" NavigationUIVisibility="Hidden" Navigated="Container_Navigated" IsTabStop="True"/>
-
-
-
 
     </DockPanel>
 </Window>
