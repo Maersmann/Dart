@@ -43,10 +43,6 @@ namespace Dart.Match.Forms
 
         }
 
-        private void lstBoxSpieler_MouseDoubleClick(object sender, MouseButtonEventArgs e)
-        {
-            //name ändern
-        }
 
         private void BtnStart_Click(object sender, RoutedEventArgs e)
         {
@@ -98,6 +94,12 @@ namespace Dart.Match.Forms
             this.Close();
 
 
+        }
+
+        private void BtnSpielerDelete_Click(object sender, RoutedEventArgs e)
+        {
+            if (this.lstBoxSpieler.SelectedIndex >= 0)
+                this.lstBoxSpieler.Items.RemoveAt(this.lstBoxSpieler.SelectedIndex);
         }
     }
 }
