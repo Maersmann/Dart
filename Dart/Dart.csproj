@@ -88,6 +88,10 @@
     <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="INIFileParser, Version=2.3.0.0, Culture=neutral, PublicKeyToken=79af7b307b65cf3c, processorArchitecture=MSIL">
+      <HintPath>..\packages\ini-parser.2.3.0\lib\net20\INIFileParser.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.Windows.Shell, Version=3.5.41019.1, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="RibbonControlsLibrary, Version=4.0.0.11019, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System" />
@@ -129,12 +133,14 @@
     <Compile Include="Match\Matchobjekte\Match.cs" />
     <Compile Include="Memento\MatchMemento.cs" />
     <Compile Include="Memento\MatchCaretaker.cs" />
+    <Compile Include="Optionen\DataModul\OptionGame.cs" />
     <Compile Include="Optionen\Form\FormOptionen.xaml.cs">
       <DependentUpon>FormOptionen.xaml</DependentUpon>
     </Compile>
     <Compile Include="Optionen\Frame\FrameOptionenMatch.xaml.cs">
       <DependentUpon>FrameOptionenMatch.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Optionen\Utils\OptionIni.cs" />
     <Compile Include="StartBildschirm.xaml.cs">
       <DependentUpon>StartBildschirm.xaml</DependentUpon>
     </Compile>
@@ -262,6 +268,7 @@
   <ItemGroup>
     <Resource Include="Bilder\menu.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -13,6 +13,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Dart.Optionen.Utils;
+using Dart.Optionen.DataModul;
 
 namespace Dart.Optionen.Frame
 {
@@ -21,9 +23,19 @@ namespace Dart.Optionen.Frame
     /// </summary>
     public partial class FrameOptionenMatch : Page
     {
+        private OptionGame _optGame;
+        private OptionIni _optIni;
+
         public FrameOptionenMatch()
         {
             InitializeComponent();
+
+            _optIni = new OptionIni();
+            _optGame = _optIni.readIniGame();
+
+            TxtBoxLegZumSet.Text = _optGame.LegZumSet.ToString();
+            TxtBoxSetZumSieg.Text = _optGame.SetZumSieg.ToString();
+            cBoxPunktzahl.Text = _optGame.Punktzahl.ToString();
         }
 
         private void TxtBoxLegZumSet_PreviewTextInput(object sender, TextCompositionEventArgs e)
@@ -36,6 +48,14 @@ namespace Dart.Optionen.Frame
         {
             Regex regex = new Regex("[^0-9]+");
             e.Handled = regex.IsMatch(e.Text);
+        }
+
+        private void Canvas_Unloaded(object sender, RoutedEventArgs e)
+        {
+            _optGame.LegZumSet = int.Parse(TxtBoxLegZumSet.Text);
+            _optGame.Punktzahl = int.Parse(cBoxPunktzahl.Text);
+            _optGame.SetZumSieg = int.Parse(TxtBoxSetZumSieg.Text);
+            _optIni.writeIniGame(_optGame);
         }
     }
 }

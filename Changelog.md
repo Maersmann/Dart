@@ -1,3 +1,16 @@
+## Version 1.4
+ 
+ - `new` Maximale Spieleranzahl 8
+ - `new` Anzeige von den Werten (Restpunktzahl / Set / Leg) der Gegner
+ - `new` Fenster für Optionen
+ - `new` Optionen für Match
+ - `new` Beim Starten vom Spiel kann die Punktzahl ausgewählt werden
+ - `new` Entfernen von eingebenen Spieleranzahl
+
+ - `Fixed` Design Statistiken 
+
+ - `Improved` Bennung Button  
+
 ## Version 1.3
 Released 16.01.2017
 

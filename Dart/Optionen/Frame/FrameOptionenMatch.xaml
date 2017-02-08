@@ -18,7 +18,7 @@
             <Label x:Name="labelHeader" Content="Optionen für das Match" HorizontalAlignment="Center" VerticalAlignment="Center"/>
         </Grid>
         <Grid Grid.Row="1">
-            <Canvas >
+            <Canvas Unloaded="Canvas_Unloaded" >
                 <Label x:Name="lblAnzahlPunkte" Content="Punktzahl" Canvas.Left="10" Canvas.Top="10"/>
                 <Label x:Name="lblAnzahlSet" Content="Legs zum Set" Canvas.Left="10" Canvas.Top="36"/>
                 <Label x:Name="lblAnzahlLeg" Content="Set zum Sieg" Canvas.Left="10" Canvas.Top="62"/>

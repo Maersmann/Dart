@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Input;
 using Dart.Match.Matchobjekte;
-
+using Dart.Optionen.DataModul;
+using Dart.Optionen.Utils;
 
 namespace Dart.Match.Forms
 {
@@ -20,6 +21,12 @@ namespace Dart.Match.Forms
             InitializeComponent();
             _formMatch = pFormMatch;
             cBoxPunktzahl.SelectedIndex = 0;
+
+            OptionIni optIni = new OptionIni();
+            OptionGame optGame = optIni.readIniGame();
+            cBoxPunktzahl.Text = optGame.Punktzahl.ToString();
+            txtAnzahlLeg.Text = optGame.LegZumSet.ToString();
+            TxtAnzahlSet.Text = optGame.SetZumSieg.ToString();
         }
 
         private void btnHinzufuegen_Click(object sender, RoutedEventArgs e)
