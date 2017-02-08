@@ -22,12 +22,13 @@
                 <Label x:Name="lblAnzahlPunkte" Content="Punktzahl" Canvas.Left="10" Canvas.Top="10"/>
                 <Label x:Name="lblAnzahlSet" Content="Legs zum Set" Canvas.Left="10" Canvas.Top="36"/>
                 <Label x:Name="lblAnzahlLeg" Content="Set zum Sieg" Canvas.Left="10" Canvas.Top="62"/>
-                <TextBox x:Name="TxtBoxLegZumSet" Height="23" Canvas.Left="95" TextWrapping="Wrap" Text="" Canvas.Top="40" Width="120"/>
-                <TextBox x:Name="TxtBoxSetZumSieg" Height="23" Canvas.Left="95" TextWrapping="Wrap" Text="" Canvas.Top="66" Width="120"/>
+                <TextBox x:Name="TxtBoxLegZumSet" Height="23" Canvas.Left="95" TextWrapping="Wrap" Text="" Canvas.Top="40" Width="120" PreviewTextInput="TxtBoxLegZumSet_PreviewTextInput"/>
+                <TextBox x:Name="TxtBoxSetZumSieg" Height="23" Canvas.Left="95" TextWrapping="Wrap" Text="" Canvas.Top="66" Width="120" PreviewTextInput="TxtBoxSetZumSieg_PreviewTextInput"/>
                 <ComboBox x:Name="cBoxPunktzahl" Canvas.Left="95" Canvas.Top="13" Width="120">
                     <ComboBoxItem Content="301" HorizontalAlignment="Left" Width="118"/>
                     <ComboBoxItem Content="501" HorizontalAlignment="Left" Width="118"/>
                     <ComboBoxItem Content="701" HorizontalAlignment="Left" Width="118"/>
+                    <ComboBoxItem Content="901" HorizontalAlignment="Left" Width="118"/>
                     <ComboBoxItem Content="1001" HorizontalAlignment="Left" Width="118"/>
                 </ComboBox>
             </Canvas>
