@@ -25,20 +25,12 @@ namespace Dart.MatchUtils
                 }
             }
 
-            Wert WertTemp;
             _ListHighFinish.Add(new Wert() { Anzahl = 1, Score = pWurf });
+            _ListHighFinish = _ListHighFinish.OrderByDescending(o => o.Score).ToList();
 
-            for (int i = 0; i < _ListHighFinish.Count() - 1; i++)
+            if (_ListHighFinish.Count() > inListSize)
             {
-                for (int j = 0; j < _ListHighFinish.Count() - 1; j++)
-                {
-                    if (_ListHighFinish[j].Score > _ListHighFinish[j + 1].Score)
-                    {
-                        WertTemp = _ListHighFinish[j + 1];
-                        _ListHighFinish[j + 1] = _ListHighFinish[j];
-                        _ListHighFinish[j] = WertTemp;
-                    }
-                }
+                _ListHighFinish.RemoveAt(_ListHighFinish.Count() - 1);
             }
         }
 

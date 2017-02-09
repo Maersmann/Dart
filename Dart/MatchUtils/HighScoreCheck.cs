@@ -26,21 +26,14 @@ namespace Dart.MatchUtils
                 }
             }
 
-            Wert WertTemp;
-            _ListHighScore.Add( new Wert() { Anzahl = 1, Score = pWurf } );
+            _ListHighScore.Add(new Wert() { Anzahl = 1, Score = pWurf });
+            _ListHighScore = _ListHighScore.OrderByDescending(o => o.Score).ToList();
 
-            for (int i = 0; i < _ListHighScore.Count() - 1; i++)
+            if (_ListHighScore.Count() > inListSize)
             {
-                for (int j = 0; j < (_ListHighScore.Count() - 1 - i); j++)
-                {
-                    if (_ListHighScore[j].Score > _ListHighScore[j + 1].Score)
-                    {
-                        WertTemp = _ListHighScore[j + 1];
-                        _ListHighScore[j + 1] = _ListHighScore[j];
-                        _ListHighScore[j] = WertTemp;
-                    }
-                }
+                _ListHighScore.RemoveAt(_ListHighScore.Count()-1);
             }
+
         }
 
         public List<Wert> getListHighScore() { return _ListHighScore; }
