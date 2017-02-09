@@ -7,7 +7,7 @@
       mc:Ignorable="d" 
       Background="White"
       d:DesignHeight="300" d:DesignWidth="300"
-      Title="OptionenMatch">
+      Title="OptionenMatch" Unloaded="Page_Unloaded" >
 
     <Grid>
         <Grid.RowDefinitions>
@@ -18,18 +18,18 @@
             <Label x:Name="labelHeader" Content="Optionen für das Match" HorizontalAlignment="Center" VerticalAlignment="Center"/>
         </Grid>
         <Grid Grid.Row="1">
-            <Canvas Unloaded="Canvas_Unloaded" >
+            <Canvas  >
                 <Label x:Name="lblAnzahlPunkte" Content="Punktzahl" Canvas.Left="10" Canvas.Top="10"/>
                 <Label x:Name="lblAnzahlSet" Content="Legs zum Set" Canvas.Left="10" Canvas.Top="36"/>
                 <Label x:Name="lblAnzahlLeg" Content="Set zum Sieg" Canvas.Left="10" Canvas.Top="62"/>
-                <TextBox x:Name="TxtBoxLegZumSet" Height="23" Canvas.Left="95" TextWrapping="Wrap" Text="" Canvas.Top="40" Width="120" PreviewTextInput="TxtBoxLegZumSet_PreviewTextInput"/>
-                <TextBox x:Name="TxtBoxSetZumSieg" Height="23" Canvas.Left="95" TextWrapping="Wrap" Text="" Canvas.Top="66" Width="120" PreviewTextInput="TxtBoxSetZumSieg_PreviewTextInput"/>
-                <ComboBox x:Name="cBoxPunktzahl" Canvas.Left="95" Canvas.Top="13" Width="120">
-                    <ComboBoxItem Content="301" HorizontalAlignment="Left" Width="118"/>
-                    <ComboBoxItem Content="501" HorizontalAlignment="Left" Width="118"/>
-                    <ComboBoxItem Content="701" HorizontalAlignment="Left" Width="118"/>
-                    <ComboBoxItem Content="901" HorizontalAlignment="Left" Width="118"/>
-                    <ComboBoxItem Content="1001" HorizontalAlignment="Left" Width="118"/>
+                <TextBox x:Name="TxtBoxLegZumSet" Height="23" Canvas.Left="95" TextWrapping="Wrap" Text="" Canvas.Top="40" Width="54" PreviewTextInput="TxtBoxLegZumSet_PreviewTextInput" MaxLength="2"/>
+                <TextBox x:Name="TxtBoxSetZumSieg" Height="23" Canvas.Left="95" TextWrapping="Wrap" Text="" Canvas.Top="66" Width="54" PreviewTextInput="TxtBoxSetZumSieg_PreviewTextInput" MaxLength="2"/>
+                <ComboBox x:Name="cBoxPunktzahl" Canvas.Left="95" Canvas.Top="13" Width="54">
+                    <ComboBoxItem Content="301" HorizontalAlignment="Left" Width="52"/>
+                    <ComboBoxItem Content="501" HorizontalAlignment="Left" Width="52"/>
+                    <ComboBoxItem Content="701" HorizontalAlignment="Left" Width="52"/>
+                    <ComboBoxItem Content="901" HorizontalAlignment="Left" Width="52"/>
+                    <ComboBoxItem Content="1001" HorizontalAlignment="Left" Width="52"/>
                 </ComboBox>
             </Canvas>
 

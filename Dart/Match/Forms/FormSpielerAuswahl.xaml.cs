@@ -23,10 +23,9 @@ namespace Dart.Match.Forms
             cBoxPunktzahl.SelectedIndex = 0;
 
             OptionIni optIni = new OptionIni();
-            OptionGame optGame = optIni.readIniGame();
-            cBoxPunktzahl.Text = optGame.Punktzahl.ToString();
-            txtAnzahlLeg.Text = optGame.LegZumSet.ToString();
-            TxtAnzahlSet.Text = optGame.SetZumSieg.ToString();
+            cBoxPunktzahl.Text = optIni.OptionGame.Punktzahl.ToString();
+            txtAnzahlLeg.Text = optIni.OptionGame.LegZumSet.ToString();
+            TxtAnzahlSet.Text = optIni.OptionGame.SetZumSieg.ToString();
         }
 
         private void btnHinzufuegen_Click(object sender, RoutedEventArgs e)

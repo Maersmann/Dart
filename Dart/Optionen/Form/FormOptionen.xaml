@@ -23,13 +23,12 @@
                     <RowDefinition Height="132*"/>
                 </Grid.RowDefinitions>
                 <ListBox x:Name="listBoxOptionen" Grid.Row="1" Margin="5,5,5,5" SelectionChanged="listBoxOptionen_SelectionChanged"  >
-                    <ListBoxItem Content="Game" x:Name="lstBoxItemGame"/>
                 </ListBox>
                 <Label x:Name="label" Content="Optionen Liste" HorizontalAlignment="Center" Grid.Row="0"  VerticalAlignment="Center" FontSize="18"/>
 
             </Grid>
 
-            <Frame x:Name="frameOptionen"  Grid.Column="1" />
+            <Frame x:Name="frameOptionen"  Grid.Column="1" NavigationUIVisibility="Hidden" />
 
         </Grid>
         <Grid Background="BlanchedAlmond"  Grid.Row="1">

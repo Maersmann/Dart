@@ -134,11 +134,15 @@
     <Compile Include="Memento\MatchMemento.cs" />
     <Compile Include="Memento\MatchCaretaker.cs" />
     <Compile Include="Optionen\DataModul\OptionGame.cs" />
+    <Compile Include="Optionen\DataModul\OptionStatistik.cs" />
     <Compile Include="Optionen\Form\FormOptionen.xaml.cs">
       <DependentUpon>FormOptionen.xaml</DependentUpon>
     </Compile>
     <Compile Include="Optionen\Frame\FrameOptionenMatch.xaml.cs">
       <DependentUpon>FrameOptionenMatch.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Optionen\Frame\FrameOptionenStatistik.xaml.cs">
+      <DependentUpon>FrameOptionenStatistik.xaml</DependentUpon>
     </Compile>
     <Compile Include="Optionen\Utils\OptionIni.cs" />
     <Compile Include="StartBildschirm.xaml.cs">
@@ -184,6 +188,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Optionen\Frame\FrameOptionenMatch.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Optionen\Frame\FrameOptionenStatistik.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

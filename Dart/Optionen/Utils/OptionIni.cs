@@ -12,43 +12,93 @@ namespace Dart.Optionen.Utils
 {
     public class OptionIni
     {
+        private static string FILENAME = "conf.ini";
+
+        private int _ParseResult = -1;
+        private String _KeyResult = "";
+
         private FileIniDataParser _parser = new FileIniDataParser();
+        private IniData _IniData;
+
+        public OptionGame OptionGame { get; set; }
+        public OptionStatistik OptionStatistik { get; set; }
+
 
 
         public OptionIni()
         {
+            OptionGame = new OptionGame();
             _parser = new FileIniDataParser();
-        }
+            OptionStatistik = new OptionStatistik();
+            if (File.Exists(FILENAME))
+            { 
+                _IniData = _parser.ReadFile(FILENAME);
 
-        public OptionGame readIniGame()
-        {
-            OptionGame optGame = new OptionGame();
-            int ParseResult = -1;
-            if (File.Exists("game.ini"))
-            {
-                IniData IniData = _parser.ReadFile("game.ini");
-                if(int.TryParse(IniData.Sections["Game"].GetKeyData("Punktzahl").Value, out ParseResult)) 
-                    optGame.Punktzahl   = int.Parse(IniData.Sections["Game"].GetKeyData("Punktzahl").Value);
-
-                if (int.TryParse(IniData.Sections["Game"].GetKeyData("Leg").Value, out ParseResult))
-                    optGame.LegZumSet   = int.Parse(IniData.Sections["Game"].GetKeyData("Leg").Value );
-
-                if (int.TryParse(IniData.Sections["Game"].GetKeyData("Set").Value, out ParseResult))
-                    optGame.SetZumSieg  = int.Parse(IniData.Sections["Game"].GetKeyData("Set").Value );
+                readIniGame();
+                readStatistik();
             }
-            return optGame;
         }
 
-        public void writeIniGame( OptionGame inOptionGame )
+        private void readIniGame()
         {
-            IniData IniData = new IniData();
-            IniData.Sections.AddSection("Game");
+            if (_IniData.Sections["Game"]== null) return;
+            if (_IniData.Sections["Game"].GetKeyData("Punktzahl") == null) return ;
+            if (_IniData.Sections["Game"].GetKeyData("Leg") == null) return ;
+            if (_IniData.Sections["Game"].GetKeyData("Set") == null) return ;
 
-            IniData.Sections.GetSectionData("Game").Keys.AddKey("Punktzahl", inOptionGame.Punktzahl.ToString());
-            IniData.Sections.GetSectionData("Game").Keys.AddKey("Leg", inOptionGame.LegZumSet.ToString());
-            IniData.Sections.GetSectionData("Game").Keys.AddKey("Set", inOptionGame.SetZumSieg.ToString());
+            if (int.TryParse(_IniData.Sections["Game"].GetKeyData("Punktzahl").Value, out _ParseResult))
+                OptionGame.Punktzahl   = int.Parse(_IniData.Sections["Game"].GetKeyData("Punktzahl").Value);
 
-            _parser.WriteFile("game.ini", IniData);
+            if (int.TryParse(_IniData.Sections["Game"].GetKeyData("Leg").Value, out _ParseResult))
+                OptionGame.LegZumSet   = int.Parse(_IniData.Sections["Game"].GetKeyData("Leg").Value );
+
+            if (int.TryParse(_IniData.Sections["Game"].GetKeyData("Set").Value, out _ParseResult))
+                OptionGame.SetZumSieg  = int.Parse(_IniData.Sections["Game"].GetKeyData("Set").Value );
+      
+        }
+
+        private void readStatistik()
+        {
+
+            if (_IniData.Sections["Statistik"] == null) return;
+            if (_IniData.Sections["Statistik"].GetKeyData("ListSizeHighfinish") == null) return;
+            if (_IniData.Sections["Statistik"].GetKeyData("ListSizeHighscore") == null) return;
+
+            if (int.TryParse(_IniData.Sections["Statistik"].GetKeyData("ListSizeHighfinish").Value, out _ParseResult))
+                OptionStatistik.HighfinishListSize = int.Parse(_IniData.Sections["Statistik"].GetKeyData("ListSizeHighfinish").Value);
+
+            if (int.TryParse(_IniData.Sections["Statistik"].GetKeyData("ListSizeHighscore").Value, out _ParseResult))
+                OptionStatistik.HighscoreListSize = int.Parse(_IniData.Sections["Statistik"].GetKeyData("ListSizeHighscore").Value);
+
+        }
+
+
+        public void WriteIni()
+        {
+            _IniData = new IniData();
+            _IniData.Sections.AddSection("Game");
+
+            _IniData.Sections.GetSectionData("Game").Keys.AddKey("Punktzahl", OptionGame.Punktzahl.ToString());
+            _IniData.Sections.GetSectionData("Game").Keys.AddKey("Leg", OptionGame.LegZumSet.ToString());
+            _IniData.Sections.GetSectionData("Game").Keys.AddKey("Set", OptionGame.SetZumSieg.ToString());
+
+            _IniData.Sections.AddSection("Statistik");
+
+            _IniData.Sections.GetSectionData("Statistik").Keys.AddKey("ListSizeHighfinish", OptionStatistik.HighfinishListSize.ToString());
+            _IniData.Sections.GetSectionData("Statistik").Keys.AddKey("ListSizeHighscore", OptionStatistik.HighscoreListSize.ToString());
+
+            _parser.WriteFile( FILENAME , _IniData);
+        }
+
+        private bool CheckIni()
+        {
+            
+            
+            if (!_IniData.TryGetKey("Punktzahl", out _KeyResult)) return false;
+            if (!_IniData.TryGetKey("Punktzahl", out _KeyResult)) return false;
+            if (!_IniData.TryGetKey("Punktzahl", out _KeyResult)) return false;
+
+            return true;
         }
     }
 }

@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Dart.Optionen.Frame;
+using Dart.Optionen.Utils;
 
 namespace Dart.Optionen.Form
 {
@@ -22,18 +23,23 @@ namespace Dart.Optionen.Form
     {
 
         FrameOptionenMatch _OptionenMatch;
+        FrameOptionenStatistik _OptionStatistik;
+        OptionIni _OptIni;
 
         public FormOptionen()
         {
             InitializeComponent();
+            _OptIni = new OptionIni();
 
-            _OptionenMatch = new FrameOptionenMatch();
-            frameOptionen.Navigate(_OptionenMatch);
+            listBoxOptionen.Items.Add("Game");
+            listBoxOptionen.Items.Add("Statistik");
+            listBoxOptionen.SelectedIndex = 0;
+
         }
 
         private void BtnOk_Click(object sender, RoutedEventArgs e)
         {
-            //Save
+            _OptIni.WriteIni();
             Close();
         }
 
@@ -41,14 +47,20 @@ namespace Dart.Optionen.Form
         {
             string FrameOptionen = listBoxOptionen.SelectedItem.ToString();
 
-            if (FrameOptionen == lstBoxItemGame.Content.ToString())
+            if (FrameOptionen == "Game")
             {
                 if (_OptionenMatch == null)
-                    _OptionenMatch = new FrameOptionenMatch();
+                    _OptionenMatch = new FrameOptionenMatch(_OptIni.OptionGame);
                 frameOptionen.Navigate(_OptionenMatch);
             }
+            else if (FrameOptionen == "Statistik")
+            {
+                if (_OptionStatistik == null)
+                    _OptionStatistik = new FrameOptionenStatistik(_OptIni.OptionStatistik);
+                frameOptionen.Navigate(_OptionStatistik);
+            }
 
-            
+
         }
     }
 }
