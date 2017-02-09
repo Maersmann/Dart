@@ -37,7 +37,7 @@ namespace Dart.Utils
             TextInhalt += "Punkzahl: " + Convert.ToString(pMatch.PunktZahlzumLeg) + "\r\n";
         }
 
-        public void NeuerSpieler(MatchSpieler pSpieler)
+        public void NeuerSpieler(MatchSpieler pSpieler )
         {
             TextInhalt += "\r\n \r\n Name des Spielers: " + pSpieler.Spieler.GetName() + "\r\n";
             TextInhalt += "_________________________________\r\n";
@@ -57,29 +57,15 @@ namespace Dart.Utils
             TextInhalt += "\r\n Bestwerte des Games!\r\n";
             TextInhalt += "--------Highscore--------\r\n";
 
-            for (int ScoreDurchlauf = 9; ScoreDurchlauf >= 0; ScoreDurchlauf--)
+            for (int ListIndex = 0; ListIndex < pSpieler.Statistiken.Highscore.Count(); ListIndex++)
             {
-                if (pSpieler.HighScore.Scores[ScoreDurchlauf] > 0)
-                {
-                    if (pSpieler.HighScore.AnzahlScore[ScoreDurchlauf] > 0)
-                    {
-                        TextInhalt += "\t" + pSpieler.HighScore.Scores[ScoreDurchlauf] + "\t" + pSpieler.HighScore.AnzahlScore[ScoreDurchlauf] + "x\r\n";
-                    }
-                }
-
+                TextInhalt += "\t" + pSpieler.Statistiken.Highscore[ListIndex].Score + "\t" + pSpieler.Statistiken.Highscore[ListIndex].Anzahl + "x\r\n";
             }
             TextInhalt += "\r\n--------Highfinish--------\r\n";
 
-            for (int FinishDurchlauf = 9; FinishDurchlauf >= 0; FinishDurchlauf--)
+            for (int ListIndex = 0; ListIndex < pSpieler.Statistiken.Highfinish.Count(); ListIndex++)
             {
-                if (pSpieler.HighScore.AnzahlFinish[FinishDurchlauf] > 0)
-                {
-                    if (pSpieler.HighScore.FinishScore[FinishDurchlauf] > 0)
-                    {
-                        TextInhalt += "\t" + pSpieler.HighScore.FinishScore[FinishDurchlauf] + "\t" + pSpieler.HighScore.AnzahlFinish[FinishDurchlauf] + "x\r\n";
-                    }
-                }
-
+                TextInhalt += "\t" + pSpieler.Statistiken.Highfinish[ListIndex].Score+ "\t" + pSpieler.Statistiken.Highfinish[ListIndex].Anzahl + "x\r\n";
             }
 
             TextInhalt += "\r\n60>: " + pSpieler.Statistiken.Sechzig;

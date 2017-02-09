@@ -36,7 +36,7 @@ namespace Dart.Statistiken.Match.Forms
         public class SpielerDataBestFinish
         {
             public int Anzahl { get; set; }
-            public int Finish { get; set; }
+            public int Score { get; set; }
         }
 
         public FormStatistikMatchBestWerte(MatchModel pMatchmodel)
@@ -68,25 +68,24 @@ namespace Dart.Statistiken.Match.Forms
             LblLongestLegText.Content = pSpieler.Statistiken.LongestLeg.ToString();
             LblShortestLegText.Content = pSpieler.Statistiken.ShortesLeg.ToString();
 
-            for (int BestScoreDurchlauf = 9; BestScoreDurchlauf >= 0; BestScoreDurchlauf--)
+            for (int BestScoreDurchlauf = 0; BestScoreDurchlauf < pSpieler.Statistiken.Highfinish.Count() ; BestScoreDurchlauf++)
             {
-                if (pSpieler.HighScore.AnzahlFinish[BestScoreDurchlauf] > 0 && pSpieler.HighScore.FinishScore[BestScoreDurchlauf] > 0)
-                {
-                    SpielerDataBestFinish BestFinish = new SpielerDataBestFinish();
-                    BestFinish.Anzahl = pSpieler.HighScore.AnzahlFinish[BestScoreDurchlauf];
-                    BestFinish.Finish = pSpieler.HighScore.FinishScore[BestScoreDurchlauf];
-                    listSpielerFinish.Add(BestFinish);
-                }
-
-                if (pSpieler.HighScore.Scores[BestScoreDurchlauf] > 0 && pSpieler.HighScore.AnzahlScore[BestScoreDurchlauf] > 0)
-                {
-
-                    SpielerDataBestWurf BestWurf = new SpielerDataBestWurf();
-                    BestWurf.Anzahl = pSpieler.HighScore.AnzahlScore[BestScoreDurchlauf];
-                    BestWurf.Score = pSpieler.HighScore.Scores[BestScoreDurchlauf];
-                    listSpielerWurf.Add(BestWurf);
-                }
+                SpielerDataBestFinish BestFinish = new SpielerDataBestFinish();
+                BestFinish.Anzahl = pSpieler.Statistiken.Highfinish[BestScoreDurchlauf].Anzahl;
+                BestFinish.Score = pSpieler.Statistiken.Highfinish[BestScoreDurchlauf].Score;
+                listSpielerFinish.Add(BestFinish);
             }
+            for (int BestScoreDurchlauf = 0; BestScoreDurchlauf < pSpieler.Statistiken.Highscore.Count(); BestScoreDurchlauf++)
+            {
+                SpielerDataBestWurf BestWurf = new SpielerDataBestWurf();
+                BestWurf.Anzahl = pSpieler.Statistiken.Highscore[BestScoreDurchlauf].Anzahl;
+                BestWurf.Score = pSpieler.Statistiken.Highscore[BestScoreDurchlauf].Score;
+                listSpielerWurf.Add(BestWurf);
+            }
+
+
+                
+            
 
             dgFinish.ItemsSource = listSpielerFinish;
             dgHighWurf.ItemsSource = listSpielerWurf;

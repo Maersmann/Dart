@@ -119,7 +119,6 @@
     <Compile Include="Main.xaml.cs">
       <DependentUpon>Main.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Match\Matchobjekte\Statistiken.cs" />
     <Compile Include="Match\Matchobjekte\Leg.cs" />
     <Compile Include="Match\Matchobjekte\Set.cs" />
     <Compile Include="Match\Matchobjekte\MatchSpieler.cs" />
@@ -131,6 +130,7 @@
     <Compile Include="MatchUtils\HighFinishCheck.cs" />
     <Compile Include="MatchUtils\HighScoreCheck.cs" />
     <Compile Include="Match\Matchobjekte\Match.cs" />
+    <Compile Include="Match\Matchobjekte\Statistiken.cs" />
     <Compile Include="Memento\MatchMemento.cs" />
     <Compile Include="Memento\MatchCaretaker.cs" />
     <Compile Include="Optionen\DataModul\OptionGame.cs" />
@@ -212,7 +212,6 @@
     <Compile Include="Match\Forms\FormSpielerAuswahl.xaml.cs">
       <DependentUpon>FormSpielerAuswahl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Match\Matchobjekte\HighScore.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
