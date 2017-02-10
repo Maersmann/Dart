@@ -116,6 +116,9 @@
     </ApplicationDefinition>
     <Compile Include="Finish\AverageText.cs" />
     <Compile Include="Finish\FinishWeg.cs" />
+    <Compile Include="Info\FormLicense.xaml.cs">
+      <DependentUpon>FormLicense.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Main.xaml.cs">
       <DependentUpon>Main.xaml</DependentUpon>
     </Compile>
@@ -159,6 +162,10 @@
     <Compile Include="Match\MatchModel.cs" />
     <Compile Include="SpielerObjekte\Spieler.cs" />
     <Compile Include="Utils\SaveGame.cs" />
+    <Page Include="Info\FormLicense.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Main.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

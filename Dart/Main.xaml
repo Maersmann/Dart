@@ -21,6 +21,8 @@
 
                     <ribbon:RibbonApplicationMenuItem Header="Optionen" x:Name="ribbonMenuOptionen"
                                             ImageSource="Bilder\Options.png" Click="ribbonMenuOptionen_Click" />
+                    <ribbon:RibbonApplicationMenuItem Header="License" x:Name="ribbonMenuCopyright"
+                                            ImageSource="Bilder\Options.png" Click="ribbonMenuCopyright_Click"  />
                     <ribbon:RibbonApplicationMenuItem Header="Schliessen" x:Name="ribbonMenuClose"
                                             ImageSource="Bilder\Close.png" Click="ribbonMenuClose_Click"/>
                 </ribbon:RibbonApplicationMenu>
