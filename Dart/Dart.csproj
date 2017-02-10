@@ -289,6 +289,10 @@
   <ItemGroup>
     <Resource Include="Bilder\menu.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Bilder\info.png" />
+    <Resource Include="Bilder\Lizenz.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

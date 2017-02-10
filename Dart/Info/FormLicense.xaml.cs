@@ -34,6 +34,11 @@ namespace Dart.Info
             richTextBox.AppendText("- „Options“ by Anastasya Bolshakova https://www.iconfinder.com/nastu_bol is licensed under Creative Commons license: http://creativecommons.org/licenses/by/3.0/");
             richTextBox.AppendText(Environment.NewLine);
             richTextBox.AppendText("- „Menu“ by Chanut is Industries https://www.iconfinder.com/Chanut-is is licensed under Creative Commons license: http://creativecommons.org/licenses/by/3.0/");
+            richTextBox.AppendText(Environment.NewLine);
+            richTextBox.AppendText("- „Info“ Alina Agafitei https://www.iconfinder.com/alina.agafitei.73  is licensed under a Free for commercial use");
+            richTextBox.AppendText(Environment.NewLine);
+            richTextBox.AppendText("- „Lizenz„ by Benjamin STAWARZ https://www.iconfinder.com/butterflytronics is licensed under Creative Commons license: http://creativecommons.org/licenses/by/3.0/");
+
         }
 
         private void BtnOk_Click(object sender, RoutedEventArgs e)
