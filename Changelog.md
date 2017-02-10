@@ -7,8 +7,7 @@
  - `new` Beim Starten vom Spiel kann die Punktzahl ausgewählt werden
  - `new` Entfernen von eingebenen Spieleranzahl
 
- - `Fixed` Design Statistiken 
-
+ - `Improved` Design Statistiken 
  - `Improved` Bennung Button  
 
 ## Version 1.3

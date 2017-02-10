@@ -24,14 +24,12 @@ namespace Dart.Optionen.Frame
     public partial class FrameOptionenStatistik : Page
     {
 
-        OptionStatistik _OptionStatistik;
         public FrameOptionenStatistik( OptionStatistik inOptionStatistik  )
         {
             InitializeComponent();
-            _OptionStatistik = inOptionStatistik;
 
-            TxtBoxSizeScore.Text = _OptionStatistik.HighscoreListSize.ToString();
-            TxtBoxSizeFinish.Text = _OptionStatistik.HighfinishListSize.ToString();
+            this.DataContext = inOptionStatistik;
+
         }
 
         private void TxtBoxSizeScore_PreviewTextInput(object sender, TextCompositionEventArgs e)
@@ -46,13 +44,5 @@ namespace Dart.Optionen.Frame
             e.Handled = regex.IsMatch(e.Text);
         }
 
-
-
-        private void Page_Unloaded(object sender, RoutedEventArgs e)
-        {
-            _OptionStatistik.HighscoreListSize = int.Parse(TxtBoxSizeScore.Text);
-            _OptionStatistik.HighfinishListSize = int.Parse(TxtBoxSizeFinish.Text);
-            
-        }
     }
 }

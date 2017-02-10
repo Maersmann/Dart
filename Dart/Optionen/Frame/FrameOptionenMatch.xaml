@@ -7,7 +7,7 @@
       mc:Ignorable="d" 
       Background="White"
       d:DesignHeight="300" d:DesignWidth="300"
-      Title="OptionenMatch" Unloaded="Page_Unloaded" >
+      Title="OptionenMatch" >
 
     <Grid>
         <Grid.RowDefinitions>
@@ -22,9 +22,9 @@
                 <Label x:Name="lblAnzahlPunkte" Content="Punktzahl" Canvas.Left="10" Canvas.Top="10"/>
                 <Label x:Name="lblAnzahlSet" Content="Legs zum Set" Canvas.Left="10" Canvas.Top="36"/>
                 <Label x:Name="lblAnzahlLeg" Content="Set zum Sieg" Canvas.Left="10" Canvas.Top="62"/>
-                <TextBox x:Name="TxtBoxLegZumSet" Height="23" Canvas.Left="95" TextWrapping="Wrap" Text="" Canvas.Top="40" Width="54" PreviewTextInput="TxtBoxLegZumSet_PreviewTextInput" MaxLength="2"/>
-                <TextBox x:Name="TxtBoxSetZumSieg" Height="23" Canvas.Left="95" TextWrapping="Wrap" Text="" Canvas.Top="66" Width="54" PreviewTextInput="TxtBoxSetZumSieg_PreviewTextInput" MaxLength="2"/>
-                <ComboBox x:Name="cBoxPunktzahl" Canvas.Left="95" Canvas.Top="13" Width="54">
+                <TextBox x:Name="TxtBoxLegZumSet" Text="{Binding LegZumSet}" Height="23" Canvas.Left="95" TextWrapping="Wrap"  Canvas.Top="40" Width="54" PreviewTextInput="TxtBoxLegZumSet_PreviewTextInput" MaxLength="2"/>
+                <TextBox x:Name="TxtBoxSetZumSieg" Text="{Binding SetZumSieg}" Height="23" Canvas.Left="95" TextWrapping="Wrap" Canvas.Top="66" Width="54" PreviewTextInput="TxtBoxSetZumSieg_PreviewTextInput" MaxLength="2"/>
+                <ComboBox x:Name="cBoxPunktzahl" Canvas.Left="95" Canvas.Top="13" Width="54" Text="{Binding Punktzahl}">
                     <ComboBoxItem Content="301" HorizontalAlignment="Left" Width="52"/>
                     <ComboBoxItem Content="501" HorizontalAlignment="Left" Width="52"/>
                     <ComboBoxItem Content="701" HorizontalAlignment="Left" Width="52"/>

@@ -7,7 +7,7 @@
       mc:Ignorable="d" 
       d:DesignHeight="300" d:DesignWidth="300"
       Background="White"
-      Title="FrameOptionenStatistik" Unloaded="Page_Unloaded" >
+      Title="FrameOptionenStatistik">
 
     <Grid>
         <Grid.RowDefinitions>
@@ -21,8 +21,8 @@
             <Canvas  >
                 <Label x:Name="lblSizeScore" Content="Größe der Liste für Highscores:" Canvas.Left="10" Canvas.Top="10"/>
                 <Label x:Name="lblsizeFinish" Content="Größe der Liste für Highfinish:" Canvas.Left="10" Canvas.Top="39"/>
-                <TextBox x:Name="TxtBoxSizeScore"  Height="23" Canvas.Left="183" TextWrapping="Wrap" Canvas.Top="13" Width="29"  MaxLines="1" MaxLength="3" PreviewTextInput="TxtBoxSizeScore_PreviewTextInput"/>
-                <TextBox x:Name="TxtBoxSizeFinish" Height="23" Canvas.Left="183" TextWrapping="Wrap"  Canvas.Top="42" Width="29"  MaxLines="1" MaxLength="3" PreviewTextInput="TxtBoxSizeFinish_PreviewTextInput"/>
+                <TextBox x:Name="TxtBoxSizeScore" Text="{Binding HighscoreListSize}" Height="23" Canvas.Left="183"  Canvas.Top="13" Width="29"  MaxLength="3" PreviewTextInput="TxtBoxSizeScore_PreviewTextInput"/>
+                <TextBox x:Name="TxtBoxSizeFinish" Text="{Binding HighfinishListSize}" Height="23" Canvas.Left="183"  Canvas.Top="42" Width="29"  MaxLength="3" PreviewTextInput="TxtBoxSizeFinish_PreviewTextInput"/>
             </Canvas>
 
         </Grid>

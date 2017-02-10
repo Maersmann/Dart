@@ -22,18 +22,13 @@ namespace Dart.Optionen.Frame
     /// </summary>
     public partial class FrameOptionenMatch : Page
     {
-   
-        private OptionGame _optionGame;
-
-        public FrameOptionenMatch(OptionGame inOptionGame)
+          public FrameOptionenMatch(OptionGame inOptionGame)
         {
             InitializeComponent();
 
-            _optionGame = inOptionGame;
+            this.DataContext =  inOptionGame;
 
-            TxtBoxLegZumSet.Text = _optionGame.LegZumSet.ToString();
-            TxtBoxSetZumSieg.Text = _optionGame.SetZumSieg.ToString();
-            cBoxPunktzahl.Text = _optionGame.Punktzahl.ToString();
+
         }
 
         private void TxtBoxLegZumSet_PreviewTextInput(object sender, TextCompositionEventArgs e)
@@ -46,14 +41,6 @@ namespace Dart.Optionen.Frame
         {
             Regex regex = new Regex("[^0-9]+");
             e.Handled = regex.IsMatch(e.Text);
-        }
-
-
-        private void Page_Unloaded(object sender, RoutedEventArgs e)
-        {
-            _optionGame.LegZumSet = int.Parse(TxtBoxLegZumSet.Text);
-            _optionGame.Punktzahl = int.Parse(cBoxPunktzahl.Text);
-            _optionGame.SetZumSieg = int.Parse(TxtBoxSetZumSieg.Text);
         }
 
     }

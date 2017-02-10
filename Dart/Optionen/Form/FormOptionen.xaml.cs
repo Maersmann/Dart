@@ -41,6 +41,7 @@ namespace Dart.Optionen.Form
         {
             _OptIni.WriteIni();
             Close();
+            
         }
 
         private void listBoxOptionen_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -60,6 +61,11 @@ namespace Dart.Optionen.Form
                 frameOptionen.Navigate(_OptionStatistik);
             }
 
+
+        }
+
+        private void frameOptionen_Navigated(object sender, System.Windows.Navigation.NavigationEventArgs e)
+        {
 
         }
     }

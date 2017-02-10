@@ -28,7 +28,7 @@
 
             </Grid>
 
-            <Frame x:Name="frameOptionen"  Grid.Column="1" NavigationUIVisibility="Hidden" />
+            <Frame x:Name="frameOptionen"  Grid.Column="1" NavigationUIVisibility="Hidden" Navigated="frameOptionen_Navigated" />
 
         </Grid>
         <Grid Background="BlanchedAlmond"  Grid.Row="1">
