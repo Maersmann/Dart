@@ -162,20 +162,18 @@ namespace Dart.Match
                 _Matchmodel.setGewonnenSet(_Matchmodel.getGewonnenSet() + 1);
 
                 _Matchmodel.SetBeendet();
-                
+
                 if (_Matchmodel.getGewonnenSet() == _Matchmodel.getSetZumSieg())
                 {
                     MessageBox.Show(_Matchmodel.getName() + " hat das Spiel gewonnen");
                     _Matchmodel.SpeichereSpiel();
                     SpielBeendet = true;
-                    
+                    _Matchmodel.Spielbeendet = true;           
                 }
                 else
                 {
                     MessageBox.Show(_Matchmodel.getName() + " hat das Set gewonnen");
                     _Matchmodel.SetSpielerNachSet();
-                    
-
                 }
 
                 

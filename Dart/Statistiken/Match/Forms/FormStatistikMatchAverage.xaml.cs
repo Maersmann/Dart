@@ -61,7 +61,11 @@ namespace Dart.Statistiken.Match.Forms
 
             foreach (Set Set in pSpieler.Sets)
             {
-
+                SpielerData = new SpielerDataAver();
+                SpielerData.Set = Set.Nummer;
+                SpielerData.Leg = "Average";
+                SpielerData.Average = Set.Average;
+                listSpieler.Add(SpielerData);
 
                 foreach (Leg Leg in Set.Legs)
                 {
@@ -71,6 +75,12 @@ namespace Dart.Statistiken.Match.Forms
                     SpielerData.Average = Leg.Average;
                     listSpieler.Add(SpielerData);
                 }
+            }
+
+            if (_matchmodel.Spielbeendet)
+            {
+                dataGrid.ItemsSource = listSpieler;
+                return;
             }
 
             Set AktSet = pSpieler.AktuellesSet;

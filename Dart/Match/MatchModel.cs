@@ -23,9 +23,12 @@ namespace Dart.Match
         private int _ListSizeFinish;
         private int _ListSizeScore;
 
+        public bool Spielbeendet { get; set; }
+
 
         public MatchModel( MatchObjekt pMatch )
         {
+            Spielbeendet = false;
             OptionIni optIni = new OptionIni();
             _ListSizeFinish = optIni.OptionStatistik.HighfinishListSize;
             _ListSizeScore = optIni.OptionStatistik.HighscoreListSize;
@@ -100,9 +103,9 @@ namespace Dart.Match
             {
                 int LetzteSetNummer = spieler.AktuellesSet.Nummer;
                 spieler.Sets.Add(spieler.AktuellesSet);
+
                 spieler.AktuellesSet = new Set();
                 spieler.AktuellesLeg.Nummer = 1;
-                spieler.AktuellesSet.Nummer = (LetzteSetNummer+1);
 
                 spieler.AnzahlLegGewonnen = 0;
             }
