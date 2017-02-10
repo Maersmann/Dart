@@ -106,7 +106,7 @@ namespace Dart.Match
 
                 spieler.AktuellesSet = new Set();
                 spieler.AktuellesLeg.Nummer = 1;
-
+                spieler.AktuellesSet.Nummer = (LetzteSetNummer + 1);
                 spieler.AnzahlLegGewonnen = 0;
             }
         }

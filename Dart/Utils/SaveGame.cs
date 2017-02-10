@@ -33,7 +33,15 @@ namespace Dart.Utils
             TextInhalt += "##########################\r\n";
             TextInhalt += "Ergebnis der Spiels\r\n";
             TextInhalt += "_________________________\r\n\r\n";
-            TextInhalt += "Spielvariante : First to " + Convert.ToString(pMatch.SetZumSieg) + "\r\n";
+            
+            if (pMatch.SetZumSieg > 1)
+            { 
+                TextInhalt += "Spielvariante : First to " + Convert.ToString(pMatch.SetZumSieg) + " Sets\r\n";
+                TextInhalt += Convert.ToString(pMatch.LegZumSet) + " Leg(s) für Setgewinn" + "\r\n";
+            }
+            else
+                TextInhalt += "Spielvariante : First to " + Convert.ToString(pMatch.LegZumSet) + " Legs\r\n";
+
             TextInhalt += "Punkzahl: " + Convert.ToString(pMatch.PunktZahlzumLeg) + "\r\n";
         }
 
