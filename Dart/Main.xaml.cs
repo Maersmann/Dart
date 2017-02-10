@@ -87,5 +87,11 @@ namespace Dart
             FormLicense formCopy = new FormLicense();
             formCopy.ShowDialog();
         }
+
+        private void ribbonMenuInfo_Click(object sender, RoutedEventArgs e)
+        {
+            FormInfo formInfo = new FormInfo();
+            formInfo.ShowDialog();
+        }
     }
 }

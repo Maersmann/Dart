@@ -16,7 +16,7 @@
         <Grid Grid.Row="1" Background="BlanchedAlmond">
             <Button x:Name="BtnOk" Content="OK"  Margin="0,0,10,0" VerticalAlignment="Center" HorizontalAlignment="Right" Width="75" Height="22" Click="BtnOk_Click"/>
         </Grid>
-        <RichTextBox x:Name="richTextBox"  VerticalScrollBarVisibility="Visible">
+        <RichTextBox x:Name="richTextBox"  VerticalScrollBarVisibility="Visible" IsReadOnly="True">
             <FlowDocument>
                 <Paragraph>
                     <Run Text=""/>

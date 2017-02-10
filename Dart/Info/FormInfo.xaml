@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Dart.Info"
         mc:Ignorable="d"
-        Title="FormInfo" Height="347.238" Width="450.829">
+        Title="Info" Height="347.238" Width="450.829" Icon="/Dart;component/Bilder/1364007503_67060.ico" WindowStartupLocation="CenterScreen">
     <Grid>
         <Grid.RowDefinitions>
 
@@ -21,18 +21,13 @@
                 <RowDefinition Height="60*"/>
             </Grid.RowDefinitions>
             <Canvas Grid.Row="0" >
-                <Image x:Name="image" Height="37" Canvas.Left="10" Canvas.Top="10" Width="46" Source="/Dart;component/1364007503_67060.ico"/>
+                <Image x:Name="image" Height="37" Canvas.Left="10" Canvas.Top="10" Width="46" Source="/Dart;component/Bilder/1364007503_67060.ico"/>
                 <Label x:Name="lblAppName" Content="Dart Version 1.4"  Canvas.Left="170"  Canvas.Bottom="15"/>
             </Canvas>
             <Label x:Name="lblAuthor" Grid.Row="1" Content="Author: Rene Märsmann" VerticalAlignment="Center" HorizontalAlignment="Center" />
             <Label x:Name="lblWebsite" Grid.Row="2" Content="Website: https://github.com/maersmann" VerticalAlignment="Center" HorizontalAlignment="Center" />
             <GroupBox x:Name="grbBoxLizenz" Header="GNU General Public Licence"  Grid.Row="3">
-                <RichTextBox x:Name="richTextBox"  Margin="10,10,10,10"  >
-                    <FlowDocument>
-                        <Paragraph>
-                            <Run Text="RichTextBox"/>
-                        </Paragraph>
-                    </FlowDocument>
+                <RichTextBox x:Name="richTextBox"  Margin="10,10,10,10" IsReadOnly="True"  >
                 </RichTextBox>
             </GroupBox>
         </Grid>
