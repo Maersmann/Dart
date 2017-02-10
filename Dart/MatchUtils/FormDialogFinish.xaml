@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Dart.MatchUtils"
         mc:Ignorable="d"
-        Title="Finish" Height="146.822" Width="248.517" ResizeMode="NoResize" Icon="/Dart;component/1364007503_67060.ico" WindowStartupLocation="CenterScreen">
+        Title="Finish" Height="146.822" Width="248.517" ResizeMode="NoResize" Icon="/Dart;component/Bilder/1364007503_67060.ico" WindowStartupLocation="CenterScreen">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="30*"/>

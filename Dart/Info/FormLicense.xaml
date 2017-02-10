@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Dart.Info"
         mc:Ignorable="d"
-        Title="Lizenzen" Height="427.157" Width="439.372" Icon="/Dart;component/1364007503_67060.ico" WindowStartupLocation="CenterScreen">
+        Title="Lizenzen" Height="427.157" Width="439.372" Icon="/Dart;component/Bilder/1364007503_67060.ico" WindowStartupLocation="CenterScreen">
     <Grid>
         <Grid.RowDefinitions>
 

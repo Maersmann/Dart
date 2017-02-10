@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:Dart.Statistiken.Match.Forms"
       mc:Ignorable="d" 
       Background="White"
-      Title="Average Match" Height="363.437" Width="469.16" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Icon="/Dart;component/1364007503_67060.ico">
+      Title="Average Match" Height="363.437" Width="469.16" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Icon="/Dart;component/Bilder/1364007503_67060.ico">
 
     <Grid>
         <Grid.RowDefinitions>

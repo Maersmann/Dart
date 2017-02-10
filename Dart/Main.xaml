@@ -4,7 +4,7 @@
     xmlns:ribbon="clr-namespace:Microsoft.Windows.Controls.Ribbon;assembly=RibbonControlsLibrary"
     Title="Dart Game On"
 	x:Name="FormMain"
-	Width="851.618" Height="550.539" WindowStartupLocation="CenterScreen" WindowState="Maximized" Icon="1364007503_67060.ico" >
+	Width="851.618" Height="550.539" WindowStartupLocation="CenterScreen" WindowState="Maximized" Icon="Bilder/1364007503_67060.ico" >
 
     <DockPanel x:Name="LayoutRoot">
 
@@ -23,6 +23,8 @@
                                             ImageSource="Bilder\Options.png" Click="ribbonMenuOptionen_Click" />
                     <ribbon:RibbonApplicationMenuItem Header="License" x:Name="ribbonMenuCopyright"
                                             ImageSource="Bilder\Options.png" Click="ribbonMenuCopyright_Click"  />
+                    <ribbon:RibbonApplicationMenuItem Header="Info" x:Name="ribbonMenuInfo"
+                                            ImageSource="Bilder\Options.png" Click="ribbonMenuInfo_Click"   />
                     <ribbon:RibbonApplicationMenuItem Header="Schliessen" x:Name="ribbonMenuClose"
                                             ImageSource="Bilder\Close.png" Click="ribbonMenuClose_Click"/>
                 </ribbon:RibbonApplicationMenu>

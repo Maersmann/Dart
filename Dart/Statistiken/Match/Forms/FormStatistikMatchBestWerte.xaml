@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:Dart.Statistiken.Match.Forms"
       mc:Ignorable="d" 
       Background="White"
-      Title="Best-Werte Match" Height="439.739" Width="653.5" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Icon="/Dart;component/1364007503_67060.ico">
+      Title="Best-Werte Match" Height="439.739" Width="653.5" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Icon="/Dart;component/Bilder/1364007503_67060.ico">
 
     <Grid>
         <Grid.RowDefinitions>

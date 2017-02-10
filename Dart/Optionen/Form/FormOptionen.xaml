@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Dart.Optionen.Form"
         mc:Ignorable="d"
-        Title="Optionen" Height="547.649" Width="626.801" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" Icon="/Dart;component/1364007503_67060.ico">
+        Title="Optionen" Height="547.649" Width="626.801" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" Icon="/Dart;component/Bilder/1364007503_67060.ico">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="471*"/>
