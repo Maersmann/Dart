@@ -100,15 +100,13 @@ namespace Dart.Match
         {
             if (isFinish)
             {
-                HighFinishCheck highfinish = new HighFinishCheck(_Matchmodel.getListHighFinish(), _Matchmodel.getListHighFinishAnzahl(), pWuerfe);
+                HighFinishCheck highfinish = new HighFinishCheck(_Matchmodel.getListHighFinish(), pWuerfe, _Matchmodel.getListSizeFinish());
                 _Matchmodel.setListHighFinish(highfinish.getListHighFinish());
-                _Matchmodel.setListHighFinishAnzahl(highfinish.getListAnzahl());
             }
             
 
-            HighScoreCheck highscore = new HighScoreCheck(_Matchmodel.getListHighScore(), _Matchmodel.getListHighScoreAnzahl(), pWuerfe);
+            HighScoreCheck highscore = new HighScoreCheck(_Matchmodel.getListHighScore(), pWuerfe, _Matchmodel.getListSizeScore());
             _Matchmodel.setListHighScore(highscore.getListHighScore());
-            _Matchmodel.setListHighScoreAnzahl(highscore.getListAnzahl());
 
             AnzahlScoreCheck AnzahlScore = new AnzahlScoreCheck(_Matchmodel.getAnzahlSechzig(), _Matchmodel.getAnzahlHundert(), _Matchmodel.getAnzahlHundertVierzig(), _Matchmodel.getAnzahlHundertAchzig(), _Matchmodel.getAnzahlHundertSiebzig(), pWuerfe);
             _Matchmodel.setAnzahlHundert(AnzahlScore.getAnzahlHundert());
@@ -164,20 +162,18 @@ namespace Dart.Match
                 _Matchmodel.setGewonnenSet(_Matchmodel.getGewonnenSet() + 1);
 
                 _Matchmodel.SetBeendet();
-                
+
                 if (_Matchmodel.getGewonnenSet() == _Matchmodel.getSetZumSieg())
                 {
                     MessageBox.Show(_Matchmodel.getName() + " hat das Spiel gewonnen");
                     _Matchmodel.SpeichereSpiel();
                     SpielBeendet = true;
-                    
+                    _Matchmodel.Spielbeendet = true;           
                 }
                 else
                 {
                     MessageBox.Show(_Matchmodel.getName() + " hat das Set gewonnen");
                     _Matchmodel.SetSpielerNachSet();
-                    
-
                 }
 
                 

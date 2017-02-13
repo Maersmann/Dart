@@ -12,7 +12,6 @@ namespace Dart.Match.Matchobjekte
         public Spieler Spieler { get;  }
         public List<Set> Sets { get; set; }
         public int AktuellePunktZahl { get; set; }
-        public HighScore HighScore { get; set; }
         public Statistiken Statistiken;
         public int AnzahlLegGewonnen { set; get; }
         public int AnzahlSetGewonnen { set; get; }
@@ -25,7 +24,6 @@ namespace Dart.Match.Matchobjekte
         public MatchSpieler ( String pName )
         {
             Spieler = new Spieler( pName );
-            HighScore = new HighScore();
             Statistiken = new Statistiken();
             AktuellesSet = new Set();
             AktuellesLeg = new Leg();
@@ -52,15 +50,7 @@ namespace Dart.Match.Matchobjekte
             memento.AktuellesSet.Punktzahl = this.AktuellesSet.Punktzahl;
             memento.AnzahlLegGewonnen = this.AnzahlLegGewonnen;
             memento.AnzahlSetGewonnen = this.AnzahlSetGewonnen;
-            memento.Statistiken.Hundert = this.Statistiken.Hundert;
-            memento.Statistiken.Hundert = this.Statistiken.Hundert;
-            memento.Statistiken.HundertAchzig = this.Statistiken.HundertAchzig;
-            memento.Statistiken.HundertSiebzig = this.Statistiken.HundertSiebzig;
-            memento.Statistiken.HundertVierzig = this.Statistiken.HundertVierzig;
-            memento.Statistiken.Sechzig = this.Statistiken.Sechzig;
-            memento.Statistiken.LongestLeg = this.Statistiken.LongestLeg;
-            memento.Statistiken.ShortesLeg = this.Statistiken.ShortesLeg;
-            memento.HighScore = this.HighScore.getMemento();
+            memento.Statistiken = this.Statistiken.getMemento(); 
             memento.PunktzahlMatch = this.PunktzahlMatch;
             memento.WuerfeMatch = this.WuerfeMatch;
             memento.AverageMatch = this.AverageMatch;

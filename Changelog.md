@@ -1,3 +1,23 @@
+## Version 1.4
+ 
+ - `new` Maximale Spieleranzahl 8
+ - `new` Anzeige von den Werten (Restpunktzahl / Set / Leg) der Gegner
+ - `new` Optionale Einstellungen
+ - `new` Optionen für Match
+ - `new` Optionen für Statistiken
+ - `new` Beim Starten vom Spiel kann die Punktzahl ausgewählt werden
+ - `new` Entfernen von eingetragenen Spielern
+ - `new` Statistik nach dem Spiel einsehbar
+ - `new` Menüeintrag Lizenz
+ - `new` Menüeintrag Info
+ 
+ - `Improved` Design Statistiken
+ - `Improved` Bennung Button  
+
+ - `Fixed` Sortierung der Highfinishe und Highscore
+ - `Fixed` Anzeige der Statistik "Average" nach dem Match
+ - `Fixed` Eingabe von Set & Leg unter 0 bei neuem Match   
+ 
 ## Version 1.3
 Released 16.01.2017
 

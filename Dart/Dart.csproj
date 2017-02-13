@@ -56,7 +56,7 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>1364007503_67060.ico</ApplicationIcon>
+    <ApplicationIcon>Bilder\1364007503_67060.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup>
     <SignManifests>false</SignManifests>
@@ -88,6 +88,10 @@
     <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="INIFileParser, Version=2.3.0.0, Culture=neutral, PublicKeyToken=79af7b307b65cf3c, processorArchitecture=MSIL">
+      <HintPath>..\packages\ini-parser.2.3.0\lib\net20\INIFileParser.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.Windows.Shell, Version=3.5.41019.1, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="RibbonControlsLibrary, Version=4.0.0.11019, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System" />
@@ -112,10 +116,15 @@
     </ApplicationDefinition>
     <Compile Include="Finish\AverageText.cs" />
     <Compile Include="Finish\FinishWeg.cs" />
+    <Compile Include="Info\FormInfo.xaml.cs">
+      <DependentUpon>FormInfo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Info\FormLicense.xaml.cs">
+      <DependentUpon>FormLicense.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Main.xaml.cs">
       <DependentUpon>Main.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Match\Matchobjekte\Statistiken.cs" />
     <Compile Include="Match\Matchobjekte\Leg.cs" />
     <Compile Include="Match\Matchobjekte\Set.cs" />
     <Compile Include="Match\Matchobjekte\MatchSpieler.cs" />
@@ -127,8 +136,21 @@
     <Compile Include="MatchUtils\HighFinishCheck.cs" />
     <Compile Include="MatchUtils\HighScoreCheck.cs" />
     <Compile Include="Match\Matchobjekte\Match.cs" />
+    <Compile Include="Match\Matchobjekte\Statistiken.cs" />
     <Compile Include="Memento\MatchMemento.cs" />
     <Compile Include="Memento\MatchCaretaker.cs" />
+    <Compile Include="Optionen\DataModul\OptionGame.cs" />
+    <Compile Include="Optionen\DataModul\OptionStatistik.cs" />
+    <Compile Include="Optionen\Form\FormOptionen.xaml.cs">
+      <DependentUpon>FormOptionen.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Optionen\Frame\FrameOptionenMatch.xaml.cs">
+      <DependentUpon>FrameOptionenMatch.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Optionen\Frame\FrameOptionenStatistik.xaml.cs">
+      <DependentUpon>FrameOptionenStatistik.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Optionen\Utils\OptionIni.cs" />
     <Compile Include="StartBildschirm.xaml.cs">
       <DependentUpon>StartBildschirm.xaml</DependentUpon>
     </Compile>
@@ -143,6 +165,14 @@
     <Compile Include="Match\MatchModel.cs" />
     <Compile Include="SpielerObjekte\Spieler.cs" />
     <Compile Include="Utils\SaveGame.cs" />
+    <Page Include="Info\FormInfo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Info\FormLicense.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Main.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -167,6 +197,18 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Optionen\Form\FormOptionen.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Optionen\Frame\FrameOptionenMatch.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Optionen\Frame\FrameOptionenStatistik.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="StartBildschirm.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -184,7 +226,6 @@
     <Compile Include="Match\Forms\FormSpielerAuswahl.xaml.cs">
       <DependentUpon>FormSpielerAuswahl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Match\Matchobjekte\HighScore.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -214,7 +255,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="1364007503_67060.ico" />
+    <Resource Include="Bilder\1364007503_67060.ico" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.5.2">
@@ -241,6 +282,16 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Bilder\statistic.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Bilder\Options.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Bilder\menu.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Bilder\info.png" />
+    <Resource Include="Bilder\Lizenz.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

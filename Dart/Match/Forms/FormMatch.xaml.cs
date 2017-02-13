@@ -15,6 +15,7 @@ using Dart.Utils;
 using Dart.Finish;
 using Dart.Memento;
 using Dart.Statistiken.Match.Forms;
+using Dart.Match.Matchobjekte;
 
 namespace Dart.Match.Forms
 {
@@ -68,12 +69,67 @@ namespace Dart.Match.Forms
             TxtWurfZwei.IsEnabled = true;
             TxtWurfEins.IsEnabled = true;
 
+            setGridSpielerAllVisible();
+            AktualisiereGridSpieler();
+            int AnzahlSpieler = _MatchModel.getAnzahlSpieler();
+            for (int SpielerBoxUnvisible = AnzahlSpieler +1 ; SpielerBoxUnvisible < 9; SpielerBoxUnvisible++)
+            {
+                String nameGrp = "GrpSpieler" + SpielerBoxUnvisible;
+                Object GridObj  = this.FindName(nameGrp);
+                if ((GridObj is Grid) && (GridObj != null))
+                    (GridObj as Grid).Visibility = Visibility.Hidden;
+            }
+
+            DockPnlSpieler.Visibility = Visibility.Visible;
 
         }
 
+        private void setGridSpielerAllVisible()
+        {
+            for (int SpielerBoxVisible = 1; SpielerBoxVisible< 9; SpielerBoxVisible++)
+            {
+                String nameGrp = "GrpSpieler" + SpielerBoxVisible;
+                Object GridObj = this.FindName(nameGrp);
+
+                if ( (GridObj is Grid) && ( GridObj != null ))
+                    (GridObj as Grid).Visibility = Visibility.Visible;
+            }
+        }
+
+        private void AktualisiereGridSpieler()
+        {
+            List<MatchSpieler> listSpieler = _MatchModel.getSpielerList();
+
+            for (int SpielerBoxDataPos = 1; SpielerBoxDataPos <= listSpieler.Count ; SpielerBoxDataPos++)
+            {
+                MatchSpieler AktSpieler = listSpieler[SpielerBoxDataPos -1];
+                String nameGrp = "lblSpieler" + SpielerBoxDataPos + "Name";
+                Object GridObj = this.FindName(nameGrp);
+                if ((GridObj is Label) && (GridObj != null))
+                    (GridObj as Label).Content = AktSpieler.Spieler.GetName();
+
+                nameGrp = "lblSpieler" + SpielerBoxDataPos + "Punktzahl";
+                GridObj = this.FindName(nameGrp);
+                if ((GridObj is Label) && (GridObj != null))
+                    (GridObj as Label).Content = AktSpieler.AktuellePunktZahl;
+
+                nameGrp = "lblSpieler" + SpielerBoxDataPos + "Legs";
+                GridObj = this.FindName(nameGrp);
+                if ((GridObj is Label) && (GridObj != null))
+                    (GridObj as Label).Content = AktSpieler.AnzahlLegGewonnen.ToString();
+
+                nameGrp = "lblSpieler" + SpielerBoxDataPos + "Sets";
+                GridObj = this.FindName(nameGrp);
+                if ((GridObj is Label) && (GridObj != null))
+                    (GridObj as Label).Content = AktSpieler.AnzahlSetGewonnen.ToString();
+
+            }
+        }
 
         private void ClearView()
         {
+            setGridSpielerAllVisible();
+            DockPnlSpieler.Visibility = Visibility.Hidden;
             lblAnzahl60.Content = LBLANZAHLSECHZIG ;
             lblAnzahl100.Content = LBLANZAHLHUNDERT ;
             lblAnzahl140.Content = LBLANZAHLHUNDERTVIERZIG ;
@@ -145,18 +201,12 @@ namespace Dart.Match.Forms
 
                 _Main.rbMatchRedo.IsEnabled = false;
                 _Main.rbMatchUndo.IsEnabled = false;
-                _Main.rbStatistikMatchAverage.IsEnabled = false;
-                _Main.rbStatistikMatchBestWerte.IsEnabled = false;
 
-
-                _MatchModel = null;
-                _MatchController = null;
-                _MatchCareTaker = null;
-                _Finish = null;
             }
             else
             { 
                 ShowSpielerDaten();
+                AktualisiereGridSpieler();
                 AktualisiereView();
           
             }

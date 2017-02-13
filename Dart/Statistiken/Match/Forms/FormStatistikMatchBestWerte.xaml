@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:Dart.Statistiken.Match.Forms"
       mc:Ignorable="d" 
       Background="White"
-      Title="Best-Werte Match" Height="363.437" Width="586.234" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Icon="/Dart;component/1364007503_67060.ico">
+      Title="Best-Werte Match" Height="439.739" Width="653.5" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Icon="/Dart;component/Bilder/1364007503_67060.ico">
 
     <Grid>
         <Grid.RowDefinitions>
@@ -60,7 +60,7 @@
                     </Grid.RowDefinitions>
                     <Label x:Name="LblWurf" Content="Beste würfe" HorizontalAlignment="Center" Grid.Row="0"  VerticalAlignment="Center" FontSize="16"/>
 
-                    <DataGrid x:Name="dgHighWurf"  Grid.Row="1" ColumnWidth="58" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" IsReadOnly="True" Height="216" Width="124"/>
+                    <DataGrid x:Name="dgHighWurf"  Grid.Row="1" ColumnWidth="58" HorizontalAlignment="Left" Margin="010,10,0,0" VerticalAlignment="Top" IsReadOnly="True" Height="272" Width="142" VerticalScrollBarVisibility="Visible"/>
 
                 </Grid>
                 <Grid Grid.Column="2">
@@ -70,7 +70,7 @@
                     </Grid.RowDefinitions>
                     <Label x:Name="LblFinish" Content="Beste Finish" HorizontalAlignment="Center" Grid.Row="0"  VerticalAlignment="Center"  FontSize="16"/>
 
-                    <DataGrid x:Name="dgFinish"  Grid.Row="1"  HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" ColumnWidth="58" IsReadOnly="True" Height="216" Width="124"/>
+                    <DataGrid x:Name="dgFinish"  Grid.Row="1"  HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" ColumnWidth="58" IsReadOnly="True" Height="272" Width="142" VerticalScrollBarVisibility="Visible"/>
 
                 </Grid>
 
@@ -78,7 +78,7 @@
             </Grid>
         </Grid>
         <Grid Grid.Row="1" Background="BlanchedAlmond">
-            <Button x:Name="BtnOk" Content="OK"  Margin="0,10,0,2" VerticalAlignment="Center" HorizontalAlignment="Right" Width="75" Click="BtnOk_Click" Height="22"/>
+            <Button x:Name="BtnOk" Content="OK"  Margin="0,0,10,0" VerticalAlignment="Center" HorizontalAlignment="Right" Width="75" Click="BtnOk_Click" Height="22"/>
         </Grid>
 
 

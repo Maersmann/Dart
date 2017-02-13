@@ -4,19 +4,31 @@
     xmlns:ribbon="clr-namespace:Microsoft.Windows.Controls.Ribbon;assembly=RibbonControlsLibrary"
     Title="Dart Game On"
 	x:Name="FormMain"
-	Width="851.618" Height="550.539" WindowStartupLocation="CenterScreen" WindowState="Maximized" Icon="1364007503_67060.ico" >
+	Width="851.618" Height="550.539" WindowStartupLocation="CenterScreen" WindowState="Maximized" Icon="Bilder/1364007503_67060.ico" >
 
     <DockPanel x:Name="LayoutRoot">
 
         <ribbon:Ribbon x:Name="Ribbon" DockPanel.Dock="Top" VerticalAlignment="Top"  >
 
-            <ribbon:Ribbon.ApplicationMenu>
-                <ribbon:RibbonApplicationMenu >
+            <ribbon:Ribbon.ApplicationMenu >
+                <ribbon:RibbonApplicationMenu SmallImageSource="Bilder/menu.png"  >
+                    <ribbon:RibbonApplicationMenu.AuxiliaryPaneContent >
+                        <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
+                            <Label Content="Dart - Game On!"></Label>
+                        </Grid>
+                    </ribbon:RibbonApplicationMenu.AuxiliaryPaneContent>
+
+
+                    <ribbon:RibbonApplicationMenuItem Header="Optionen" x:Name="ribbonMenuOptionen"
+                                            ImageSource="Bilder\Options.png" Click="ribbonMenuOptionen_Click" />
+                    <ribbon:RibbonApplicationMenuItem Header="License" x:Name="ribbonMenuCopyright"
+                                            ImageSource="Bilder\Lizenz.png" Click="ribbonMenuCopyright_Click"  />
+                    <ribbon:RibbonApplicationMenuItem Header="Info" x:Name="ribbonMenuInfo"
+                                            ImageSource="Bilder\Info.png" Click="ribbonMenuInfo_Click"   />
                     <ribbon:RibbonApplicationMenuItem Header="Schliessen" x:Name="ribbonMenuClose"
                                             ImageSource="Bilder\Close.png" Click="ribbonMenuClose_Click"/>
                 </ribbon:RibbonApplicationMenu>
             </ribbon:Ribbon.ApplicationMenu>
-
 
             <ribbon:RibbonTab Header="Haupt"  >
                 <ribbon:RibbonGroup Header="Allgemein" Height="88" >
@@ -34,11 +46,11 @@
                 </ribbon:RibbonGroup>
                 <ribbon:RibbonGroup Header="Statistik" Height="88" >
                     <ribbon:RibbonButton x:Name="rbStatistikMatchAverage" Label="Average"  LargeImageSource="Bilder\statistic.png"  VerticalAlignment="Center" HorizontalAlignment="Center" Width="75" />
-                    <ribbon:RibbonButton x:Name="rbStatistikMatchBestWerte" Label="Best Werte"  LargeImageSource="Bilder\statistic.png" VerticalAlignment="Center" HorizontalAlignment="Center" Width="75" />
+                    <ribbon:RibbonButton x:Name="rbStatistikMatchBestWerte" Label="Beste Werte"  LargeImageSource="Bilder\statistic.png" VerticalAlignment="Center" HorizontalAlignment="Center" Width="75" />
                 </ribbon:RibbonGroup>
 
             </ribbon:RibbonTab>
-            
+
             <ribbon:Ribbon.ContextualTabGroups >
                 <ribbon:RibbonContextualTabGroup x:Name="ribboncontextMatch" Header="" Visibility="Hidden" Background="Red" />
             </ribbon:Ribbon.ContextualTabGroups>
@@ -46,10 +58,7 @@
 
 
         </ribbon:Ribbon>
-        <Frame x:Name="Container"  DockPanel.Dock="Bottom" NavigationUIVisibility="Hidden" Navigated="Container_Navigated" IsTabStop="True"/>
-
-
-
+        <Frame x:Name="Container"  DockPanel.Dock="Bottom" NavigationUIVisibility="Hidden" Navigated="Container_Navigated" />
 
     </DockPanel>
 </Window>

@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Input;
 using Dart.Match.Matchobjekte;
-
+using Dart.Optionen.DataModul;
+using Dart.Optionen.Utils;
+using System.Text.RegularExpressions;
 
 namespace Dart.Match.Forms
 {
@@ -19,11 +21,22 @@ namespace Dart.Match.Forms
         {
             InitializeComponent();
             _formMatch = pFormMatch;
+            cBoxPunktzahl.SelectedIndex = 0;
+
+            OptionIni optIni = new OptionIni();
+            cBoxPunktzahl.Text = optIni.OptionGame.Punktzahl.ToString();
+            txtAnzahlLeg.Text = optIni.OptionGame.LegZumSet.ToString();
+            TxtAnzahlSet.Text = optIni.OptionGame.SetZumSieg.ToString();
         }
 
         private void btnHinzufuegen_Click(object sender, RoutedEventArgs e)
         {
-             
+            if(lstBoxSpieler.Items.Count >= 8)
+            {
+                MessageBox.Show("Es sind nur 8 Spieler maximal möglich");
+                return;
+            }
+
             if (txtNeuerSpieler.Text.Equals(""))
             {
                 MessageBox.Show("Kein Name vorhanden!");
@@ -37,32 +50,41 @@ namespace Dart.Match.Forms
 
         }
 
-        private void lstBoxSpieler_MouseDoubleClick(object sender, MouseButtonEventArgs e)
-        {
-            //name ändern
-        }
 
         private void BtnStart_Click(object sender, RoutedEventArgs e)
         {
-
-            int result;
+            
             if (lstBoxSpieler.Items.Count == 0)
             {
                 MessageBox.Show("Keine Spieler vorhanden!");
                 return;
             }
 
-            if (txtAnzahlLeg.Text.Equals("") ||  !int.TryParse(txtAnzahlLeg.Text, out result))
+            if (txtAnzahlLeg.Text.Equals("") )
             {
                 txtAnzahlLeg.Clear();
                 MessageBox.Show("Die Legs fehlen!");
                 return;
             }
 
-            if (TxtAnzahlSet.Text.Equals("") || !int.TryParse(TxtAnzahlSet.Text, out result))
+            if (TxtAnzahlSet.Text.Equals("") )
             {
                 TxtAnzahlSet.Clear();
                 MessageBox.Show("Die Sets fehlen!");
+                return;
+            }
+
+            if (Convert.ToInt32(TxtAnzahlSet.Text) < 0)
+            {
+                TxtAnzahlSet.Clear();
+                MessageBox.Show("Anzahl Sets muss positiv sein");
+                return;
+            }
+
+            if (Convert.ToInt32(txtAnzahlLeg.Text) <= 0)
+            {
+                txtAnzahlLeg.Clear();
+                MessageBox.Show("Anzahl Legs muss über 0 sein");
                 return;
             }
 
@@ -71,7 +93,9 @@ namespace Dart.Match.Forms
             MatchObjekt match = new MatchObjekt();
             match.LegZumSet = Convert.ToInt32(txtAnzahlLeg.Text);
             match.SetZumSieg = Convert.ToInt32(TxtAnzahlSet.Text);
-            match.PunktZahlzumLeg = 501;
+            match.PunktZahlzumLeg = Int32.Parse( cBoxPunktzahl.Text );
+
+            if (match.SetZumSieg == 0) match.SetZumSieg = 1;
 
             foreach (String Name in lstBoxSpieler.Items)
             {
@@ -92,6 +116,24 @@ namespace Dart.Match.Forms
             this.Close();
 
 
+        }
+
+        private void BtnSpielerDelete_Click(object sender, RoutedEventArgs e)
+        {
+            if (this.lstBoxSpieler.SelectedIndex >= 0)
+                this.lstBoxSpieler.Items.RemoveAt(this.lstBoxSpieler.SelectedIndex);
+        }
+
+        private void txtAnzahlLeg_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            Regex regex = new Regex("[^0-9]+");
+            e.Handled = regex.IsMatch(e.Text);
+        }
+
+        private void TxtAnzahlSet_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            Regex regex = new Regex("[^0-9]+");
+            e.Handled = regex.IsMatch(e.Text);
         }
     }
 }

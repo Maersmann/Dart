@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Dart.Match.Matchobjekte;
+using Dart.Optionen.Utils;
 
 namespace Dart.Match
 {
@@ -19,9 +20,19 @@ namespace Dart.Match
         private int _SpielerLegBegonnen;
         private int _SpielerSetBegonnen;
 
+        private int _ListSizeFinish;
+        private int _ListSizeScore;
+
+        public bool Spielbeendet { get; set; }
+
 
         public MatchModel( MatchObjekt pMatch )
         {
+            Spielbeendet = false;
+            OptionIni optIni = new OptionIni();
+            _ListSizeFinish = optIni.OptionStatistik.HighfinishListSize;
+            _ListSizeScore = optIni.OptionStatistik.HighscoreListSize;
+
             _Match = pMatch;
 
             _AnzahlSpieler = _Match.SpielerList.Count;
@@ -92,10 +103,10 @@ namespace Dart.Match
             {
                 int LetzteSetNummer = spieler.AktuellesSet.Nummer;
                 spieler.Sets.Add(spieler.AktuellesSet);
+
                 spieler.AktuellesSet = new Set();
                 spieler.AktuellesLeg.Nummer = 1;
-                spieler.AktuellesSet.Nummer = (LetzteSetNummer+1);
-
+                spieler.AktuellesSet.Nummer = (LetzteSetNummer + 1);
                 spieler.AnzahlLegGewonnen = 0;
             }
         }
@@ -226,29 +237,34 @@ namespace Dart.Match
             return _AktuellenSpieler.AktuellePunktZahl;
         }
 
-        public int[] getListHighScore()
+        public List<Wert> getListHighScore()
         {
-            return _AktuellenSpieler.HighScore.Scores;
+            return _AktuellenSpieler.Statistiken.Highscore;
         }
 
-        public int[] getListHighScoreAnzahl()
+        public List<Wert> getListHighFinish()
         {
-            return _AktuellenSpieler.HighScore.AnzahlScore;
-        }
-
-        public int[] getListHighFinish()
-        {
-            return _AktuellenSpieler.HighScore.FinishScore;
-        }
-
-        public int[] getListHighFinishAnzahl()
-        {
-            return _AktuellenSpieler.HighScore.AnzahlFinish;
+            return _AktuellenSpieler.Statistiken.Highfinish;
         }
 
         public int getAnzahlHundertSiebzig()
         {
             return _AktuellenSpieler.Statistiken.HundertSiebzig;
+        }
+
+        public int getAnzahlSpieler()
+        {
+            return _AnzahlSpieler;
+        }
+
+        public int getListSizeFinish()
+        {
+            return _ListSizeFinish;
+        }
+
+        public int getListSizeScore()
+        {
+            return _ListSizeScore;
         }
 
         public void setAnzahlHundertSiebzig(int pHundertSiebzig)
@@ -372,24 +388,14 @@ namespace Dart.Match
             _AktuellenSpieler.AktuellePunktZahl = punktestand;
         }
 
-        public void setListHighScore(int[] pListHighScore)
+        public void setListHighScore(List<Wert> pListHighScore)
         {
-            _AktuellenSpieler.HighScore.Scores = pListHighScore;
+            _AktuellenSpieler.Statistiken.Highscore = pListHighScore;
         }
 
-        public void setListHighScoreAnzahl(int[] pListHighScoreAnzahl)
+        public void setListHighFinish(List<Wert> pListHighFinish)
         {
-            _AktuellenSpieler.HighScore.AnzahlScore = pListHighScoreAnzahl;
-        }
-
-        public void setListHighFinish(int[] pListHighFinish)
-        {
-            _AktuellenSpieler.HighScore.FinishScore = pListHighFinish;
-        }
-
-        public void setListHighFinishAnzahl(int[] pListHighFinishAnzahl)
-        {
-            _AktuellenSpieler.HighScore.AnzahlFinish = pListHighFinishAnzahl;
+            _AktuellenSpieler.Statistiken.Highfinish = pListHighFinish;
         }
 
         #endregion
