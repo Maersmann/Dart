@@ -8,5 +8,6 @@
 http://creativecommons.org/licenses/by/3.0/
 - „Menu“ by Chanut is Industries https://www.iconfinder.com/Chanut-is is licensed under Creative Commons license:
 http://creativecommons.org/licenses/by/3.0/
-
-
+- „Info“ Alina Agafitei https://www.iconfinder.com/alina.agafitei.73  is licensed under a Free for commercial use
+- „Lizenz„ by Benjamin STAWARZ https://www.iconfinder.com/butterflytronics is licensed under Creative Commons license:
+http://creativecommons.org/licenses/by/3.0/
