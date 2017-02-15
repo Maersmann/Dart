@@ -1,4 +1,11 @@
+## Version 1.4.1
+Released 15.02.2017
+
+ - `Fixed` Optionen und Neues Spiel konnten nicht geöffnet werden
+ - `Fixed` Installordner wird richtig erkannt
+
 ## Version 1.4
+Released 13.02.2017
  
  - `new` Maximale Spieleranzahl 8
  - `new` Anzeige von den Werten (Restpunktzahl / Set / Leg) der Gegner
