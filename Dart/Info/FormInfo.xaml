@@ -22,7 +22,7 @@
             </Grid.RowDefinitions>
             <Canvas Grid.Row="0" >
                 <Image x:Name="image" Height="37" Canvas.Left="10" Canvas.Top="10" Width="46" Source="/Dart;component/Bilder/1364007503_67060.ico"/>
-                <Label x:Name="lblAppName" Content="Dart Version 1.4"  Canvas.Left="170"  Canvas.Bottom="15"/>
+                <Label x:Name="lblAppName" Content="Dart Version 1.4.1"  Canvas.Left="170"  Canvas.Bottom="15"/>
             </Canvas>
             <Label x:Name="lblAuthor" Grid.Row="1" Content="Author: Rene Märsmann" VerticalAlignment="Center" HorizontalAlignment="Center" />
             <Label x:Name="lblWebsite" Grid.Row="2" Content="Website: https://github.com/maersmann" VerticalAlignment="Center" HorizontalAlignment="Center" />

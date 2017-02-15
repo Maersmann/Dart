@@ -13,6 +13,7 @@ namespace Dart.Optionen.Utils
     public class OptionIni
     {
         private static string FILENAME = "conf.ini";
+        private String IniPath;
 
         private int _ParseResult = -1;
         private String _KeyResult = "";
@@ -27,12 +28,20 @@ namespace Dart.Optionen.Utils
 
         public OptionIni()
         {
+
+            IniPath = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + "\\Dart\\";
+            if (!Directory.Exists(IniPath))
+                Directory.CreateDirectory(IniPath);
+
+            IniPath += FILENAME;
+
+
             OptionGame = new OptionGame();
             _parser = new FileIniDataParser();
             OptionStatistik = new OptionStatistik();
-            if (File.Exists(FILENAME))
+            if (File.Exists(IniPath))
             { 
-                _IniData = _parser.ReadFile(FILENAME);
+                _IniData = _parser.ReadFile(IniPath);
 
                 readIniGame();
                 readStatistik();
@@ -87,7 +96,7 @@ namespace Dart.Optionen.Utils
             _IniData.Sections.GetSectionData("Statistik").Keys.AddKey("ListSizeHighfinish", OptionStatistik.HighfinishListSize.ToString());
             _IniData.Sections.GetSectionData("Statistik").Keys.AddKey("ListSizeHighscore", OptionStatistik.HighscoreListSize.ToString());
 
-            _parser.WriteFile( FILENAME , _IniData);
+            _parser.WriteFile(IniPath, _IniData);
         }
 
         private bool CheckIni()
