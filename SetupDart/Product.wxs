@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi"><?define Dart_TargetDir=$(var.Dart.TargetDir)?>
-	<Product Id="1c577818-b053-4b60-983e-607f723178b5" Name="Dart" Language="1033" Version="1.4" Manufacturer="Maersmann" UpgradeCode="e751f544-49f9-4991-a17e-649b3be4a853">
+	<Product Id="1c577818-b053-4b60-983e-607f723178b4" Name="Dart" Language="1033" Version="1.4.1" Manufacturer="Maersmann" UpgradeCode="e751f544-49f9-4991-a17e-649b3be4a853">
 		<Package InstallerVersion="200" Compressed="yes" InstallScope="perMachine" />
 
     <Icon Id="icon.ico" SourceFile="$(var.ProjectDir)icon.ico" />
@@ -10,16 +10,22 @@
     <WixVariable Id="WixUIDialogBmp" Value="Image\installer_background.bmp" />
     <WixVariable Id="WixUILicenseRtf" Value="$(var.ProjectDir)\license.rtf" />
 
-    <Property Id="WIXUI_INSTALLDIR" Value="INSTALLFOLDER"/>
+    <Property Id="WIXUI_INSTALLDIR" Value="INSTALLFOLDER" />
     <UIRef Id="WixUI_InstallDir" />
 
     <MajorUpgrade DowngradeErrorMessage="A newer version of [ProductName] is already installed." />
 		<MediaTemplate EmbedCab="yes" />
 
+     <Property Id="INSTALLFOLDER">
+      <RegistrySearch Id='InstallPathRegistry' Type='raw'
+        Root='HKCU' Key='Software\Dart' Name='InstallDir' Win64='no'/>
+    </Property>
+      
 		<Feature Id="ProductFeature" Title="Dart" Level="1">
 			<ComponentGroupRef Id="ProductComponents" />
       <ComponentRef Id="ApplicationShortcut" />
       <ComponentRef Id="ApplicationShortcutDesktop" />
+    <ComponentRef Id="RegistryEntries" />
 		</Feature>
 	</Product>
 
@@ -29,9 +35,9 @@
          <Directory Id="INSTALLFOLDER" Name="Dart" />
 			</Directory>
       <Directory Id="ProgramMenuFolder">
-        <Directory Id="ApplicationProgramsFolder" Name="Dart"/>
+        <Directory Id="ApplicationProgramsFolder" Name="Dart" />
       </Directory>
-      <Directory Id="DesktopFolder" Name="Desktop"/>
+      <Directory Id="DesktopFolder" Name="Desktop" />
 		</Directory>
 	</Fragment>
 
@@ -42,7 +48,7 @@
         <RemoveFolder Id="RemoveApplicationProgramsFolder" Directory="ApplicationProgramsFolder" On="uninstall" />
         <RegistryValue Root="HKCU" Key="Software\Dart" Name="installed" Type="integer" Value="1" KeyPath="yes" />
       </Component>
-    </DirectoryRef>
+      </DirectoryRef>
     <DirectoryRef Id="DesktopFolder">
       <Component Id="ApplicationShortcutDesktop" Guid="cde1e030-eb64-49a5-b7b8-400b379c2d1a">
         <Shortcut Id="ApplicationDesktopShortcut" Name="Dart" Description="Dart" Target="[INSTALLFOLDER]Dart.exe" WorkingDirectory="INSTALLFOLDER" />
@@ -50,6 +56,11 @@
         <RegistryValue Root="HKCU" Key="Software\Dart" Name="installed" Type="integer" Value="1" KeyPath="yes" />
       </Component>
     </DirectoryRef>
+    <DirectoryRef Id="TARGETDIR">
+      <Component Id="RegistryEntries" Guid="1e1b0de7-8273-41cf-ac78-d6ab99db4d87">
+            <RegistryValue Root="HKCU" Key="Software\Dart" Type="string" Name="InstallDir" Value="[INSTALLFOLDER]" Action="write" KeyPath="yes" />
+    </Component>
+  </DirectoryRef>
   </Fragment>
 
 	<Fragment>
@@ -67,8 +78,8 @@
 			<Component Id="Dart.exe" Guid="0e147c3a-1f93-4e7f-8ed8-4ba7e172fbd8">
 			  <File Id="Dart.exe" Name="Dart.exe" Source="$(var.Dart_TargetDir)Dart.exe" />
 			</Component>
-			<Component Id="Dart.exe.config" Guid="248c2c85-ec96-4e09-a8de-52b6cde6bc69">
-			  <File Id="Dart.exe.config" Name="Dart.exe.config" Source="$(var.Dart_TargetDir)Dart.exe.config" />
+			<Component Id="INIFileParser.dll" Guid="576725ff-209a-49a7-af4b-a1c74a9f6f79">
+			  <File Id="INIFileParser.dll" Name="INIFileParser.dll" Source="$(var.Dart_TargetDir)INIFileParser.dll" />
 			</Component>
 		</ComponentGroup>
 	</Fragment>
