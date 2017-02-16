@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi"><?define Dart_TargetDir=$(var.Dart.TargetDir)?>
-	<Product Id="1c577818-b053-4b60-983e-607f723178b4" Name="Dart" Language="1033" Version="1.4.1" Manufacturer="Maersmann" UpgradeCode="e751f544-49f9-4991-a17e-649b3be4a853">
+	<Product Id="1c577818-b053-4b60-983e-607f723178b3" Name="Dart" Language="1033" Version="1.4.2" Manufacturer="Maersmann" UpgradeCode="e751f544-49f9-4991-a17e-649b3be4a853">
 		<Package InstallerVersion="200" Compressed="yes" InstallScope="perMachine" />
 
     <Icon Id="icon.ico" SourceFile="$(var.ProjectDir)icon.ico" />
