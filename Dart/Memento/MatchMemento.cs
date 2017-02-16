@@ -17,7 +17,10 @@ namespace Dart.Memento
         private int _SpielerLegBegonnen;
         private int _SpielerSetBegonnen;
 
-        public MatchMemento(MatchObjekt pMatch, int pAnzahlSpieler, int pAktuellerSpielerPos, int pSpielerLegBegonnen, int pSpielerSetBegonnen)
+        private int _ListSizeFinish;
+        private int _ListSizeScore;
+
+        public MatchMemento(MatchObjekt pMatch, int pAnzahlSpieler, int pAktuellerSpielerPos, int pSpielerLegBegonnen, int pSpielerSetBegonnen, int inListSizeFinish, int inListSizeScore)
         {
             _Match = pMatch;
             _AnzahlSpieler = pAnzahlSpieler;
@@ -26,11 +29,14 @@ namespace Dart.Memento
             _SpielerLegBegonnen = pSpielerLegBegonnen;
             _SpielerSetBegonnen = pSpielerSetBegonnen;
 
+            _ListSizeFinish = inListSizeFinish;
+            _ListSizeScore = inListSizeScore;
+
         }
 
         public MatchModel getMatchModel()
         {
-            return new MatchModel(_Match , _AnzahlSpieler, _AktuellerSpielerPos , _SpielerLegBegonnen, _SpielerSetBegonnen);
+            return new MatchModel(_Match , _AnzahlSpieler, _AktuellerSpielerPos , _SpielerLegBegonnen, _SpielerSetBegonnen, _ListSizeFinish, _ListSizeScore);
         }
     }
 }

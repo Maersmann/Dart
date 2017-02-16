@@ -1,4 +1,9 @@
 ## Version 1.4.1
+Released 16.02.2017
+
+ - `Fixed` Bei Vor-/Rückgängig ist die Anzahl von den Highfinsh und Highscore falsch
+ 
+## Version 1.4.1
 Released 15.02.2017
 
  - `Fixed` Optionen und Neues Spiel konnten nicht geöffnet werden
