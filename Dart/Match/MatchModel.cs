@@ -43,7 +43,7 @@ namespace Dart.Match
             _SpielerSetBegonnen = _AktuellerSpielerPos;
         }
 
-        public MatchModel( MatchObjekt pMatch , int pAnzahlSpieler, int pAktuellerSpielerPos, int pSpielerLegBegonnen, int pSpielerSetBegonnen)
+        public MatchModel( MatchObjekt pMatch , int pAnzahlSpieler, int pAktuellerSpielerPos, int pSpielerLegBegonnen, int pSpielerSetBegonnen, int inListsizeFinish, int inListSizeScore)
         {
             _Match = pMatch;
             _AnzahlSpieler = pAnzahlSpieler;
@@ -52,6 +52,9 @@ namespace Dart.Match
             _AktuellerSpielerPos = pAktuellerSpielerPos;
             _SpielerLegBegonnen = pSpielerLegBegonnen;
             _SpielerSetBegonnen = pSpielerSetBegonnen;
+
+            _ListSizeFinish = inListsizeFinish;
+            _ListSizeScore = inListSizeScore;
 
         }
 
@@ -73,7 +76,7 @@ namespace Dart.Match
         {
             MatchObjekt matchMemento = _Match.getMatchMemento();
           
-            return new MatchMemento(matchMemento, _AnzahlSpieler, _AktuellerSpielerPos ,_SpielerLegBegonnen ,_SpielerSetBegonnen );
+            return new MatchMemento(matchMemento, _AnzahlSpieler, _AktuellerSpielerPos ,_SpielerLegBegonnen ,_SpielerSetBegonnen , _ListSizeFinish, _ListSizeScore);
         }
 
 
