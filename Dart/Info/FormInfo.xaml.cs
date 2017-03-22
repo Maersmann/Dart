@@ -24,7 +24,7 @@ namespace Dart.Info
         public FormInfo()
         {
             InitializeComponent();
-            richTextBox.AppendText("Diese Software steht unter GNU GPL Version 3. https://github.com/Maersmann/Dart/blob/Master/LICENSE");
+            richTextBox.AppendText("Diese Software steht unter The MIT License. https://github.com/Maersmann/Dart/blob/Master/LICENSE");
             richTextBox.AppendText(Environment.NewLine);
             richTextBox.AppendText("Der Quellcode ist bei GitHub verfügbar. https://github.com/Maersmann/Dart/");
         }
