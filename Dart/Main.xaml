@@ -4,7 +4,11 @@
     xmlns:ribbon="clr-namespace:Microsoft.Windows.Controls.Ribbon;assembly=RibbonControlsLibrary"
     Title="Dart Game On"
 	x:Name="FormMain"
-	Width="851.618" Height="550.539" WindowStartupLocation="CenterScreen" WindowState="Maximized" Icon="Bilder/1364007503_67060.ico" >
+	Width="851.618" Height="550.539" 
+    WindowStartupLocation="CenterScreen" 
+    WindowState="Maximized"
+    Icon="Bilder/1364007503_67060.ico"
+    >
 
     <DockPanel x:Name="LayoutRoot">
 
@@ -33,6 +37,9 @@
             <ribbon:RibbonTab Header="Haupt"  >
                 <ribbon:RibbonGroup Header="Allgemein" Height="88" >
                     <ribbon:RibbonButton x:Name="rbMatch" Label="Spiel" Click="rbMatch_Click" LargeImageSource="Bilder\Match.png" VerticalAlignment="Center" HorizontalAlignment="Center" Width="75"  />
+                </ribbon:RibbonGroup>
+                <ribbon:RibbonGroup Header="Spieler" Height="88" >
+                    <ribbon:RibbonButton x:Name="rbNewSpieler" Label="Neuer Spieler"  LargeImageSource="Bilder\AddPerson.png" VerticalAlignment="Center" HorizontalAlignment="Center" Width="75" Click="RbNewSpieler_Click"  />
                 </ribbon:RibbonGroup>
             </ribbon:RibbonTab>
 

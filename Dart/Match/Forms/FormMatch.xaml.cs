@@ -106,7 +106,7 @@ namespace Dart.Match.Forms
                 String nameGrp = "lblSpieler" + SpielerBoxDataPos + "Name";
                 Object GridObj = this.FindName(nameGrp);
                 if ((GridObj is Label) && (GridObj != null))
-                    (GridObj as Label).Content = AktSpieler.Spieler.GetName();
+                    (GridObj as Label).Content = AktSpieler.Spieler.Spitzname;
 
                 nameGrp = "lblSpieler" + SpielerBoxDataPos + "Punktzahl";
                 GridObj = this.FindName(nameGrp);

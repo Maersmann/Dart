@@ -1,0 +1,39 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Dart.Person"
+        xmlns:Custom="http://schemas.microsoft.com/winfx/2006/xaml/presentation/ribbon" x:Class="Dart.Person.AddPersonView"
+        mc:Ignorable="d"
+        Title="Neuen Spieler Hinzufügen" Height="480.682" Width="265.108" ResizeMode="NoResize">
+
+
+    <Grid DataContext="{Binding Source={StaticResource Locator}}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="56*"/>
+            <ColumnDefinition Width="201*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20*"/>
+            <RowDefinition Height="70*"/>
+            <RowDefinition Height="10*"/>
+        </Grid.RowDefinitions>
+        <Border BorderBrush="Black" BorderThickness="0" Grid.Row="0" Background="#FF440303" Grid.ColumnSpan="2" >
+            <Label Content="Neuer Spieler" Margin="10" Foreground="White" HorizontalContentAlignment="Center" HorizontalAlignment="Center" FontSize="33" Width="428"/>
+        </Border>
+        <Label Content="Vorname" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="1" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
+        <Label Content="Nachname" HorizontalAlignment="Left" Margin="10,49,0,0" Grid.Row="1" VerticalAlignment="Top" RenderTransformOrigin="0.386,2.244" Grid.ColumnSpan="2"/>
+        <Label Content="Spitzname" HorizontalAlignment="Left" Margin="10,93,0,0" Grid.Row="1" VerticalAlignment="Top" RenderTransformOrigin="0.386,2.244" Grid.ColumnSpan="2"/>
+
+        <DockPanel HorizontalAlignment="Stretch" LastChildFill="False"  Grid.Row="2" VerticalAlignment="Stretch" Background="White" Grid.ColumnSpan="2">
+            <Button x:Name="BtnSpeichern" Content="Speichern" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="75" DockPanel.Dock="Right" Margin="5,5,5,0"  Height="30" Command="{Binding AddPerson.toggleExecuteCommand}"   />
+            <Button x:Name="BtnAbbrechen" Content="Abbrechen" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="75" DockPanel.Dock="Right" Margin="5,5,5,0"  Height="30" />
+        </DockPanel>
+        <TextBox x:Name="EdtVorname"  HorizontalAlignment="Left" Height="23" Margin="29,10,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="162" Grid.Column="1" Text="{Binding AddPerson.newPlayer.Voname }" />
+        <TextBox x:Name="EdtNachname" HorizontalAlignment="Left" Height="23" Margin="29,53,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="162" Grid.Column="1" Text="{Binding AddPerson.newPlayer.Nachname }"/>
+        <TextBox  x:Name="EdtSpitzname" HorizontalAlignment="Left" Height="23" Margin="29,97,0,0" Grid.Row="1" TextWrapping="Wrap"  VerticalAlignment="Top" Width="162" Grid.Column="1" Text="{Binding AddPerson.newPlayer.Spitzname}"/>
+
+
+    </Grid>
+</Window>

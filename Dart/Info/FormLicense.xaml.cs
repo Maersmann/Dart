@@ -38,7 +38,8 @@ namespace Dart.Info
             richTextBox.AppendText("- „Info“ Alina Agafitei https://www.iconfinder.com/alina.agafitei.73  is licensed under a Free for commercial use");
             richTextBox.AppendText(Environment.NewLine);
             richTextBox.AppendText("- „Lizenz„ by Benjamin STAWARZ https://www.iconfinder.com/butterflytronics is licensed under Creative Commons license: http://creativecommons.org/licenses/by/3.0/");
-
+            richTextBox.AppendText(Environment.NewLine);
+            richTextBox.AppendText("- „Neuer Spieler„ by ionics https://ionicons.com/ is licensed under MIT License");
         }
 
         private void BtnOk_Click(object sender, RoutedEventArgs e)

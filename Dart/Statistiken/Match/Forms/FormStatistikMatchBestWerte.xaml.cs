@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Dart.Match;
-using Dart.SpielerObjekte;
+using Dart.Entity.SpielerObjekte;
 using Dart.Match.Matchobjekte;
 
 namespace Dart.Statistiken.Match.Forms
@@ -48,7 +48,7 @@ namespace Dart.Statistiken.Match.Forms
 
             foreach (MatchSpieler spieler in _matchmodel.getSpielerList()) 
             {
-                listBoxSpielerList.Items.Add( spieler.Spieler.GetName() );  
+                listBoxSpielerList.Items.Add( spieler.Spieler.Spitzname );  
             }
 
             listBoxSpielerList.SelectedIndex = 0;
@@ -99,7 +99,7 @@ namespace Dart.Statistiken.Match.Forms
             string SpielerName = listBoxSpielerList.SelectedItem.ToString();
             foreach (MatchSpieler spieler in _matchmodel.getSpielerList())
             {
-                if (spieler.Spieler.GetName() == SpielerName)
+                if (spieler.Spieler.Spitzname== SpielerName)
                     ChangeAnsicht(spieler);
             }
         }

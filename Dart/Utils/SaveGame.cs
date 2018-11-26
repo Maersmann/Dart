@@ -1,5 +1,5 @@
 ﻿using Dart.Match.Matchobjekte;
-using Dart.SpielerObjekte;
+using Dart.Entity.SpielerObjekte;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -47,7 +47,7 @@ namespace Dart.Utils
 
         public void NeuerSpieler(MatchSpieler pSpieler )
         {
-            TextInhalt += "\r\n \r\n Name des Spielers: " + pSpieler.Spieler.GetName() + "\r\n";
+            TextInhalt += "\r\n \r\n Name des Spielers: " + pSpieler.Spieler.Spitzname + "\r\n";
             TextInhalt += "_________________________________\r\n";
             TextInhalt += "Gewonnene Sets: " + pSpieler.AnzahlSetGewonnen + "\r\n\r\n";
 

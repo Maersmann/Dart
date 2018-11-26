@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Dart.SpielerObjekte;
+using Dart.Entity.SpielerObjekte;
 
 namespace Dart.Match.Matchobjekte
 {
     public class MatchSpieler
     {
-        public Spieler Spieler { get;  }
+        public Player Spieler { get;  }
         public List<Set> Sets { get; set; }
         public int AktuellePunktZahl { get; set; }
         public Statistiken Statistiken;
@@ -23,7 +23,8 @@ namespace Dart.Match.Matchobjekte
 
         public MatchSpieler ( String pName )
         {
-            Spieler = new Spieler( pName );
+            Spieler = new Player( );
+            
             Statistiken = new Statistiken();
             AktuellesSet = new Set();
             AktuellesLeg = new Leg();
@@ -38,7 +39,7 @@ namespace Dart.Match.Matchobjekte
 
         public MatchSpieler getMatchSpielerMemento()
         {
-            MatchSpieler memento = new MatchSpieler( Spieler.GetName() );
+            MatchSpieler memento = new MatchSpieler( Spieler.Spitzname);
             memento.AktuellePunktZahl = this.AktuellePunktZahl;
             memento.AktuellesLeg.Average = this.AktuellesLeg.Average;
             memento.AktuellesLeg.Nummer = this.AktuellesLeg.Nummer;

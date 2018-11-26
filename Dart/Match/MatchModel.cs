@@ -157,7 +157,7 @@ namespace Dart.Match
         #region Getter/Setter
         public String getName()
         {
-            return _AktuellenSpieler.Spieler.GetName();
+            return _AktuellenSpieler.Spieler.Spitzname;
         }
 
         public int getGewonnenLegs()

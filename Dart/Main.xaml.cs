@@ -14,6 +14,9 @@ using Dart.Match.Forms;
 using Microsoft.Windows.Controls.Ribbon;
 using Dart.Optionen.Form;
 using Dart.Info;
+using FirebirdSql.Data.FirebirdClient;
+using Dart.Migrations;
+using Dart.Person;
 
 namespace Dart
 {
@@ -24,7 +27,7 @@ namespace Dart
     {
 
         private FormMatch _formMatch;
-        private StartBildschirm _startBildschirm; 
+        private StartBildschirm _startBildschirm;
 
         public Main()
         {
@@ -33,13 +36,23 @@ namespace Dart
                 _startBildschirm = new StartBildschirm();
 
             Container.NavigationService.Navigate(_startBildschirm);
+
+            setConnection();
+
+
+            var configuration = new Configuration();
+            var migrator = new System.Data.Entity.Migrations.DbMigrator(configuration);
+
+            migrator.Update();
+
+
         }
 
         private void rbMatch_Click(object sender, RoutedEventArgs e)
         {
             if (_formMatch == null)
             {
-                _formMatch = new FormMatch( this );
+                _formMatch = new FormMatch(this);
                 rbMatchRedo.IsEnabled = false;
                 rbMatchUndo.IsEnabled = false;
                 rbStatistikMatchAverage.IsEnabled = false;
@@ -51,7 +64,7 @@ namespace Dart
                 rbMatchRedo.Click += _formMatch.rbMatchRedo_Click;
             }
 
-            
+
             Container.NavigationService.Navigate(_formMatch);
         }
 
@@ -92,6 +105,44 @@ namespace Dart
         {
             FormInfo formInfo = new FormInfo();
             formInfo.ShowDialog();
+        }
+
+
+        private void setConnection()
+        {
+            var builder = new FbConnectionStringBuilder();
+            builder.Database = @"C:\Dart.fdb";
+            builder.Port = 3050;
+            builder.ServerType = FbServerType.Default;
+            builder.UserID = "SYSDBA";
+            builder.Password = "masterkey";
+            builder.DataSource = "localhost";
+            builder.Dialect = 3;
+            builder.Charset = "None";
+            builder.ConnectionLifeTime = 15;
+            builder.Pooling = true;
+            builder.MaxPoolSize = 50;
+            builder.PacketSize = 8192;
+
+            AppVariables.ConnectionString = builder.ConnectionString;
+            var dbContext = AppVariables.getDbContext();
+
+            dbContext.Database.Connection.ConnectionString = AppVariables.ConnectionString;
+            try
+            {
+                dbContext.Database.Connection.Open();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        private void RbNewSpieler_Click(object sender, RoutedEventArgs e)
+        {
+            AddPersonView formaddPerson = new AddPersonView();
+            formaddPerson.ShowDialog();
         }
     }
 }
