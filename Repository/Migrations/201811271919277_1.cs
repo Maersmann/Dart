@@ -1,4 +1,4 @@
-namespace Dart.Migrations
+namespace Repository.Migrations
 {
     using System;
     using System.Data.Entity.Migrations;
@@ -24,7 +24,7 @@ namespace Dart.Migrations
                     "AS " +
                     "begin " +
                         "if ((new.id IS NULL) or(new.id = 0)) then " +
-                            "new.id = NEXT VALUE FOR GEN_PLAYER_ID; " +
+                            "new.id = NEXT VALUE FOR GEN_PLAYER_ID;" +
                     "end");
 
         }

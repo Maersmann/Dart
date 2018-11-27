@@ -19,7 +19,7 @@
             <RowDefinition Height="70*"/>
             <RowDefinition Height="10*"/>
         </Grid.RowDefinitions>
-        <Border BorderBrush="Black" BorderThickness="0" Grid.Row="0" Background="#FF440303" Grid.ColumnSpan="2" >
+        <Border BorderBrush="Black" BorderThickness="0" Grid.Row="0" Background="{DynamicResource HeaderColor}" Grid.ColumnSpan="2" >
             <Label Content="Neuer Spieler" Margin="10" Foreground="White" HorizontalContentAlignment="Center" HorizontalAlignment="Center" FontSize="33" Width="428"/>
         </Border>
         <Label Content="Vorname" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="1" VerticalAlignment="Top" Grid.ColumnSpan="2"/>

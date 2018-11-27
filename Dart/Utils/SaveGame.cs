@@ -1,11 +1,8 @@
-﻿using Dart.Match.Matchobjekte;
-using Dart.Entity.SpielerObjekte;
+﻿using Dart.MatchViews.Matchobjekte;
 using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Repository.MatchEntity;
 
 namespace Dart.Utils
 {
@@ -14,7 +11,7 @@ namespace Dart.Utils
         private String TextInhalt;
         StreamWriter file;
 
-        public SaveGame(MatchObjekt pMatch)
+        public SaveGame(Match pMatch)
         {
             string path = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "/Dart Ergebnisse";
             DirectoryInfo DI = new DirectoryInfo(path);

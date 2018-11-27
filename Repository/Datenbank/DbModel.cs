@@ -1,6 +1,5 @@
 ﻿
-using Dart.Entity.SpielerObjekte;
-using Dart.Migrations;
+using Repository.SpielerEntity;
 using FirebirdSql.Data.FirebirdClient;
 using System;
 using System.Collections.Generic;
@@ -9,8 +8,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using Repository.Migrations;
 
-namespace Dart.Datenbank
+namespace Repository.Datenbank
 {
     public  class DbModel : DbContext
     {
@@ -20,7 +20,7 @@ namespace Dart.Datenbank
         public DbModel(String inConncectionString) :base( new FbConnection(inConncectionString),true)
         {
             this.Database.CreateIfNotExists();
-            Database.SetInitializer(new MigrateDatabaseToLatestVersion<DbModel, Configuration>());
+            //
 
         }
 
@@ -31,7 +31,7 @@ namespace Dart.Datenbank
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            
+            //Database.SetInitializer(new MigrateDatabaseToLatestVersion<DbModel, Configuration>());
             base.OnModelCreating(modelBuilder);
         }
     }

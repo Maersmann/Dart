@@ -6,7 +6,7 @@ using System.Text;
 using System.Windows;
 
 
-namespace Dart.Match
+namespace Dart.MatchViews
 {
     public class MatchController
     {

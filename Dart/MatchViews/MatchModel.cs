@@ -4,14 +4,15 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Dart.Match.Matchobjekte;
 using Dart.Optionen.Utils;
+using Repository.MatchEntity;
+using Dart.MatchViews.Matchobjekte;
 
-namespace Dart.Match
+namespace Dart.MatchViews
 {
     public class MatchModel
     {
-        MatchObjekt _Match;
+        Match _Match;
 
         private MatchSpieler _AktuellenSpieler;
         private int _AnzahlSpieler;
@@ -26,7 +27,7 @@ namespace Dart.Match
         public bool Spielbeendet { get; set; }
 
 
-        public MatchModel( MatchObjekt pMatch )
+        public MatchModel( Match pMatch )
         {
             Spielbeendet = false;
             OptionIni optIni = new OptionIni();
@@ -35,20 +36,20 @@ namespace Dart.Match
 
             _Match = pMatch;
 
-            _AnzahlSpieler = _Match.SpielerList.Count;
+            //_AnzahlSpieler = _Match.SpielerList.Count;
 
-            _AktuellenSpieler = _Match.SpielerList[0];
+            //_AktuellenSpieler = _Match.SpielerList[0];
             _AktuellerSpielerPos = 0;
             _SpielerLegBegonnen = _AktuellerSpielerPos;
             _SpielerSetBegonnen = _AktuellerSpielerPos;
         }
 
-        public MatchModel( MatchObjekt pMatch , int pAnzahlSpieler, int pAktuellerSpielerPos, int pSpielerLegBegonnen, int pSpielerSetBegonnen, int inListsizeFinish, int inListSizeScore)
+        public MatchModel( Match pMatch , int pAnzahlSpieler, int pAktuellerSpielerPos, int pSpielerLegBegonnen, int pSpielerSetBegonnen, int inListsizeFinish, int inListSizeScore)
         {
             _Match = pMatch;
             _AnzahlSpieler = pAnzahlSpieler;
 
-            _AktuellenSpieler = _Match.SpielerList[pAktuellerSpielerPos];
+            //_AktuellenSpieler = _Match.SpielerList[pAktuellerSpielerPos];
             _AktuellerSpielerPos = pAktuellerSpielerPos;
             _SpielerLegBegonnen = pSpielerLegBegonnen;
             _SpielerSetBegonnen = pSpielerSetBegonnen;
@@ -60,7 +61,7 @@ namespace Dart.Match
 
         public void NaechsterSpieler()
         {
-            _Match.SpielerList[_AktuellerSpielerPos] = _AktuellenSpieler;
+            //_Match.SpielerList[_AktuellerSpielerPos] = _AktuellenSpieler;
             if (_AktuellerSpielerPos < _AnzahlSpieler-1)
             {    
                 _AktuellerSpielerPos++; 
@@ -69,49 +70,50 @@ namespace Dart.Match
             {
                 _AktuellerSpielerPos = 0;
             }
-            _AktuellenSpieler = _Match.SpielerList[_AktuellerSpielerPos];
+            //_AktuellenSpieler = _Match.SpielerList[_AktuellerSpielerPos];
         }
 
         public MatchMemento getMemento()
         {
-            MatchObjekt matchMemento = _Match.getMatchMemento();
-          
-            return new MatchMemento(matchMemento, _AnzahlSpieler, _AktuellerSpielerPos ,_SpielerLegBegonnen ,_SpielerSetBegonnen , _ListSizeFinish, _ListSizeScore);
+            Match matchMemento = _Match.getMatchMemento();
+
+            return null;
+            //return new MatchMemento(matchMemento, _AnzahlSpieler, _AktuellerSpielerPos ,_SpielerLegBegonnen ,_SpielerSetBegonnen , _ListSizeFinish, _ListSizeScore);
         }
 
 
         public void PunktzahlZurueckSetzen()
         {
-            foreach (MatchSpieler spieler in _Match.SpielerList)
-            {
-                spieler.AktuellePunktZahl = _Match.PunktZahlzumLeg;
-            }
+            //foreach (MatchSpieler spieler in _Match.SpielerList)
+            //{
+            //    spieler.AktuellePunktZahl = _Match.PunktZahlzumLeg;
+           // }
         }
 
         public void LegBeendet()
         {
-            foreach (MatchSpieler spieler in _Match.SpielerList)
-            {
-
-                int LetzteLegNummer = spieler.AktuellesLeg.Nummer;
-                spieler.AktuellesSet.Legs.Add(spieler.AktuellesLeg);
-                spieler.AktuellesLeg = new Leg();
-                spieler.AktuellesLeg.Nummer = (LetzteLegNummer+1);
-            }
+            //foreach (MatchSpieler spieler in _Match.SpielerList)
+            //{
+            //
+            //    int LetzteLegNummer = spieler.AktuellesLeg.Nummer;
+            //    spieler.AktuellesSet.Legs.Add(spieler.AktuellesLeg);
+            //    spieler.AktuellesLeg = new Leg();
+            //    spieler.AktuellesLeg.Nummer = (LetzteLegNummer+1);
+            //}
         }
 
         public void SetBeendet()
         {
-            foreach (MatchSpieler spieler in _Match.SpielerList)
-            {
-                int LetzteSetNummer = spieler.AktuellesSet.Nummer;
-                spieler.Sets.Add(spieler.AktuellesSet);
+            //foreach (MatchSpieler spieler in _Match.SpielerList)
+            //{
+            //    int LetzteSetNummer = spieler.AktuellesSet.Nummer;
+            //    spieler.Sets.Add(spieler.AktuellesSet);
 
-                spieler.AktuellesSet = new Set();
-                spieler.AktuellesLeg.Nummer = 1;
-                spieler.AktuellesSet.Nummer = (LetzteSetNummer + 1);
-                spieler.AnzahlLegGewonnen = 0;
-            }
+            //    spieler.AktuellesSet = new Set();
+            //    spieler.AktuellesLeg.Nummer = 1;
+            //    spieler.AktuellesSet.Nummer = (LetzteSetNummer + 1);
+            //    spieler.AnzahlLegGewonnen = 0;
+           // }
         }
 
         public void SetSpielerNachLeg()
@@ -125,7 +127,7 @@ namespace Dart.Match
                 _SpielerLegBegonnen = 0;
             }
             _AktuellerSpielerPos = _SpielerLegBegonnen;
-            _AktuellenSpieler = _Match.SpielerList[_AktuellerSpielerPos];
+            //_AktuellenSpieler = _Match.SpielerList[_AktuellerSpielerPos];
         }
 
         public void SetSpielerNachSet()
@@ -140,16 +142,16 @@ namespace Dart.Match
             }  
             _SpielerLegBegonnen = _SpielerSetBegonnen;
             _AktuellerSpielerPos = _SpielerSetBegonnen;
-            _AktuellenSpieler = _Match.SpielerList[_AktuellerSpielerPos];
+            //_AktuellenSpieler = _Match.SpielerList[_AktuellerSpielerPos];
         }
 
         public void SpeichereSpiel()
         {
             SaveGame save = new SaveGame(_Match);
-            foreach (MatchSpieler spieler in _Match.SpielerList)
-            {
-                save.NeuerSpieler(spieler);
-            }
+            //foreach (MatchSpieler spieler in _Match.SpielerList)
+            //{
+            //    save.NeuerSpieler(spieler);
+            //}
             save.SchliesseDatei();
 
         }
@@ -298,7 +300,8 @@ namespace Dart.Match
 
         public List<MatchSpieler> getSpielerList()
         {
-            return _Match.SpielerList;
+            return null;
+           // return _Match.SpielerList;
         }
 
         public int getLegZumSet()

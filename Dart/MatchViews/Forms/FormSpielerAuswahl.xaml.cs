@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Input;
-using Dart.Match.Matchobjekte;
-using Dart.Optionen.DataModul;
 using Dart.Optionen.Utils;
-using System.Text.RegularExpressions;
+using Dart.MatchViews.Matchobjekte;
+using Repository.MatchEntity;
+using Dart.Person;
 
-namespace Dart.Match.Forms
+namespace Dart.MatchViews.Forms
 {
     /// <summary>
     /// Interaktionslogik für FormSpielerAuswahl.xaml
@@ -31,6 +31,11 @@ namespace Dart.Match.Forms
 
         private void btnHinzufuegen_Click(object sender, RoutedEventArgs e)
         {
+            AuswahlPersonView auswahlPersonView = new AuswahlPersonView();
+            auswahlPersonView.ShowDialog();
+
+            return;
+
             if(lstBoxSpieler.Items.Count >= 8)
             {
                 MessageBox.Show("Es sind nur 8 Spieler maximal möglich");
@@ -90,7 +95,7 @@ namespace Dart.Match.Forms
 
             DialogResult = true;
 
-            MatchObjekt match = new MatchObjekt();
+            Match match = new Match();
             match.LegZumSet = Convert.ToInt32(txtAnzahlLeg.Text);
             match.SetZumSieg = Convert.ToInt32(TxtAnzahlSet.Text);
             match.PunktZahlzumLeg = Int32.Parse( cBoxPunktzahl.Text );
@@ -103,7 +108,7 @@ namespace Dart.Match.Forms
                 matchspieler.AktuellesSet.Nummer = 1;
                 matchspieler.AktuellesLeg.Nummer = 1;
                 matchspieler.AktuellePunktZahl = match.PunktZahlzumLeg;
-                match.SpielerList.Add (matchspieler);
+                //match.SpielerList.Add (matchspieler);
             }
 
 
@@ -126,13 +131,13 @@ namespace Dart.Match.Forms
 
         private void txtAnzahlLeg_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
-            Regex regex = new Regex("[^0-9]+");
+            System.Text.RegularExpressions.Regex regex = new System.Text.RegularExpressions.Regex("[^0-9]+");
             e.Handled = regex.IsMatch(e.Text);
         }
 
         private void TxtAnzahlSet_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
-            Regex regex = new Regex("[^0-9]+");
+            System.Text.RegularExpressions.Regex regex = new System.Text.RegularExpressions.Regex("[^0-9]+");
             e.Handled = regex.IsMatch(e.Text);
         }
     }

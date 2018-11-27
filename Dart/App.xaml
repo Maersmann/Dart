@@ -11,6 +11,7 @@
        <vm:ViewModelLocator x:Key="Locator" 
                            d:IsDataSource="True"
                            xmlns:vm="clr-namespace:Dart.ViewModel" />
-    </ResourceDictionary>
+            <SolidColorBrush x:Key="HeaderColor" Color="#FF440303"/>
+        </ResourceDictionary>
   </Application.Resources>
 </Application>

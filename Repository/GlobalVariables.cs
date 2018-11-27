@@ -1,21 +1,22 @@
 ﻿using Repository.Datenbank;
-using Repository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Dart
+namespace Repository
 {
-    static class AppVariables
+    public static class GlobalVariables
     {
 
         private static DbModel dbContext = null;
 
+        public static String ConnectionString { get; set; }
+
         public static DbModel getDbContext()
         {
-            dbContext = dbContext ?? GlobalVariables.getDbContext();
+            dbContext = dbContext ?? new DbModel(ConnectionString);
             return dbContext;
         }
     }

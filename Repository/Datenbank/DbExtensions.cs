@@ -9,7 +9,7 @@ using System.Linq;
 
 
 
-namespace Dart.Datenbank
+namespace Repository.Datenbank
 {
     public static class DbExtensions
     {
@@ -18,9 +18,6 @@ namespace Dart.Datenbank
         {
             public int Id { get; set; }
         }
-
-
-
 
         public static BindingList<T> ToBindingList<T>
             (this IQueryable<T> source) where T : class

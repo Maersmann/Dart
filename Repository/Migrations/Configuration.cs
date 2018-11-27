@@ -1,19 +1,18 @@
-namespace Dart.Migrations
+namespace Repository.Migrations
 {
-    using Dart.Datenbank;
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<DbModel>
+    internal sealed class Configuration : DbMigrationsConfiguration<Repository.Datenbank.DbModel>
     {
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
         }
 
-        protected override void Seed(DbModel context)
+        protected override void Seed(Repository.Datenbank.DbModel context)
         {
             //  This method will be called after migrating to the latest version.
 

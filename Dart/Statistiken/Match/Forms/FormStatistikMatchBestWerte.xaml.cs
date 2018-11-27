@@ -12,9 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using Dart.Match;
-using Dart.Entity.SpielerObjekte;
-using Dart.Match.Matchobjekte;
+using Dart.MatchViews;
+using Dart.MatchViews.Matchobjekte;
 
 namespace Dart.Statistiken.Match.Forms
 {

@@ -10,13 +10,12 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using Dart.Match.Forms;
 using Microsoft.Windows.Controls.Ribbon;
 using Dart.Optionen.Form;
 using Dart.Info;
-using FirebirdSql.Data.FirebirdClient;
-using Dart.Migrations;
 using Dart.Person;
+using Dart.MatchViews.Forms;
+using Repository;
 
 namespace Dart
 {
@@ -37,13 +36,8 @@ namespace Dart
 
             Container.NavigationService.Navigate(_startBildschirm);
 
-            setConnection();
-
-
-            var configuration = new Configuration();
-            var migrator = new System.Data.Entity.Migrations.DbMigrator(configuration);
-
-            migrator.Update();
+            var StartRepo = new StartRepo();
+            StartRepo.SetVerbindung();
 
 
         }
@@ -108,36 +102,7 @@ namespace Dart
         }
 
 
-        private void setConnection()
-        {
-            var builder = new FbConnectionStringBuilder();
-            builder.Database = @"C:\Dart.fdb";
-            builder.Port = 3050;
-            builder.ServerType = FbServerType.Default;
-            builder.UserID = "SYSDBA";
-            builder.Password = "masterkey";
-            builder.DataSource = "localhost";
-            builder.Dialect = 3;
-            builder.Charset = "None";
-            builder.ConnectionLifeTime = 15;
-            builder.Pooling = true;
-            builder.MaxPoolSize = 50;
-            builder.PacketSize = 8192;
-
-            AppVariables.ConnectionString = builder.ConnectionString;
-            var dbContext = AppVariables.getDbContext();
-
-            dbContext.Database.Connection.ConnectionString = AppVariables.ConnectionString;
-            try
-            {
-                dbContext.Database.Connection.Open();
-            }
-            catch (Exception)
-            {
-
-                throw;
-            }
-        }
+        
 
         private void RbNewSpieler_Click(object sender, RoutedEventArgs e)
         {

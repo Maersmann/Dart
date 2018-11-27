@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Dart.Match.Matchobjekte
+namespace Dart.MatchViews.Matchobjekte
 {
     public class Leg
     {

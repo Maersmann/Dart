@@ -1,11 +1,11 @@
-﻿using System;
+﻿using Repository.SpielerEntity;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Dart.Entity.SpielerObjekte;
 
-namespace Dart.Match.Matchobjekte
+namespace Dart.MatchViews.Matchobjekte
 {
     public class MatchSpieler
     {

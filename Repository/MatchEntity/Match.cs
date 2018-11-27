@@ -4,32 +4,32 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Dart.Match.Matchobjekte
+namespace Repository.MatchEntity
 {
-    public class MatchObjekt
+    public class Match
     {
         public int LegZumSet { get; set; }
         public int SetZumSieg { get; set; }
         public int PunktZahlzumLeg { get; set; }
-        public List<MatchSpieler>  SpielerList { get; set; }
+        //public List<MatchSpieler>  SpielerList { get; set; }
 
-        public MatchObjekt()
-        {
-            SpielerList = new List<MatchSpieler>();
-             
-        }
+        public Match()
+        { }
+        // SpielerList = new List<MatchSpieler>();
 
-        public MatchObjekt getMatchMemento()
+    
+
+        public Match getMatchMemento()
         {
-            MatchObjekt memento = new MatchObjekt();
+            Match memento = new Match();
             memento.LegZumSet = this.LegZumSet;
             memento.SetZumSieg = this.SetZumSieg;
             memento.PunktZahlzumLeg = this.PunktZahlzumLeg;
 
-            foreach(MatchSpieler spieler in SpielerList)
+          /*  foreach(MatchSpieler spieler in SpielerList)
             {
                 memento.SpielerList.Add(spieler.getMatchSpielerMemento());
-            }
+            }*/
 
                 
             return memento;

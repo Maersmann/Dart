@@ -15,14 +15,13 @@ using System.Windows.Shapes;
 namespace Dart.Person
 {
     /// <summary>
-    /// Interaktionslogik für FormAddPerson.xaml
+    /// Interaktionslogik für AuswahlPersonView.xaml
     /// </summary>
-    public partial class AddPersonView : Window
+    public partial class AuswahlPersonView : Window
     {
-        public AddPersonView()
+        public AuswahlPersonView()
         {
             InitializeComponent();
         }
-
     }
 }

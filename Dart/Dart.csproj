@@ -9,7 +9,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Dart</RootNamespace>
     <AssemblyName>Dart</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <WarningLevel>4</WarningLevel>
@@ -147,8 +147,6 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="AppVariables.cs" />
-    <Compile Include="Datenbank\DbExtensions.cs" />
-    <Compile Include="Datenbank\DbModel.cs" />
     <Compile Include="Finish\AverageText.cs" />
     <Compile Include="Finish\FinishWeg.cs" />
     <Compile Include="Info\FormInfo.xaml.cs">
@@ -160,9 +158,6 @@
     <Compile Include="Main.xaml.cs">
       <DependentUpon>Main.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Match\Matchobjekte\Leg.cs" />
-    <Compile Include="Match\Matchobjekte\Set.cs" />
-    <Compile Include="Match\Matchobjekte\MatchSpieler.cs" />
     <Compile Include="MatchUtils\AnzahlScoreCheck.cs" />
     <Compile Include="MatchUtils\AverageBerechnen.cs" />
     <Compile Include="MatchUtils\FormDialogFinish.xaml.cs">
@@ -170,15 +165,20 @@
     </Compile>
     <Compile Include="MatchUtils\HighFinishCheck.cs" />
     <Compile Include="MatchUtils\HighScoreCheck.cs" />
-    <Compile Include="Match\Matchobjekte\Match.cs" />
-    <Compile Include="Match\Matchobjekte\Statistiken.cs" />
+    <Compile Include="MatchViews\Forms\FormMatch.xaml.cs">
+      <DependentUpon>FormMatch.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MatchViews\Forms\FormSpielerAuswahl.xaml.cs">
+      <DependentUpon>FormSpielerAuswahl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MatchViews\MatchController.cs" />
+    <Compile Include="MatchViews\MatchModel.cs" />
+    <Compile Include="MatchViews\Matchmodel\Leg.cs" />
+    <Compile Include="MatchViews\Matchmodel\MatchSpieler.cs" />
+    <Compile Include="MatchViews\Matchmodel\Set.cs" />
+    <Compile Include="MatchViews\Matchmodel\Statistiken.cs" />
     <Compile Include="Memento\MatchMemento.cs" />
     <Compile Include="Memento\MatchCaretaker.cs" />
-    <Compile Include="Migrations\201811261818033_1.cs" />
-    <Compile Include="Migrations\201811261818033_1.Designer.cs">
-      <DependentUpon>201811261818033_1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Optionen\DataModul\OptionGame.cs" />
     <Compile Include="Optionen\DataModul\OptionStatistik.cs" />
     <Compile Include="Optionen\Form\FormOptionen.xaml.cs">
@@ -191,11 +191,14 @@
       <DependentUpon>FrameOptionenStatistik.xaml</DependentUpon>
     </Compile>
     <Compile Include="Optionen\Utils\OptionIni.cs" />
-    <Compile Include="Entity\SpielerObjekte\Player.cs" />
     <Compile Include="Person\AddPersonView.xaml.cs">
       <DependentUpon>AddPersonView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Person\AddPersonViewModel.cs" />
+    <Compile Include="Person\ViewModel\AddPersonViewModel.cs" />
+    <Compile Include="Person\AuswahlPersonView.xaml.cs">
+      <DependentUpon>AuswahlPersonView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Person\ViewModel\AuswahlPersonViewModel.cs" />
     <Compile Include="StartBildschirm.xaml.cs">
       <DependentUpon>StartBildschirm.xaml</DependentUpon>
     </Compile>
@@ -206,10 +209,7 @@
       <DependentUpon>FormStatistikMatchAverage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Utils\Kontrolle.cs" />
-    <Compile Include="Match\MatchController.cs" />
-    <Compile Include="Match\MatchModel.cs" />
     <Compile Include="Utils\SaveGame.cs" />
-    <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\ViewModelLocator.cs" />
     <Page Include="Info\FormInfo.xaml">
       <SubType>Designer</SubType>
@@ -227,21 +227,17 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Match\Forms\FormMatch.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Match\Forms\FormMatch.xaml.cs">
-      <DependentUpon>FormMatch.xaml</DependentUpon>
-      <SubType>Code</SubType>
-    </Compile>
-    <Page Include="Match\Forms\FormSpielerAuswahl.xaml">
-      <SubType>Designer</SubType>
+    <Page Include="MatchViews\Forms\FormMatch.xaml">
       <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="MatchViews\Forms\FormSpielerAuswahl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Optionen\Form\FormOptionen.xaml">
       <SubType>Designer</SubType>
@@ -259,6 +255,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Person\AuswahlPersonView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="StartBildschirm.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -273,9 +273,6 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Match\Forms\FormSpielerAuswahl.xaml.cs">
-      <DependentUpon>FormSpielerAuswahl.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -289,9 +286,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <EmbeddedResource Include="Migrations\201811261818033_1.resx">
-      <DependentUpon>201811261818033_1.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -347,12 +341,14 @@
     <Resource Include="Bilder\Lizenz.png" />
   </ItemGroup>
   <ItemGroup>
-    <WCFMetadata Include="Connected Services\" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Bilder\AddPerson.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\Repository\Repository.csproj">
+      <Project>{1ed3bcd4-1eb9-4f16-afc1-88d816619deb}</Project>
+      <Name>Repository</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

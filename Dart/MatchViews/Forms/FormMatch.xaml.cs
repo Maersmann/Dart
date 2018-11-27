@@ -15,9 +15,9 @@ using Dart.Utils;
 using Dart.Finish;
 using Dart.Memento;
 using Dart.Statistiken.Match.Forms;
-using Dart.Match.Matchobjekte;
+using Dart.MatchViews.Matchobjekte;
 
-namespace Dart.Match.Forms
+namespace Dart.MatchViews.Forms
 {
     
     public partial class FormMatch : Page
