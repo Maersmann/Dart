@@ -1,16 +1,27 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Repository.MatchEntity
+namespace infrastructure.MatchEntity
 {
+    [Table("Match")]
     public class Match
     {
-        public int LegZumSet { get; set; }
-        public int SetZumSieg { get; set; }
-        public int PunktZahlzumLeg { get; set; }
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        public int ID { get; set; }
+
+        public int Legs { get; set; }
+
+        public int Sets { get; set; }
+
+        public int PunktZahl { get; set; }
+
+
         //public List<MatchSpieler>  SpielerList { get; set; }
 
         public Match()
@@ -18,22 +29,22 @@ namespace Repository.MatchEntity
         // SpielerList = new List<MatchSpieler>();
 
     
-
+        /*
         public Match getMatchMemento()
         {
-            Match memento = new Match();
-            memento.LegZumSet = this.LegZumSet;
-            memento.SetZumSieg = this.SetZumSieg;
-            memento.PunktZahlzumLeg = this.PunktZahlzumLeg;
+            //   Match memento = new Match();
+            //   memento.LegZumSet = this.LegZumSet;
+            //   memento.SetZumSieg = this.SetZumSieg;
+            //   memento.PunktZahlzumLeg = this.PunktZahlzumLeg;
 
-          /*  foreach(MatchSpieler spieler in SpielerList)
-            {
-                memento.SpielerList.Add(spieler.getMatchSpielerMemento());
-            }*/
+              foreach(MatchSpieler spieler in SpielerList)
+              {
+                  memento.SpielerList.Add(spieler.getMatchSpielerMemento());
+              }
 
-                
-            return memento;
-        }
+
+            return null; //memento;
+        }*/
 
     }
 }

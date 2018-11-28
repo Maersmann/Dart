@@ -1,15 +1,15 @@
-﻿using Repository.SpielerEntity;
+﻿using infrastructure.SpielerEntity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Dart.MatchViews.Matchobjekte
+namespace Programm.MatchViews.Matchobjekte
 {
     public class MatchSpieler
     {
-        public Player Spieler { get;  }
+        public Spieler Spieler { get;  }
         public List<Set> Sets { get; set; }
         public int AktuellePunktZahl { get; set; }
         public Statistiken Statistiken;
@@ -23,7 +23,7 @@ namespace Dart.MatchViews.Matchobjekte
 
         public MatchSpieler ( String pName )
         {
-            Spieler = new Player( );
+            Spieler = new Spieler( );
             
             Statistiken = new Statistiken();
             AktuellesSet = new Set();

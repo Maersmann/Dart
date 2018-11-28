@@ -12,10 +12,10 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using Dart.MatchViews;
-using Dart.MatchViews.Matchobjekte;
+using Programm.MatchViews;
+using Programm.MatchViews.Matchobjekte;
 
-namespace Dart.Statistiken.Match.Forms
+namespace Programm.Statistiken.Match.Forms
 {
     /// <summary>
     /// Interaktionslogik für FormStatistikMatchAverage.xaml

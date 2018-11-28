@@ -1,18 +1,17 @@
-﻿using Dart.Memento;
-using Dart.Utils;
+﻿using Programm.Memento;
+using Programm.Utils;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Dart.Optionen.Utils;
-using Repository.MatchEntity;
-using Dart.MatchViews.Matchobjekte;
+using Programm.Optionen.Utils;
+using Programm.MatchViews.Matchobjekte;
 
-namespace Dart.MatchViews
+namespace Programm.MatchViews
 {
     public class MatchModel
     {
-        Match _Match;
+        infrastructure.MatchEntity.Match _Match;
 
         private MatchSpieler _AktuellenSpieler;
         private int _AnzahlSpieler;
@@ -27,7 +26,7 @@ namespace Dart.MatchViews
         public bool Spielbeendet { get; set; }
 
 
-        public MatchModel( Match pMatch )
+        public MatchModel(infrastructure.MatchEntity.Match pMatch )
         {
             Spielbeendet = false;
             OptionIni optIni = new OptionIni();
@@ -44,7 +43,7 @@ namespace Dart.MatchViews
             _SpielerSetBegonnen = _AktuellerSpielerPos;
         }
 
-        public MatchModel( Match pMatch , int pAnzahlSpieler, int pAktuellerSpielerPos, int pSpielerLegBegonnen, int pSpielerSetBegonnen, int inListsizeFinish, int inListSizeScore)
+        public MatchModel(infrastructure.MatchEntity.Match pMatch , int pAnzahlSpieler, int pAktuellerSpielerPos, int pSpielerLegBegonnen, int pSpielerSetBegonnen, int inListsizeFinish, int inListSizeScore)
         {
             _Match = pMatch;
             _AnzahlSpieler = pAnzahlSpieler;
@@ -75,7 +74,7 @@ namespace Dart.MatchViews
 
         public MatchMemento getMemento()
         {
-            Match matchMemento = _Match.getMatchMemento();
+            infrastructure.MatchEntity.Match matchMemento = null;// _Match.getMatchMemento();
 
             return null;
             //return new MatchMemento(matchMemento, _AnzahlSpieler, _AktuellerSpielerPos ,_SpielerLegBegonnen ,_SpielerSetBegonnen , _ListSizeFinish, _ListSizeScore);
@@ -306,12 +305,12 @@ namespace Dart.MatchViews
 
         public int getLegZumSet()
         {
-            return _Match.LegZumSet;
+            return 0;//_Match.LegZumSet;
         }
 
         public int getSetZumSieg()
         {
-            return _Match.SetZumSieg;
+            return 0;//_Match.SetZumSieg;
         }
 
         public void setGewonnenLegs(int pLeg)

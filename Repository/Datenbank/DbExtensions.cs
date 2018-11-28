@@ -9,7 +9,7 @@ using System.Linq;
 
 
 
-namespace Repository.Datenbank
+namespace infrastructure.Datenbank
 {
     public static class DbExtensions
     {

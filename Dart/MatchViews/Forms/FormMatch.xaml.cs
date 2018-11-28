@@ -11,13 +11,13 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using Dart.Utils;
-using Dart.Finish;
-using Dart.Memento;
-using Dart.Statistiken.Match.Forms;
-using Dart.MatchViews.Matchobjekte;
+using Programm.Utils;
+using Programm.Finish;
+using Programm.Memento;
+using Programm.Statistiken.Match.Forms;
+using Programm.MatchViews.Matchobjekte;
 
-namespace Dart.MatchViews.Forms
+namespace Programm.MatchViews.Forms
 {
     
     public partial class FormMatch : Page
@@ -514,7 +514,7 @@ namespace Dart.MatchViews.Forms
         public void rbMatchNewGame_Click(object sender, RoutedEventArgs e)
         {
 
-            FormSpielerAuswahl formSpielerAuswahl = new FormSpielerAuswahl( this );
+            MatchSpielerAuswahlView formSpielerAuswahl = new MatchSpielerAuswahlView( this );
             bool? DialogResult = formSpielerAuswahl.ShowDialog();
 
             if (DialogResult == true)

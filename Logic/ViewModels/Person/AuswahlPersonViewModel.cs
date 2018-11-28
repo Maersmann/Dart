@@ -1,19 +1,19 @@
 ﻿using GalaSoft.MvvmLight;
-using Repository.SpielerEntity;
+using infrastructure.SpielerEntity;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using Repository.Datenbank;
+using infrastructure.Datenbank;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Dart.Person.ViewModel
+namespace UILogic.ViewModels.Person
 {
     public class AuswahlPersonViewModel : ViewModelBase
     {
 
-        private ObservableCollection<Player> _Players = null;
+        private ObservableCollection<Spieler> _Players = null;
 
         public AuswahlPersonViewModel()
         {
@@ -23,7 +23,7 @@ namespace Dart.Person.ViewModel
 
         }
 
-        public IEnumerable<Player> Datenquelle
+        public IEnumerable<Spieler> Datenquelle
         {
 
             get
@@ -33,7 +33,7 @@ namespace Dart.Person.ViewModel
 
                     dbContext.DetachAll(dbContext.Players);
 
-                    this._Players = new ObservableCollection<Player>(dbContext.Players.ToList());
+                    this._Players = new ObservableCollection<Spieler>(dbContext.Players.ToList());
 
                 return this._Players;
             }

@@ -1,12 +1,12 @@
 
 
 using CommonServiceLocator;
-using Dart.Person;
-using Dart.Person.ViewModel;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Ioc;
+using UILogic.ViewModels.MatchVM;
+using UILogic.ViewModels.Person;
 
-namespace Dart.ViewModel
+namespace UILogic
 {
 
     public class ViewModelLocator
@@ -19,11 +19,14 @@ namespace Dart.ViewModel
 
             SimpleIoc.Default.Register<AuswahlPersonViewModel>();
             SimpleIoc.Default.Register<AddPersonViewModel>();
+            SimpleIoc.Default.Register<MatchSpielerAuswahlViewModel>();
         }
 
         public AddPersonViewModel AddPerson => ServiceLocator.Current.GetInstance<AddPersonViewModel>();
 
         public AuswahlPersonViewModel PersonAuswahl => ServiceLocator.Current.GetInstance<AuswahlPersonViewModel>();
+
+        public MatchSpielerAuswahlViewModel MatchSpielerAuswahl => ServiceLocator.Current.GetInstance<MatchSpielerAuswahlViewModel>();
 
         public static void Cleanup()
         {

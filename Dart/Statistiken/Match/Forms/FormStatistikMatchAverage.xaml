@@ -1,9 +1,9 @@
-﻿<Window x:Class="Dart.Statistiken.Match.Forms.FormStatistikMatchAverage"
+﻿<Window x:Class="Programm.Statistiken.Match.Forms.FormStatistikMatchAverage"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:local="clr-namespace:Dart.Statistiken.Match.Forms"
+      xmlns:local="clr-namespace:Programm.Statistiken.Match.Forms"
       mc:Ignorable="d" 
       Background="White"
       Title="Average Match" Height="363.437" Width="469.16" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Icon="/Dart;component/Bilder/1364007503_67060.ico">

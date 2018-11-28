@@ -1,11 +1,11 @@
-﻿using Repository.Datenbank;
+﻿using infrastructure.Datenbank;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Repository
+namespace infrastructure
 {
     public static class GlobalVariables
     {

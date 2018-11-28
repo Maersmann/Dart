@@ -31,16 +31,6 @@
     <Content Include="SetupDart.wax" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Dart\Dart.csproj">
-      <Name>Dart</Name>
-      <Project>{9249a753-b99f-45af-b5f9-6aab5b71e31b}</Project>
-      <Private>True</Private>
-      <DoNotHarvest>True</DoNotHarvest>
-      <RefProjectOutputGroups>Binaries;Content;Satellites</RefProjectOutputGroups>
-      <RefTargetDir>INSTALLFOLDER</RefTargetDir>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <WixExtension Include="WixUIExtension">
       <HintPath>$(WixExtDir)\WixUIExtension.dll</HintPath>
       <Name>WixUIExtension</Name>
@@ -48,6 +38,16 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Image" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Dart\Program.csproj">
+      <Name>Program</Name>
+      <Project>{9249a753-b99f-45af-b5f9-6aab5b71e31b}</Project>
+      <Private>True</Private>
+      <DoNotHarvest>True</DoNotHarvest>
+      <RefProjectOutputGroups>Binaries;Content;Satellites</RefProjectOutputGroups>
+      <RefTargetDir>INSTALLFOLDER</RefTargetDir>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(WixTargetsPath)" />
   <!--

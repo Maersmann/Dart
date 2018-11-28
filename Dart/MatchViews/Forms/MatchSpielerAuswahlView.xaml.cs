@@ -2,31 +2,31 @@
 using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Input;
-using Dart.Optionen.Utils;
-using Dart.MatchViews.Matchobjekte;
-using Repository.MatchEntity;
-using Dart.Person;
+using Programm.Optionen.Utils;
+using Programm.MatchViews.Matchobjekte;
+using infrastructure.MatchEntity;
+using Programm.Person;
 
-namespace Dart.MatchViews.Forms
+namespace Programm.MatchViews.Forms
 {
     /// <summary>
     /// Interaktionslogik für FormSpielerAuswahl.xaml
     /// </summary>
-    public partial class FormSpielerAuswahl : Window
+    public partial class MatchSpielerAuswahlView : Window
     {
 
         FormMatch _formMatch;
 
-        public FormSpielerAuswahl( FormMatch pFormMatch )
+        public MatchSpielerAuswahlView( FormMatch pFormMatch )
         {
             InitializeComponent();
             _formMatch = pFormMatch;
             cBoxPunktzahl.SelectedIndex = 0;
 
-            OptionIni optIni = new OptionIni();
+           /* OptionIni optIni = new OptionIni();
             cBoxPunktzahl.Text = optIni.OptionGame.Punktzahl.ToString();
             txtAnzahlLeg.Text = optIni.OptionGame.LegZumSet.ToString();
-            TxtAnzahlSet.Text = optIni.OptionGame.SetZumSieg.ToString();
+            TxtAnzahlSet.Text = optIni.OptionGame.SetZumSieg.ToString(); */
         }
 
         private void btnHinzufuegen_Click(object sender, RoutedEventArgs e)
@@ -42,17 +42,7 @@ namespace Dart.MatchViews.Forms
                 return;
             }
 
-            if (txtNeuerSpieler.Text.Equals(""))
-            {
-                MessageBox.Show("Kein Name vorhanden!");
-                return;
-            }
-
-            lstBoxSpieler.Items.Add(txtNeuerSpieler.Text);
-
-            txtNeuerSpieler.Text = "";
-            txtNeuerSpieler.Focus();
-
+       
         }
 
 
@@ -65,7 +55,7 @@ namespace Dart.MatchViews.Forms
                 return;
             }
 
-            if (txtAnzahlLeg.Text.Equals("") )
+           /* if (txtAnzahlLeg.Text.Equals("") )
             {
                 txtAnzahlLeg.Clear();
                 MessageBox.Show("Die Legs fehlen!");
@@ -91,33 +81,30 @@ namespace Dart.MatchViews.Forms
                 txtAnzahlLeg.Clear();
                 MessageBox.Show("Anzahl Legs muss über 0 sein");
                 return;
-            }
+            }*/
 
             DialogResult = true;
 
-            Match match = new Match();
-            match.LegZumSet = Convert.ToInt32(txtAnzahlLeg.Text);
-            match.SetZumSieg = Convert.ToInt32(TxtAnzahlSet.Text);
-            match.PunktZahlzumLeg = Int32.Parse( cBoxPunktzahl.Text );
+          
 
-            if (match.SetZumSieg == 0) match.SetZumSieg = 1;
+            
 
             foreach (String Name in lstBoxSpieler.Items)
             {
-                MatchSpieler matchspieler = new MatchSpieler(Name);
-                matchspieler.AktuellesSet.Nummer = 1;
-                matchspieler.AktuellesLeg.Nummer = 1;
-                matchspieler.AktuellePunktZahl = match.PunktZahlzumLeg;
+                //MatchSpieler matchspieler = new MatchSpieler(Name);
+                //matchspieler.AktuellesSet.Nummer = 1;
+                //matchspieler.AktuellesLeg.Nummer = 1;
+          //      matchspieler.AktuellePunktZahl = match.PunktZahlzumLeg;
                 //match.SpielerList.Add (matchspieler);
             }
 
 
 
 
-            MatchModel matchmodel = new MatchModel(match);
-            MatchController matchController = new MatchController( matchmodel );
+            //MatchModel matchmodel = new MatchModel(match);
+         //   MatchController matchController = new MatchController( matchmodel );
 
-            _formMatch.NewGame(matchmodel, matchController);
+         //   _formMatch.NewGame(matchmodel, matchController);
             this.Close();
 
 

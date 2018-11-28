@@ -7,8 +7,8 @@
     <ProjectGuid>{1ED3BCD4-1EB9-4F16-AFC1-88D816619DEB}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Repository</RootNamespace>
-    <AssemblyName>Repository</AssemblyName>
+    <RootNamespace>Infrastructure</RootNamespace>
+    <AssemblyName>Infrastructure</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -58,12 +58,17 @@
     <Compile Include="Datenbank\DbExtensions.cs" />
     <Compile Include="Datenbank\DbModel.cs" />
     <Compile Include="MatchEntity\Match.cs" />
+    <Compile Include="MatchEntity\MatchSpieler.cs" />
     <Compile Include="Migrations\201811271919277_1.cs" />
     <Compile Include="Migrations\201811271919277_1.Designer.cs">
       <DependentUpon>201811271919277_1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201811281921110_2.cs" />
+    <Compile Include="Migrations\201811281921110_2.Designer.cs">
+      <DependentUpon>201811281921110_2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="SpielerEntity\Player.cs" />
+    <Compile Include="SpielerEntity\Spieler.cs" />
     <Compile Include="GlobalVariables.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -74,6 +79,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201811271919277_1.resx">
       <DependentUpon>201811271919277_1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201811281921110_2.resx">
+      <DependentUpon>201811281921110_2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

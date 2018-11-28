@@ -11,13 +11,13 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Microsoft.Windows.Controls.Ribbon;
-using Dart.Optionen.Form;
-using Dart.Info;
-using Dart.Person;
-using Dart.MatchViews.Forms;
-using Repository;
+using Programm.Optionen.Form;
+using Programm.Info;
+using Programm.Person;
+using Programm.MatchViews.Forms;
+using infrastructure;
 
-namespace Dart
+namespace Programm
 {
     /// <summary>
     /// Interaktionslogik für Main.xaml

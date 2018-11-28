@@ -3,11 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.106
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dart", "Dart\Dart.csproj", "{9249A753-B99F-45AF-B5F9-6AAB5B71E31B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Program", "Dart\Program.csproj", "{9249A753-B99F-45AF-B5F9-6AAB5B71E31B}"
 EndProject
 Project("{930C7802-8A8C-48F9-8165-68863BCCD9DD}") = "SetupDart", "SetupDart\SetupDart.wixproj", "{8ABB1639-C89B-4BD9-9250-C118477B0F81}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Repository", "Repository\Repository.csproj", "{1ED3BCD4-1EB9-4F16-AFC1-88D816619DEB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastructure", "Repository\Infrastructure.csproj", "{1ED3BCD4-1EB9-4F16-AFC1-88D816619DEB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UILogic", "Logic\UILogic.csproj", "{AA255913-5960-426E-84BE-FEB097D633E5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,14 @@ Global
 		{1ED3BCD4-1EB9-4F16-AFC1-88D816619DEB}.Release|Any CPU.Build.0 = Release|Any CPU
 		{1ED3BCD4-1EB9-4F16-AFC1-88D816619DEB}.Release|x86.ActiveCfg = Release|Any CPU
 		{1ED3BCD4-1EB9-4F16-AFC1-88D816619DEB}.Release|x86.Build.0 = Release|Any CPU
+		{AA255913-5960-426E-84BE-FEB097D633E5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AA255913-5960-426E-84BE-FEB097D633E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AA255913-5960-426E-84BE-FEB097D633E5}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{AA255913-5960-426E-84BE-FEB097D633E5}.Debug|x86.Build.0 = Debug|Any CPU
+		{AA255913-5960-426E-84BE-FEB097D633E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AA255913-5960-426E-84BE-FEB097D633E5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AA255913-5960-426E-84BE-FEB097D633E5}.Release|x86.ActiveCfg = Release|Any CPU
+		{AA255913-5960-426E-84BE-FEB097D633E5}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

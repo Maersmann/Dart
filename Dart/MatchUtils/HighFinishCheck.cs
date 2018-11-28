@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Dart.MatchViews.Matchobjekte;
+using Programm.MatchViews.Matchobjekte;
 
-namespace Dart.MatchUtils
+namespace Programm.MatchUtils
 {
     public class HighFinishCheck
     {

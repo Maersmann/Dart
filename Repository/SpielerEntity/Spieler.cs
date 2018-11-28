@@ -4,13 +4,13 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Repository.SpielerEntity
+namespace infrastructure.SpielerEntity
 {
-    [Table("Player")]
-    public class Player
+    [Table("Spieler")]
+    public class Spieler
     {
        
-        public Player()
+        public Spieler()
         {
             
         }

@@ -1,11 +1,15 @@
 ﻿using FirebirdSql.Data.FirebirdClient;
+using infrastructure.Datenbank;
+using infrastructure.Migrations;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
+using System.Data.Entity.Migrations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Repository
+namespace infrastructure
 {
     public class StartRepo
     {
@@ -38,6 +42,8 @@ namespace Repository
             try
             {
                 dbContext.Database.Connection.Open();
+                dbContext.Database.Initialize(false);
+
             }
             catch (Exception)
             {

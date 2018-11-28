@@ -1,9 +1,9 @@
-﻿<Window x:Class="Dart.Person.AuswahlPersonView"
+﻿<Window x:Class="Programm.Person.AuswahlPersonView"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Dart.Person"
+        xmlns:local="clr-namespace:Programm.Person"
         mc:Ignorable="d"
         Title="AuswahlPersonView" Height="467.073" Width="325.61">
     <Grid DataContext="{Binding Source={StaticResource Locator}}">

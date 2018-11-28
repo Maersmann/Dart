@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Dart.MatchUtils
+namespace Programm.MatchUtils
 {
     public class AverageBerechnen
     {

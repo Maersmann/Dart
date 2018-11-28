@@ -1,4 +1,4 @@
-﻿using Dart.Optionen.Utils;
+﻿using Programm.Optionen.Utils;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,9 +14,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using Dart.Optionen.DataModul;
+using Programm.Optionen.DataModul;
 
-namespace Dart.Optionen.Frame
+namespace Programm.Optionen.Frame
 {
     /// <summary>
     /// Interaktionslogik für FrameOptionenStatistik.xaml

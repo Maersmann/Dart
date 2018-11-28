@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 
-namespace Dart.Finish
+namespace Programm.Finish
 {
     public class FinishWeg : FinishText
     {

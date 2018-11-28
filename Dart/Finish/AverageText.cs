@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Dart.Finish
+namespace Programm.Finish
 {
     public class FinishText
     {

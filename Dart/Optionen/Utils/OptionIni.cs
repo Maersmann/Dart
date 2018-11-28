@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 using IniParser;
 using IniParser.Model;
 using System.IO;
-using Dart.Optionen.DataModul;
+using Programm.Optionen.DataModul;
 
-namespace Dart.Optionen.Utils
+namespace Programm.Optionen.Utils
 {
     public class OptionIni
     {

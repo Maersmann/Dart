@@ -1,12 +1,12 @@
-﻿using Dart.MatchViews;
-using Repository.MatchEntity;
+﻿using Programm.MatchViews;
+using infrastructure.MatchEntity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Dart.Memento
+namespace Programm.Memento
 {
     public class MatchMemento
     {

@@ -1,12 +1,12 @@
-﻿using Repository.Datenbank;
-using Repository;
+﻿using infrastructure.Datenbank;
+using infrastructure;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Dart
+namespace UILogic
 {
     static class AppVariables
     {

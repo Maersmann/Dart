@@ -1,17 +1,16 @@
-﻿using Dart.MatchViews.Matchobjekte;
+﻿using Programm.MatchViews.Matchobjekte;
 using System;
 using System.IO;
 using System.Linq;
-using Repository.MatchEntity;
 
-namespace Dart.Utils
+namespace Programm.Utils
 {
     public class SaveGame
     {
         private String TextInhalt;
         StreamWriter file;
 
-        public SaveGame(Match pMatch)
+        public SaveGame(infrastructure.MatchEntity.Match pMatch)
         {
             string path = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "/Dart Ergebnisse";
             DirectoryInfo DI = new DirectoryInfo(path);
@@ -30,16 +29,16 @@ namespace Dart.Utils
             TextInhalt += "##########################\r\n";
             TextInhalt += "Ergebnis der Spiels\r\n";
             TextInhalt += "_________________________\r\n\r\n";
-            
-            if (pMatch.SetZumSieg > 1)
-            { 
-                TextInhalt += "Spielvariante : First to " + Convert.ToString(pMatch.SetZumSieg) + " Sets\r\n";
-                TextInhalt += Convert.ToString(pMatch.LegZumSet) + " Leg(s) für Setgewinn" + "\r\n";
-            }
-            else
-                TextInhalt += "Spielvariante : First to " + Convert.ToString(pMatch.LegZumSet) + " Legs\r\n";
 
-            TextInhalt += "Punkzahl: " + Convert.ToString(pMatch.PunktZahlzumLeg) + "\r\n";
+            /* if (pMatch.SetZumSieg > 1)
+             { 
+                 TextInhalt += "Spielvariante : First to " + Convert.ToString(pMatch.SetZumSieg) + " Sets\r\n";
+                 TextInhalt += Convert.ToString(pMatch.LegZumSet) + " Leg(s) für Setgewinn" + "\r\n";
+             }
+             else*/
+            //      TextInhalt += "Spielvariante : First to " + Convert.ToString(pMatch.LegZumSet) + " Legs\r\n";
+
+            // TextInhalt += "Punkzahl: " + Convert.ToString(pMatch.PunktZahlzumLeg) + "\r\n";
         }
 
         public void NeuerSpieler(MatchSpieler pSpieler )

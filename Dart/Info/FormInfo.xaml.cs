@@ -14,7 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace Dart.Info
+namespace Programm.Info
 {
     /// <summary>
     /// Interaktionslogik für FormInfo.xaml

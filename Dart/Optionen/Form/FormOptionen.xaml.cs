@@ -11,10 +11,10 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using Dart.Optionen.Frame;
-using Dart.Optionen.Utils;
+using Programm.Optionen.Frame;
+using Programm.Optionen.Utils;
 
-namespace Dart.Optionen.Form
+namespace Programm.Optionen.Form
 {
     /// <summary>
     /// Interaktionslogik für Optionen.xaml
