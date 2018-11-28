@@ -346,11 +346,11 @@
     <Resource Include="Bilder\AddPerson.png" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Logic\UILogic.csproj">
+    <ProjectReference Include="..\UILogic\UILogic.csproj">
       <Project>{aa255913-5960-426e-84be-feb097d633e5}</Project>
       <Name>UILogic</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Repository\Infrastructure.csproj">
+    <ProjectReference Include="..\Infrastructure\Infrastructure.csproj">
       <Project>{1ed3bcd4-1eb9-4f16-afc1-88d816619deb}</Project>
       <Name>Infrastructure</Name>
     </ProjectReference>

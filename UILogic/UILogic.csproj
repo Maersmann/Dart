@@ -83,7 +83,7 @@
     <Compile Include="ViewModelLocator.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Repository\Infrastructure.csproj">
+    <ProjectReference Include="..\Infrastructure\Infrastructure.csproj">
       <Project>{1ed3bcd4-1eb9-4f16-afc1-88d816619deb}</Project>
       <Name>Infrastructure</Name>
     </ProjectReference>
