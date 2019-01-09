@@ -1,11 +1,12 @@
 ﻿<Window x:Class="Programm.Person.AuswahlPersonView"
+        x:Name="AuswahlPerson"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Programm.Person"
         mc:Ignorable="d"
-        Title="AuswahlPersonView" Height="467.073" Width="325.61">
+        Title="AuswahlPersonView" Height="467.073" Width="325.61" DataContext="{Binding AuswahlPersonViewModel, Source={StaticResource Locator}}">
     <Grid DataContext="{Binding Source={StaticResource Locator}}">
         <Grid.RowDefinitions>
             <RowDefinition Height="20*"/>
@@ -17,11 +18,12 @@
         </Border>
 
 
-        <DataGrid Grid.Row="1" ItemsSource="{Binding PersonAuswahl.Datenquelle}"/>
+        <DataGrid Grid.Row="1" ItemsSource="{Binding AuswahlPersonViewModel.Datenquelle}"/>
 
 
         <DockPanel HorizontalAlignment="Stretch" LastChildFill="False"  Grid.Row="2" VerticalAlignment="Stretch" Background="White" Grid.ColumnSpan="2">
-            <Button x:Name="BtnOK" Content="Auswählen" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="75" DockPanel.Dock="Right" Margin="5,5,5,0"  Height="30"   />
+            <Button  Content="Auswählen" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="75" DockPanel.Dock="Right" Margin="5,5,5,0"  Height="30" Command="{Binding AuswahlPersonViewModel.ISpielerAusgewaehltCommand, Mode=OneWay}" 
+                    CommandParameter="{Binding ElementName=AuswahlPerson}"/>
             <Button x:Name="BtnNeu" Content="Neu" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="75" DockPanel.Dock="Right" Margin="5,5,5,0"  Height="30" />
         </DockPanel>
         

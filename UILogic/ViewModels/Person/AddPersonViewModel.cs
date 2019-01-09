@@ -15,13 +15,13 @@ namespace UILogic.ViewModels.Person
     {
         public Spieler newPlayer { get; private set; }
 
-        public ICommand toggleExecuteCommand { get; set; }
+        public ICommand IAddPlayerCommand { get; set; }
 
-     
+
         public AddPersonViewModel()
         {
             newPlayer = new Spieler();
-            toggleExecuteCommand = new RelayCommand(AddPlayerCommand);
+            IAddPlayerCommand = new RelayCommand(AddPlayerCommand);
         }
 
         public void AddPlayerCommand()
@@ -32,9 +32,7 @@ namespace UILogic.ViewModels.Person
             var players = dbcontext.Players;
 
             dbcontext.SaveChanges();
-        }
-
-    
+        }    
 
     }
 

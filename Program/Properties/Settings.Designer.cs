@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Program.Properties {
+namespace Dart.Programm.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]

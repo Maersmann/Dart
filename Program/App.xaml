@@ -6,12 +6,14 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              d1p1:Ignorable="d"
              xmlns:d1p1="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             xmlns:Logic="clr-namespace:UILogic;assembly=UILogic">
+             xmlns:Logic="clr-namespace:UILogic;assembly=UILogic"
+             xmlns:Programm="clr-namespace:Program.MessageListener">
   <Application.Resources>
         <ResourceDictionary>
             <Logic:ViewModelLocator x:Key="Locator"
                                       d:IsDataSource="True" />
             <SolidColorBrush x:Key="HeaderColor" Color="#FF440303"/>
+            <Programm:MatchSpielerAuswahlMessageListener x:Key="MatchSpielerAuswahlMessageListener"  />
         </ResourceDictionary>
 
     </Application.Resources>

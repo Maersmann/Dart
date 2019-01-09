@@ -8,7 +8,7 @@
     <ProjectGuid>{9249A753-B99F-45AF-B5F9-6AAB5B71E31B}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Program</RootNamespace>
+    <RootNamespace>Dart.Programm</RootNamespace>
     <AssemblyName>Dart</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -184,6 +184,7 @@
     <Compile Include="MatchViews\Matchmodel\Statistiken.cs" />
     <Compile Include="Memento\MatchMemento.cs" />
     <Compile Include="Memento\MatchCaretaker.cs" />
+    <Compile Include="MessageListener\MatchSpielerAuswahlMessageListener.cs" />
     <Compile Include="Optionen\DataModul\OptionGame.cs" />
     <Compile Include="Optionen\DataModul\OptionStatistik.cs" />
     <Compile Include="Optionen\Form\FormOptionen.xaml.cs">
@@ -289,7 +290,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <EmbeddedResource Include="Properties\Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
+      <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="packages.config" />

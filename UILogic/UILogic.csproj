@@ -76,6 +76,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AppVariables.cs" />
+    <Compile Include="IClosable.cs" />
+    <Compile Include="Messages\Match\MatchSpielerAuswahlMessage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\MatchVM\MatchSpielerAuswahlViewModel.cs" />
     <Compile Include="ViewModels\Person\AddPersonViewModel.cs" />

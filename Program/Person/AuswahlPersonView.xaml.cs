@@ -11,13 +11,14 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using UILogic;
 
 namespace Programm.Person
 {
     /// <summary>
     /// Interaktionslogik für AuswahlPersonView.xaml
     /// </summary>
-    public partial class AuswahlPersonView : Window
+    public partial class AuswahlPersonView : Window, IClosable
     {
         public AuswahlPersonView()
         {

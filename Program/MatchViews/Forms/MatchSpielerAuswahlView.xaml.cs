@@ -29,21 +29,6 @@ namespace Programm.MatchViews.Forms
             TxtAnzahlSet.Text = optIni.OptionGame.SetZumSieg.ToString(); */
         }
 
-        private void btnHinzufuegen_Click(object sender, RoutedEventArgs e)
-        {
-            AuswahlPersonView auswahlPersonView = new AuswahlPersonView();
-            auswahlPersonView.ShowDialog();
-
-            return;
-
-            if(lstBoxSpieler.Items.Count >= 8)
-            {
-                MessageBox.Show("Es sind nur 8 Spieler maximal möglich");
-                return;
-            }
-
-       
-        }
 
 
         private void BtnStart_Click(object sender, RoutedEventArgs e)
