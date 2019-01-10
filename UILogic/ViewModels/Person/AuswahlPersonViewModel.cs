@@ -18,9 +18,9 @@ namespace UILogic.ViewModels.Person
     public class AuswahlPersonViewModel : ViewModelBase
     {
 
-        private ObservableCollection<Spieler> _Players = null;
+        private ObservableCollection<Spieler> _SpielerList = null;
 
-        public Spieler SelectedItem { get; set; }
+        private Spieler _SelectedSpieler { get; set; }
 
         public ICommand ISpielerAusgewaehltCommand { get; private set; }
 
@@ -30,7 +30,7 @@ namespace UILogic.ViewModels.Person
             ISpielerAusgewaehltCommand = new RelayCommand<IClosable>(this.SpielerAusgewaehlt);
         }
 
-        public IEnumerable<Spieler> Datenquelle
+        public IEnumerable<Spieler> SpielerList
         {
 
             get
@@ -40,16 +40,27 @@ namespace UILogic.ViewModels.Person
 
                     dbContext.DetachAll(dbContext.Players);
 
-                    this._Players = new ObservableCollection<Spieler>(dbContext.Players.ToList());
+                    this._SpielerList = new ObservableCollection<Spieler>(dbContext.Players.ToList());
 
-                return this._Players;
+                return this._SpielerList;
             }
+        }
+
+        public Spieler SelectedSpieler
+        { 
+            get{ return _SelectedSpieler; }
+
+            set
+            {
+                _SelectedSpieler = value;
+                RaisePropertyChanged("SelectedSpieler");
+            }
+
         }
 
         public void SpielerAusgewaehlt(IClosable parameter)
         {
-            SelectedItem = _Players.First();
-            Messenger.Default.Send<AddNeuenSpielerMessage>(new AddNeuenSpielerMessage() { SpielerID = SelectedItem.ID });
+            Messenger.Default.Send<AddNeuenSpielerMessage>(new AddNeuenSpielerMessage() { SpielerID = _SelectedSpieler.ID });
 
             var closable = parameter as IClosable;
             if (closable != null)

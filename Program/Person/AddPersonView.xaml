@@ -24,15 +24,42 @@
         </Border>
         <Label Content="Vorname" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="1" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
         <Label Content="Nachname" HorizontalAlignment="Left" Margin="10,49,0,0" Grid.Row="1" VerticalAlignment="Top" RenderTransformOrigin="0.386,2.244" Grid.ColumnSpan="2"/>
-        <Label Content="Spitzname" HorizontalAlignment="Left" Margin="10,93,0,0" Grid.Row="1" VerticalAlignment="Top" RenderTransformOrigin="0.386,2.244" Grid.ColumnSpan="2"/>
+        <Label Content="Spielname" HorizontalAlignment="Left" Margin="10,93,0,0" Grid.Row="1" VerticalAlignment="Top" RenderTransformOrigin="0.386,2.244" Grid.ColumnSpan="2"/>
 
         <DockPanel HorizontalAlignment="Stretch" LastChildFill="False"  Grid.Row="2" VerticalAlignment="Stretch" Background="White" Grid.ColumnSpan="2">
             <Button Content="Speichern" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="75" DockPanel.Dock="Right" Margin="5,5,5,0"  Height="30" Command="{Binding AddPerson.IAddPlayerCommand}"   />
             <Button x:Name="BtnAbbrechen" Content="Abbrechen" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="75" DockPanel.Dock="Right" Margin="5,5,5,0"  Height="30" />
         </DockPanel>
-        <TextBox x:Name="EdtVorname"  HorizontalAlignment="Left" Height="23" Margin="29,10,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="162" Grid.Column="1" Text="{Binding AddPerson.newPlayer.Voname }" />
-        <TextBox x:Name="EdtNachname" HorizontalAlignment="Left" Height="23" Margin="29,53,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="162" Grid.Column="1" Text="{Binding AddPerson.newPlayer.Nachname }"/>
-        <TextBox  x:Name="EdtSpitzname" HorizontalAlignment="Left" Height="23" Margin="29,97,0,0" Grid.Row="1" TextWrapping="Wrap"  VerticalAlignment="Top" Width="162" Grid.Column="1" Text="{Binding AddPerson.newPlayer.Spitzname}"/>
+        <TextBox x:Name="EdtVorname"  HorizontalAlignment="Left" Height="23" Margin="29,10,0,0" Grid.Row="1"
+                 TextWrapping="Wrap" VerticalAlignment="Top" Width="162" Grid.Column="1" 
+                 Text="{Binding AddPerson.Vorname }" />
+       
+        
+        
+        <TextBox x:Name="EdtNachname" HorizontalAlignment="Left" Height="23" Margin="29,53,0,0" Grid.Row="1" TextWrapping="Wrap" 
+                 VerticalAlignment="Top" Width="162" Grid.Column="1" Text="{Binding AddPerson.newPlayer.Nachname }"/>
+
+        <TextBox  x:Name="EdtSpitzname" HorizontalAlignment="Left" Height="23" Margin="29,97,0,0" Grid.Row="1" TextWrapping="Wrap"  
+                  VerticalAlignment="Top" Width="162" Grid.Column="1" 
+                  Text="{Binding AddPerson.Spitzname, UpdateSourceTrigger=PropertyChanged, ValidatesOnNotifyDataErrors=True }">
+            <Validation.ErrorTemplate>
+                <ControlTemplate>
+                    <StackPanel>
+                        <!-- Placeholder for the TextBox itself -->
+                        <AdornedElementPlaceholder x:Name="textBox"/>
+                        <ItemsControl ItemsSource="{Binding}">
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding ErrorContent}" Foreground="Red"/>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
+                    </StackPanel>
+                </ControlTemplate>
+            </Validation.ErrorTemplate>
+
+        </TextBox>
+               
 
 
     </Grid>

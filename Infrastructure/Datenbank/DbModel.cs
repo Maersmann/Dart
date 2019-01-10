@@ -31,7 +31,6 @@ namespace infrastructure.Datenbank
 
         public DbModel() : base()
         {
-
         }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

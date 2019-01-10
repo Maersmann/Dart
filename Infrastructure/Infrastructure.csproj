@@ -54,23 +54,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BaseType\IValidierung.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="Datenbank\DbExtensions.cs" />
     <Compile Include="Datenbank\DbModel.cs" />
     <Compile Include="MatchEntity\Match.cs" />
     <Compile Include="MatchEntity\MatchSpieler.cs" />
     <Compile Include="Migrations\201811271919277_1.cs" />
-    <Compile Include="Migrations\201811271919277_1.Designer.cs">
+    <Compile Include="Migrations\201811271919277_1.designer.cs">
       <DependentUpon>201811271919277_1.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\201811281921110_2.cs" />
-    <Compile Include="Migrations\201811281921110_2.Designer.cs">
+    <Compile Include="Migrations\201811281921110_2.designer.cs">
       <DependentUpon>201811281921110_2.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="SpielerEntity\Spieler.cs" />
     <Compile Include="GlobalVariables.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Validierung\Spieler\SpielerValidierung.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

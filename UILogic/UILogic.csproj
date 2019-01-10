@@ -76,6 +76,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AppVariables.cs" />
+    <Compile Include="BaseTypes\BaseViewModel.cs" />
     <Compile Include="IClosable.cs" />
     <Compile Include="Messages\Match\MatchSpielerAuswahlMessage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

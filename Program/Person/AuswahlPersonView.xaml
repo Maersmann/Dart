@@ -6,7 +6,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Programm.Person"
         mc:Ignorable="d"
-        Title="AuswahlPersonView" Height="467.073" Width="325.61" DataContext="{Binding AuswahlPersonViewModel, Source={StaticResource Locator}}">
+        Title="Spieler Auswahl" Height="467.073" Width="325.61" DataContext="{Binding AuswahlPersonViewModel, Source={StaticResource Locator}}" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
     <Grid DataContext="{Binding Source={StaticResource Locator}}">
         <Grid.RowDefinitions>
             <RowDefinition Height="20*"/>
@@ -18,7 +18,7 @@
         </Border>
 
 
-        <DataGrid Grid.Row="1" ItemsSource="{Binding AuswahlPersonViewModel.Datenquelle}"/>
+        <DataGrid Grid.Row="1" ItemsSource="{Binding AuswahlPersonViewModel.SpielerList}" SelectedItem="{Binding AuswahlPersonViewModel.SelectedSpieler, Mode=TwoWay}" IsReadOnly="True"/>
 
 
         <DockPanel HorizontalAlignment="Stretch" LastChildFill="False"  Grid.Row="2" VerticalAlignment="Stretch" Background="White" Grid.ColumnSpan="2">
