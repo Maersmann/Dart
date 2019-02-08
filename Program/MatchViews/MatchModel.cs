@@ -4,7 +4,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Programm.Optionen.Utils;
 using Programm.MatchViews.Matchobjekte;
 
 namespace Programm.MatchViews
@@ -29,9 +28,7 @@ namespace Programm.MatchViews
         public MatchModel(infrastructure.MatchEntity.Match pMatch )
         {
             Spielbeendet = false;
-            OptionIni optIni = new OptionIni();
-            _ListSizeFinish = optIni.OptionStatistik.HighfinishListSize;
-            _ListSizeScore = optIni.OptionStatistik.HighscoreListSize;
+
 
             _Match = pMatch;
 

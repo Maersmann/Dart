@@ -12,56 +12,83 @@ using System.Windows.Input;
 using GalaSoft.MvvmLight.Command;
 using UILogic.Messages.Match;
 using GalaSoft.MvvmLight.Messaging;
+using UILogic.Models.Matchmodels;
 
 namespace UILogic.ViewModels.MatchVM
 {
     public class MatchSpielerAuswahlViewModel : ViewModelBase
     {
-        private Match _Match;
-        private ObservableCollection<SpielerModel> _Players = null;
+        private Matchmodel _Matchmodel;
+        
 
         public ICommand INeuenSpielerAuswaehlenCommand { get; private set; }
 
         public MatchSpielerAuswahlViewModel()
         {
-            _Match = new Match();
+            _Matchmodel = new Matchmodel();
+
 
             AnzahlLeg = 3;
             AnzahlSet = 5;
             Punktzahl = 501;
 
-            this._Players = new ObservableCollection<SpielerModel>();
+            
             INeuenSpielerAuswaehlenCommand = new RelayCommand(()  => MessengerInstance.Send(new OpenAuswahlSpielerViewMessage()));
 
             Messenger.Default.Register<AddNeuenSpielerMessage>(this, (message) =>
             {
-                int i = message.SpielerID;
+                _Matchmodel.SpielerList.Add(new MatchspielerModel() { Name = message.newSpieler.Spitzname,
+                                                                      MatchSpielerID = message.newSpieler.ID,
+                                                                      GewonneneLeg = 0
+                                                                    } );
             });
         }
 
-        public int AnzahlLeg { get; set; }
+        public int AnzahlLeg
+        {
+            get { return _Matchmodel.AnzahlLeg; }
+            set
+            {
+                _Matchmodel.AnzahlLeg = value;
+                RaisePropertyChanged("AnzahlLeg");
+            }
+        }
 
-        public int AnzahlSet { get; set; }
+        public int AnzahlSet
+        {
+            get { return _Matchmodel.AnzahlSet; }
+            set
+            {
+                _Matchmodel.AnzahlSet = value;
+                RaisePropertyChanged("AnzahlSet");
+            }
+        }
 
-        public int Punktzahl { get; set; }
+        public int Punktzahl
+        {
+            get { return _Matchmodel.Punktzahl; }
+            set
+            {
+                _Matchmodel.Punktzahl = value;
+                RaisePropertyChanged("Punktzahl");
+            }
+        }
 
-        public IEnumerable<SpielerModel> Datenquelle
+        public ObservableCollection<MatchspielerModel> Datenquelle
         {
 
             get
             {
-                return this._Players;
+                return this._Matchmodel.SpielerList;
+            }
+
+            set
+            {
+                _Matchmodel.SpielerList = value;
+                RaisePropertyChanged("Datenquelle");
             }
         }
 
     }
 
-
-
-    public class SpielerModel
-    {
-        public int SpielerID {get; set; }
-
-        public String Name { get; set; }
-    }
 }

@@ -11,11 +11,11 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Microsoft.Windows.Controls.Ribbon;
-using Programm.Optionen.Form;
 using Programm.Info;
 using Programm.Person;
 using Programm.MatchViews.Forms;
 using infrastructure;
+using Programm.OptionenViews;
 
 namespace Programm
 {
@@ -85,8 +85,10 @@ namespace Programm
 
         private void ribbonMenuOptionen_Click(object sender, RoutedEventArgs e)
         {
-            FormOptionen option = new FormOptionen();
+            var option = new OptionenView();
+            
             option.ShowDialog();
+            option.Close();
         }
 
         private void ribbonMenuCopyright_Click(object sender, RoutedEventArgs e)

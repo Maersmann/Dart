@@ -22,10 +22,12 @@ namespace infrastructure.MatchEntity
         public int PunktZahl { get; set; }
 
 
-        //public List<MatchSpieler>  SpielerList { get; set; }
+        public virtual ICollection< MatchSpieler> MatchSpieler { get; set; }
 
         public Match()
-        { }
+        {
+            MatchSpieler = new HashSet<MatchSpieler>();
+        }
         // SpielerList = new List<MatchSpieler>();
 
     

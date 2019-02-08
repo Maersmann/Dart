@@ -9,7 +9,7 @@
         ResizeMode="NoResize" 
         WindowStartupLocation="CenterScreen"
         Icon="/Dart;component/Bilder/1364007503_67060.ico" 
-        DataContext="{DynamicResource Locator}"  >
+        DataContext="{Binding MatchSpielerAuswahl,Source={StaticResource MatchLocater}}">
     <Window.IsEnabled>
         <Binding Path="BindableProperty" Source="{StaticResource MatchSpielerAuswahlMessageListener}"  />
     </Window.IsEnabled>
@@ -34,7 +34,7 @@
             <Viewbox  Stretch="Uniform" Grid.Row="0" >
                 <Label x:Name="lblSpielerName"  Content="Neuer Spieler" HorizontalAlignment="Center"  VerticalAlignment="Center"/>
             </Viewbox>
-            <Button  Content="Neuen Spieler Auswählen" Grid.Row="1"  Height="48" Margin="10,0,0,0"  HorizontalAlignment="Left" Command="{Binding MatchSpielerAuswahl.INeuenSpielerAuswaehlenCommand, Mode=OneWay}"/>
+            <Button  Content="Neuen Spieler Auswählen" Grid.Row="1"  Height="48" Margin="10,0,0,0"  HorizontalAlignment="Left" Command="{Binding INeuenSpielerAuswaehlenCommand, Mode=OneWay}"/>
         </Grid>
 
         <Grid  Grid.Row="1" Grid.Column="0"  >
@@ -42,7 +42,7 @@
                 <RowDefinition Height="282*"/>
                 <RowDefinition Height="61*"/>
             </Grid.RowDefinitions>
-            <ListBox x:Name="lstBoxSpieler" Grid.Row="0"   />
+            <ListBox Grid.Row="0" ItemsSource="{Binding Datenquelle}" DisplayMemberPath="Name"   />
             <Button x:Name="BtnSpielerDelete" Content="Entfernen" Grid.Row="1" HorizontalAlignment="Right" VerticalAlignment="top" Width="75" Click="BtnSpielerDelete_Click"/>
         </Grid>
 
@@ -69,11 +69,11 @@
             <Viewbox  Stretch="Uniform" Grid.Row="2" >
                 <Label  Content="Legs zum Set" HorizontalAlignment="Center"  VerticalAlignment="Center"/>
             </Viewbox>
-            <TextBox  HorizontalAlignment="Center" Height="24" Grid.Row="3" TextWrapping="Wrap" Text="{Binding MatchSpielerAuswahl.AnzahlLeg}" VerticalAlignment="Center" Width="202" Margin="10,18" PreviewTextInput="txtAnzahlLeg_PreviewTextInput"/>
+            <TextBox  HorizontalAlignment="Center" Height="24" Grid.Row="3" TextWrapping="Wrap" Text="{Binding AnzahlLeg}" VerticalAlignment="Center" Width="202" Margin="10,18" PreviewTextInput="txtAnzahlLeg_PreviewTextInput"/>
             <Viewbox  Stretch="Uniform" Grid.Row="4" >
                 <Label  Content="Sets zum Sieg" HorizontalAlignment="Center"  VerticalAlignment="Center"/>
             </Viewbox>
-            <TextBox  HorizontalAlignment="Right" Height="24" Grid.Row="5" TextWrapping="Wrap" VerticalAlignment="Center" Width="202" Margin="0,26,31,26" PreviewTextInput="TxtAnzahlSet_PreviewTextInput" Text="{Binding MatchSpielerAuswahl.AnzahlSet}"/>
+            <TextBox  HorizontalAlignment="Right" Height="24" Grid.Row="5" TextWrapping="Wrap" VerticalAlignment="Center" Width="202" Margin="0,26,31,26" PreviewTextInput="TxtAnzahlSet_PreviewTextInput" Text="{Binding AnzahlSet}"/>
         </Grid>
         <Button x:Name="BtnStart" Content="Spiel Starten" Grid.Row="2"  HorizontalAlignment="Center" VerticalAlignment="Center" Width="424" Margin="40,45,41,22" Height="48" Grid.ColumnSpan="3" Click="BtnStart_Click"/>
     </Grid>

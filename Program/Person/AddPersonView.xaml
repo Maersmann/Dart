@@ -9,7 +9,7 @@
         Title="Neuen Spieler Hinzufügen" Height="480.682" Width="265.108" ResizeMode="NoResize">
 
 
-    <Grid DataContext="{Binding Source={StaticResource Locator}}">
+    <Grid DataContext="{ DynamicResource PersonLocator}">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="56*"/>
             <ColumnDefinition Width="201*"/>

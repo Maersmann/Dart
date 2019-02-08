@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Input;
-using Programm.Optionen.Utils;
 using Programm.MatchViews.Matchobjekte;
 using infrastructure.MatchEntity;
 using Programm.Person;
@@ -23,10 +22,7 @@ namespace Programm.MatchViews.Forms
             _formMatch = pFormMatch;
             cBoxPunktzahl.SelectedIndex = 0;
 
-           /* OptionIni optIni = new OptionIni();
-            cBoxPunktzahl.Text = optIni.OptionGame.Punktzahl.ToString();
-            txtAnzahlLeg.Text = optIni.OptionGame.LegZumSet.ToString();
-            TxtAnzahlSet.Text = optIni.OptionGame.SetZumSieg.ToString(); */
+           /* ; */
         }
 
 
@@ -34,11 +30,11 @@ namespace Programm.MatchViews.Forms
         private void BtnStart_Click(object sender, RoutedEventArgs e)
         {
             
-            if (lstBoxSpieler.Items.Count == 0)
-            {
-                MessageBox.Show("Keine Spieler vorhanden!");
-                return;
-            }
+           // if (lstBoxSpieler.Items.Count == 0)
+           // {
+           //     MessageBox.Show("Keine Spieler vorhanden!");
+           //     return;
+           // }
 
            /* if (txtAnzahlLeg.Text.Equals("") )
             {
@@ -74,15 +70,6 @@ namespace Programm.MatchViews.Forms
 
             
 
-            foreach (String Name in lstBoxSpieler.Items)
-            {
-                //MatchSpieler matchspieler = new MatchSpieler(Name);
-                //matchspieler.AktuellesSet.Nummer = 1;
-                //matchspieler.AktuellesLeg.Nummer = 1;
-          //      matchspieler.AktuellePunktZahl = match.PunktZahlzumLeg;
-                //match.SpielerList.Add (matchspieler);
-            }
-
 
 
 
@@ -97,8 +84,8 @@ namespace Programm.MatchViews.Forms
 
         private void BtnSpielerDelete_Click(object sender, RoutedEventArgs e)
         {
-            if (this.lstBoxSpieler.SelectedIndex >= 0)
-                this.lstBoxSpieler.Items.RemoveAt(this.lstBoxSpieler.SelectedIndex);
+         //   if (this.lstBoxSpieler.SelectedIndex >= 0)
+         //       this.lstBoxSpieler.Items.RemoveAt(this.lstBoxSpieler.SelectedIndex);
         }
 
         private void txtAnzahlLeg_PreviewTextInput(object sender, TextCompositionEventArgs e)

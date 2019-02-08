@@ -12,7 +12,7 @@ using System.Windows;
 using System.Windows.Input;
 using UILogic.BaseTypes;
 
-namespace UILogic.ViewModels.Person
+namespace UILogic.ViewModels.PersonVM
 {
     public class AddPersonViewModel : ErrorViewModel
     {
@@ -35,7 +35,7 @@ namespace UILogic.ViewModels.Person
         {
             
 
-            asd(_Spielname);
+            ValidateSpitzname(_Spielname);
 
             if (_validationErrors.Count > 0) return;
 
@@ -55,13 +55,13 @@ namespace UILogic.ViewModels.Person
             set
             {
                 _Spielname = value;
-                asd(_Spielname);
+                ValidateSpitzname(_Spielname);
             }
         }
 
 
 
-        private void asd(String inSpitzname)
+        private void ValidateSpitzname(String inSpitzname)
         {
             const string propertyKey = "Spitzname";
             SpielerValidierung spielerValidierung = new SpielerValidierung();

@@ -119,6 +119,9 @@
       <HintPath>..\packages\ini-parser.2.3.0\lib\net20\INIFileParser.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Microsoft.Expression.Interactions, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\MicrosoftExpressionInteractions.3.0.40218.0\lib\net45\Microsoft.Expression.Interactions.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Windows.Shell">
       <HintPath>..\packages\RibbonControlsLibrary.4.0.0\lib\net40\Microsoft.Windows.Shell.dll</HintPath>
     </Reference>
@@ -185,18 +188,13 @@
     <Compile Include="Memento\MatchMemento.cs" />
     <Compile Include="Memento\MatchCaretaker.cs" />
     <Compile Include="MessageListener\MatchSpielerAuswahlMessageListener.cs" />
-    <Compile Include="Optionen\DataModul\OptionGame.cs" />
-    <Compile Include="Optionen\DataModul\OptionStatistik.cs" />
-    <Compile Include="Optionen\Form\FormOptionen.xaml.cs">
-      <DependentUpon>FormOptionen.xaml</DependentUpon>
+    <Compile Include="MessageListener\OptionMessageListener.cs" />
+    <Compile Include="OptionenViews\OptionenView.xaml.cs">
+      <DependentUpon>OptionenView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Optionen\Frame\FrameOptionenMatch.xaml.cs">
-      <DependentUpon>FrameOptionenMatch.xaml</DependentUpon>
+    <Compile Include="OptionenViews\OptionenMatchView.xaml.cs">
+      <DependentUpon>OptionenMatchView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Optionen\Frame\FrameOptionenStatistik.xaml.cs">
-      <DependentUpon>FrameOptionenStatistik.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Optionen\Utils\OptionIni.cs" />
     <Compile Include="Person\AddPersonView.xaml.cs">
       <DependentUpon>AddPersonView.xaml</DependentUpon>
     </Compile>
@@ -242,15 +240,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Optionen\Form\FormOptionen.xaml">
+    <Page Include="OptionenViews\OptionenView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Optionen\Frame\FrameOptionenMatch.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Optionen\Frame\FrameOptionenStatistik.xaml">
+    <Page Include="OptionenViews\OptionenMatchView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

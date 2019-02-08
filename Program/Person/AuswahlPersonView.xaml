@@ -6,8 +6,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Programm.Person"
         mc:Ignorable="d"
-        Title="Spieler Auswahl" Height="467.073" Width="325.61" DataContext="{Binding AuswahlPersonViewModel, Source={StaticResource Locator}}" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
-    <Grid DataContext="{Binding Source={StaticResource Locator}}">
+         DataContext="{DynamicResource PersonLocator}"
+        Title="Spieler Auswahl" Height="467.073" Width="325.61" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+    <Grid >
         <Grid.RowDefinitions>
             <RowDefinition Height="20*"/>
             <RowDefinition Height="70*"/>
@@ -24,7 +25,7 @@
         <DockPanel HorizontalAlignment="Stretch" LastChildFill="False"  Grid.Row="2" VerticalAlignment="Stretch" Background="White" Grid.ColumnSpan="2">
             <Button  Content="Auswählen" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="75" DockPanel.Dock="Right" Margin="5,5,5,0"  Height="30" Command="{Binding AuswahlPersonViewModel.ISpielerAusgewaehltCommand, Mode=OneWay}" 
                     CommandParameter="{Binding ElementName=AuswahlPerson}"/>
-            <Button x:Name="BtnNeu" Content="Neu" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="75" DockPanel.Dock="Right" Margin="5,5,5,0"  Height="30" />
+            <Button Content="Neu" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="75" DockPanel.Dock="Right" Margin="5,5,5,0"  Height="30" />
         </DockPanel>
         
 

@@ -3,15 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using IniParser;
-using IniParser.Model;
-using System.IO;
-using Programm.Optionen.DataModul;
 
-namespace Programm.Optionen.Utils
+
+namespace UILogic.Helper
 {
     public class OptionIni
-    {
+    {/*
         private static string FILENAME = "conf.ini";
         private String IniPath;
 
@@ -109,5 +106,7 @@ namespace Programm.Optionen.Utils
 
             return true;
         }
+        */
     }
+
 }

@@ -18,8 +18,13 @@ namespace infrastructure.MatchEntity
 
         public int SpielerID { get; set; }
 
+        public int MatchID { get; set; }
+
         [ForeignKey("SpielerID")]
         public Spieler Spieler { get; set; }
+
+        [ForeignKey("MatchID")]
+        public Match Match { get; set; }
 
     }
 }

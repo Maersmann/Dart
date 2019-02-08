@@ -1,4 +1,5 @@
-﻿using System;
+﻿using infrastructure.SpielerEntity;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,7 +14,7 @@ namespace UILogic.Messages.Match
 
     public class AddNeuenSpielerMessage
     {
-        public int SpielerID { get; set; }
+        public Spieler newSpieler { get; set; }
     }
 
 

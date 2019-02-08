@@ -6,14 +6,19 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              d1p1:Ignorable="d"
              xmlns:d1p1="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             xmlns:Logic="clr-namespace:UILogic;assembly=UILogic"
+             xmlns:Logic="clr-namespace:UILogic.ViewModelLocators;assembly=UILogic"
              xmlns:Programm="clr-namespace:Program.MessageListener">
-  <Application.Resources>
+    <Application.Resources>
         <ResourceDictionary>
-            <Logic:ViewModelLocator x:Key="Locator"
+            <Logic:PersonViewModelLocator x:Key="PersonLocator"
+                                      d:IsDataSource="True" />
+            <Logic:MatchViewModelLocater x:Key="MatchLocater"
+                                      d:IsDataSource="True" />
+            <Logic:OptionViewModelLocater x:Key="OptionLocater"
                                       d:IsDataSource="True" />
             <SolidColorBrush x:Key="HeaderColor" Color="#FF440303"/>
             <Programm:MatchSpielerAuswahlMessageListener x:Key="MatchSpielerAuswahlMessageListener"  />
+            <Programm:OptionMessageListener x:Key="OptionMessageListener"  />
         </ResourceDictionary>
 
     </Application.Resources>

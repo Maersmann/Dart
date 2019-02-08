@@ -5,23 +5,23 @@ using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Ioc;
 using GalaSoft.MvvmLight.Messaging;
 using UILogic.ViewModels.MatchVM;
-using UILogic.ViewModels.Person;
+using UILogic.ViewModels.PersonVM;
 
-namespace UILogic
+namespace UILogic.ViewModelLocators
 {
 
-    public class ViewModelLocator
+    public class PersonViewModelLocator
     {
 
         private static AuswahlPersonViewModel _auswahlPersonViewModel;
 
-        public ViewModelLocator()
+        public PersonViewModelLocator()
         {
             ServiceLocator.SetLocatorProvider(() => SimpleIoc.Default);
 
 
             SimpleIoc.Default.Register<AddPersonViewModel>();
-            SimpleIoc.Default.Register<MatchSpielerAuswahlViewModel>();
+
         }
 
         public static AuswahlPersonViewModel AuswahlPersonViewModelStatic
@@ -60,7 +60,7 @@ namespace UILogic
 
         
 
-        public static MatchSpielerAuswahlViewModel MatchSpielerAuswahl => ServiceLocator.Current.GetInstance<MatchSpielerAuswahlViewModel>();
+       
 
         public static void Cleanup()
         {

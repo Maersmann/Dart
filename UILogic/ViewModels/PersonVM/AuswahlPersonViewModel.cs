@@ -12,8 +12,9 @@ using System.Windows;
 using GalaSoft.MvvmLight.CommandWpf;
 using GalaSoft.MvvmLight.Messaging;
 using UILogic.Messages.Match;
+using UILogic.ViewModelLocators;
 
-namespace UILogic.ViewModels.Person
+namespace UILogic.ViewModels.PersonVM
 {
     public class AuswahlPersonViewModel : ViewModelBase
     {
@@ -58,15 +59,15 @@ namespace UILogic.ViewModels.Person
 
         }
 
-        public void SpielerAusgewaehlt(IClosable parameter)
+        private void SpielerAusgewaehlt(IClosable parameter)
         {
-            Messenger.Default.Send<AddNeuenSpielerMessage>(new AddNeuenSpielerMessage() { SpielerID = _SelectedSpieler.ID });
+            Messenger.Default.Send<AddNeuenSpielerMessage>(new AddNeuenSpielerMessage() { newSpieler = _SelectedSpieler });
 
             var closable = parameter as IClosable;
             if (closable != null)
             {
                 closable.Close();
-                ViewModelLocator.ClearAuswahlPersonViewModel();
+                PersonViewModelLocator.ClearAuswahlPersonViewModel();
             }
         }
 
